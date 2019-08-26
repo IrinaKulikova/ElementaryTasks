@@ -123,3 +123,4 @@ FakesAssemblies/
 db/*.sqlite3
 log/*.log
 tmp/
+/.vs/ElementaryTasks/v15/Server/sqlite3
