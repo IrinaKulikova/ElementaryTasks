@@ -80,7 +80,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Task1\Task1_Board.csproj">
+    <ProjectReference Include="..\Task1_Board\Task1_Board.csproj">
       <Project>{a8e9eb56-30b2-49f9-8f6a-fc2411b9c470}</Project>
       <Name>Task1_Board</Name>
     </ProjectReference>
