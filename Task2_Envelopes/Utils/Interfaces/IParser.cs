@@ -1,9 +1,9 @@
-﻿using Task2_Envelopes.Models;
+﻿using Task2_Envelopes.Models.Interfaces;
 
 namespace Task2_Envelopes.Utils.Interfaces
 {
     public interface IParser
     {
-        Envelope GetEnvelope(string hegth, string width);
+        IEnvelope[] GetEnvelopes(string[] args);
     }
 }

@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="ConsoleUI\ConsoleInterface.cs" />
+    <Compile Include="ConsoleUI\ManagerUI.cs" />
+    <Compile Include="Enums\Answer.cs" />
     <Compile Include="Enums\ResultCompare.cs" />
     <Compile Include="Models\Envelope.cs" />
     <Compile Include="Models\Interfaces\IEnvelope.cs" />

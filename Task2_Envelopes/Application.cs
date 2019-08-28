@@ -7,6 +7,8 @@ namespace Task2_Envelopes
 {
     public delegate void DisplayResult(ResultCompare result);
     public delegate string[] EnvelopsReader();
+    public delegate Answer AnswerReader();
+
 
     public class Application
     {
@@ -16,6 +18,7 @@ namespace Task2_Envelopes
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
+        public event AnswerReader Continue;
 
         public Application(IComparator comparator, IParser parser, UI consoleInterface)
         {
@@ -30,7 +33,7 @@ namespace Task2_Envelopes
         {
             comparator = new Comparator();
             parser = new Parser();
-            consoleInterface = new ConsoleInterface();
+            consoleInterface = new ManagerUI();
 
             Subscribe();
         }
@@ -39,23 +42,26 @@ namespace Task2_Envelopes
         {
             DisplayResult += consoleInterface.WriteResult;
             EnvelopsReader += consoleInterface.GetParametersEnvelopes;
+            Continue += consoleInterface.ReadAnswerContinue();
         }
 
         public void Start(string[] args)
         {
-            if (args == null || args.Length == 0)
+            do
             {
-                args = EnvelopsReader?.Invoke();
-            }
+                if (args == null || args.Length == 0)
+                {
+                    args = EnvelopsReader?.Invoke();
+                }
 
-            var first = parser.GetEnvelope(args?[0], args?[1]);
-            var second = parser.GetEnvelope(args?[2], args?[3]);
+                var envelopes = parser.GetEnvelopes(args);
+                var result = comparator.СheckAttachment(envelopes);
 
-            if (first != null && second != null)
-            {
-                var result = comparator.СheckAttachment(first, second);
                 DisplayResult?.Invoke(result);
-            }
+
+                args = null;
+
+            } while (Continue?.Invoke() == Answer.Yes);
         }
     }
 }

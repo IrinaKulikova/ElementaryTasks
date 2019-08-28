@@ -7,5 +7,7 @@ namespace Task2_Envelopes.ConsoleUI
         void WriteResult(ResultCompare result);
 
         string[] GetParametersEnvelopes();
+
+        AnswerReader ReadAnswerContinue();
     }
 }
