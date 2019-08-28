@@ -1,4 +1,4 @@
-﻿namespace Task1.Utils.Interfaces
+﻿namespace Task1_Board.Utils.Interfaces
 {
     public interface IParser
     {

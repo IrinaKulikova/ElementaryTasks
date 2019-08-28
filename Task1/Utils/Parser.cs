@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Task1.Utils.Interfaces;
+using Task1_Board.Utils.Interfaces;
 
-namespace Task1.Utils
+namespace Task1_Board.Utils
 {
     public class Parser : IParser
     {

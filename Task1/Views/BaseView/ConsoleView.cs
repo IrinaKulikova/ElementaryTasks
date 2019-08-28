@@ -1,7 +1,7 @@
 ﻿using System;
-using Task1.Models;
+using Task1_Board.Models;
 
-namespace Task1.Views
+namespace Task1_Board.Views.BaseView
 {
     public abstract class ConsoleView
     {
@@ -14,11 +14,6 @@ namespace Task1.Views
             Color = color;
         }
 
-        public virtual void Display(IModel model)
-        {
-            Console.ForegroundColor = Color;
-            Console.WriteLine(model?.ToString());
-            Console.ReadLine();
-        }
+        public abstract void Display(IModel model);
     }
 }

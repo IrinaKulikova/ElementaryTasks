@@ -1,11 +1,11 @@
 ﻿using System;
-using Task1.Controllers.Interfaces;
-using Task1.Services;
-using Task1.Services.Interfaces;
-using Task1.Utils;
-using Task1.Utils.Interfaces;
+using Task1_Board.Controllers.Interfaces;
+using Task1_Board.Services;
+using Task1_Board.Services.Interfaces;
+using Task1_Board.Utils;
+using Task1_Board.Utils.Interfaces;
 
-namespace Task1
+namespace Task1_Board
 {
     public class Application
     {
@@ -27,7 +27,8 @@ namespace Task1
         public void Start(string[] args)
         {
             int[] validArgs = null;
-            IController controller = null;
+            Controller controller = null;
+
             try
             {
                 validArgs = Parser.GetValidArgs(args);
@@ -45,6 +46,7 @@ namespace Task1
             {
                 controller = Router.GetErrorController(ex);
             }
+
             controller.Show();
         }
     }

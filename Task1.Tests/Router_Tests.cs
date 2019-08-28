@@ -1,8 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Task1.Controllers;
-using Task1.Services;
+using Moq;
+using Task1_Board.Utils.Interfaces;
+using Task1_Board.Controllers;
+using Task1_Board.Enums;
+using Task1_Board.Services;
 
-namespace Task1.Tests
+namespace Task1_Board.Tests
 {
     [TestClass]
     public class Router_Tests
@@ -49,6 +52,19 @@ namespace Task1.Tests
 
             //Assert
             Assert.AreEqual(typeof(InvalidArgumentsController), controller.GetType());
+        }
+
+        [TestMethod]
+        public void GetController_Success()
+        {
+            var mockConverter = new Mock<IConverterCountArgument>();
+            var router = new Router(mockConverter.Object);
+
+            mockConverter.Setup(c=>c.GetValue(It.IsAny<int?>())).Returns(It.IsAny<CountArgument>());
+
+            router.GetController(It.IsAny<int[]>());
+
+            mockConverter.Verify(c => c.GetValue(It.IsAny<int?>()), Times.Once);
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Task1.Controllers;
-using Task1.Models;
-using Task1.Views;
+using Task1_Board.Controllers;
+using Task1_Board.Models;
+using Task1_Board.Views.BaseView;
 
-namespace Task1.Tests
+namespace Task1_Board.Tests
 {
     [TestClass]
     public class BoardController_tests

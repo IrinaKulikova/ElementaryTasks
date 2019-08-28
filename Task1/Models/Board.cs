@@ -1,38 +1,39 @@
-﻿using System.Collections.Generic;
-using System.Text;
-using Task1.Enums;
+﻿using Task1_Board.Models.Interfaces;
 
-namespace Task1.Models
+namespace Task1_Board.Models
 {
-    public class Board : IModel
+    public class Board : IBoard
     {
-        public List<List<Cell>> Cells { get; private set; }
+        private Cell[,] Cells { get; set; }
+
+        public int Heigth { get; private set; }
+
+        public int Width { get; private set; }
+
+        public Cell this[int i, int j]
+        {
+            get => Cells[i, j];
+            set => Cells[i, j] = value;
+        }
 
         public Board() { }
 
         public Board(int heigth, int width)
         {
-            Cells = new List<List<Cell>>(heigth);
-            for (int i = 0; i < heigth; i++)
-            {
-                var row = new List<Cell>(width);
-                for (int j = 0; j < width; j++)
-                {
-                    row.Add(new Cell { Type = (j + i) % 2 == 1 ? CellColorEnum.Black : CellColorEnum.White });
-                }
-                Cells.Add(row);
-            }
-        }
+            Heigth = heigth;
+            Width = width;
 
-        public override string ToString()
-        {
-            var builder = new StringBuilder();
-            foreach (var row in Cells)
+            Cells = new Cell[Heigth, Width];
+
+            for ( int i = 0; i < Heigth; i++ )
             {
-                row.ForEach(cell => builder.Append(cell));
-                builder.Append("\n");
+
+                for ( int j = 0; j < Width; j++ )
+                {
+                    Cells[i, j] = new Cell(i, j);
+                }
+
             }
-            return builder.ToString();
         }
     }
 }
