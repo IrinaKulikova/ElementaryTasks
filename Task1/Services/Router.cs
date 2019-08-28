@@ -1,6 +1,6 @@
 ﻿using System;
-using Task1.Utils;
-using Task1.Utils.Interfaces;
+using Task1_Board.Utils;
+using Task1_Board.Utils.Interfaces;
 using Task1_Board.Controllers;
 using Task1_Board.Controllers.Interfaces;
 using Task1_Board.Enums;

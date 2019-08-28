@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Task1.Utils.Interfaces;
+using Task1_Board.Utils.Interfaces;
 using Task1_Board.Controllers;
 using Task1_Board.Enums;
 using Task1_Board.Services;
