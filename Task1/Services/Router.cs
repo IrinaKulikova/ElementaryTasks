@@ -1,39 +1,68 @@
 ﻿using System;
-using Task1.Controllers;
-using Task1.Controllers.Interfaces;
-using Task1.Enums;
-using Task1.Models;
-using Task1.Services.Interfaces;
-using Task1.Views;
+using Task1.Utils;
+using Task1.Utils.Interfaces;
+using Task1_Board.Controllers;
+using Task1_Board.Controllers.Interfaces;
+using Task1_Board.Enums;
+using Task1_Board.Models;
+using Task1_Board.Services.Interfaces;
+using Task1_Board.Views;
+using Task1_Board.Views.BaseView;
 
-namespace Task1.Services
+namespace Task1_Board.Services
 {
     public class Router : IRouter
     {
-        public IController GetController(int[] args)
-        {
-            IController controller = null;
+        IConverterCountArgument Converter { get; set; }
 
-            switch (args.Length)
+        public Router()
+        {
+            Converter = new ConverterCountArguments();
+        }
+
+        public Router(IConverterCountArgument converter)
+        {
+            Converter = converter;
+        }
+
+        public Controller GetController(int[] args)
+        {
+            Controller controller = null;
+            ConsoleView view = null;
+            IModel model = null;
+
+            var count = Converter.GetValue(args?.Length);
+
+            switch (count)
             {
-                case (int)CountArgument.Zero:
-                    controller = new InstractionController(new InstractionView(ConsoleColor.Green), new Instraction());
+                case CountArgument.Zero:
+                    view = new InstractionView(ConsoleColor.Green);
+                    model = new Instraction();
+                    controller = new InstractionController(view, model);
                     break;
 
-                case (int)CountArgument.Necessary:
-                    controller = new BoardController(new BoardView(ConsoleColor.White), new Board(args[0], args[1]));
+                case CountArgument.Necessary:
+                    view = new BoardView(ConsoleColor.White);
+                    model = new Board(args[0], args[1]);
+                    controller = new BoardController(view, model);
                     break;
 
                 default:
-                    controller = new InvalidArgumentsController(new InvalidArgumentsView(ConsoleColor.Red), new InvalidArguments());
+                    view = new InvalidArgumentsView(ConsoleColor.Red);
+                    model = new InvalidArguments();
+                    controller = new InvalidArgumentsController(view, model);
                     break;
             }
+
             return controller;
         }
 
-        public IController GetErrorController(Exception ex)
+        public Controller GetErrorController(Exception ex)
         {
-            return new InvalidArgumentsController(new InvalidArgumentsView(ConsoleColor.Red), new InvalidArguments(ex));
+            var view = new InvalidArgumentsView(ConsoleColor.Red);
+            var model = new InvalidArguments(ex);
+
+            return new InvalidArgumentsController(view, model);
         }
     }
 }

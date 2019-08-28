@@ -1,8 +1,9 @@
-﻿namespace Task1.Enums
+﻿namespace Task1_Board.Enums
 {
-    enum CountArgument
-    {
+    public enum CountArgument
+    {        
         Zero = 0,
         Necessary = 2,
+        Default = 3
     }
 }

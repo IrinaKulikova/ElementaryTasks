@@ -1,10 +1,18 @@
-﻿using Task1.Enums;
+﻿using Task1_Board.Enums;
 
-namespace Task1.Models
+namespace Task1_Board.Models
 {
     public class Cell
     {
-        public CellColorEnum Type { get; set; }
-        public override string ToString() => Type == CellColorEnum.Black ? " " : "*";
+        public CellColor Color { get; private set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
+
+        public Cell(int y, int x)
+        {
+            Y = y;
+            X = x;
+            Color = ( Y + X ) % 2 == 0 ? CellColor.Black : CellColor.White;
+        }
     }
 }

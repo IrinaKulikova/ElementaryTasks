@@ -1,23 +1,11 @@
-﻿using Task1.Controllers.Interfaces;
-using Task1.Models;
-using Task1.Views;
+﻿using Task1_Board.Controllers.Interfaces;
+using Task1_Board.Models;
+using Task1_Board.Views.BaseView;
 
-namespace Task1.Controllers
+namespace Task1_Board.Controllers
 {
-    public class BoardController : IController
+    public class BoardController : Controller
     {
-        private ConsoleView View { get; set; }
-        private IModel Model { get; set; }
-
-        public BoardController(ConsoleView view, IModel model)
-        {
-            View = view;
-            Model = model;
-        }
-
-        public void Show()
-        {
-            View.Display(Model);
-        }
+        public BoardController(ConsoleView view, IModel model) : base(view, model) { }
     }
 }

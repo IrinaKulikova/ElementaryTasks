@@ -1,11 +1,11 @@
 ﻿using System;
-using Task1.Controllers.Interfaces;
+using Task1_Board.Controllers.Interfaces;
 
-namespace Task1.Services.Interfaces
+namespace Task1_Board.Services.Interfaces
 {
     public interface IRouter
     {
-        IController GetController(int[] args);
-        IController GetErrorController(Exception ex);
+        Controller GetController(int[] args);
+        Controller GetErrorController(Exception ex);
     }
 }

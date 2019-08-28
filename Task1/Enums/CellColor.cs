@@ -1,8 +1,9 @@
-﻿namespace Task1.Enums
+﻿namespace Task1_Board.Enums
 {
-    public enum CellColorEnum
+    public enum CellColor
     {
-        White,
-        Black
+        Default = 0,
+        White = 1,
+        Black = 2
     }
 }

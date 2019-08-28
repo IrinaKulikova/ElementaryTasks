@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task1
+﻿namespace Task1_Board
 {
     class Program
     {

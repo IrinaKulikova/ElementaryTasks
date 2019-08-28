@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Task1.Utils;
+using Task1_Board.Utils;
 
-namespace Task1.Tests
+namespace Task1_Board.Tests
 {
     [TestClass]
     public class Parser_Tests
