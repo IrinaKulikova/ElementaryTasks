@@ -43,14 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="ConsoleUI\ManagerUI.cs" />
     <Compile Include="Enums\Answer.cs" />
     <Compile Include="Enums\ResultCompare.cs" />
     <Compile Include="Models\Envelope.cs" />
     <Compile Include="Models\Interfaces\IEnvelope.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConsoleUI\UI.cs" />
     <Compile Include="Utils\Comparator.cs" />
     <Compile Include="Utils\Interfaces\IComparator.cs" />
     <Compile Include="Utils\Interfaces\IParser.cs" />
