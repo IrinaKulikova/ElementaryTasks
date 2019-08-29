@@ -8,11 +8,11 @@ namespace Task1_Board.Models
         public int X { get; private set; }
         public int Y { get; private set; }
 
-        public Cell(int y, int x)
+        public Cell(int y, int x, CellColor color)
         {
             Y = y;
             X = x;
-            Color = ( Y + X ) % 2 == 0 ? CellColor.Black : CellColor.White;
+            Color = color;
         }
     }
 }

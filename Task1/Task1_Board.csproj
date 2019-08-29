@@ -44,33 +44,40 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="Controllers\BoardController.cs" />
-    <Compile Include="Controllers\InstractionController.cs" />
-    <Compile Include="Controllers\BaseController\Controller.cs" />
+    <Compile Include="Controllers\InstructionController.cs" />
+    <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\InvalidArgumentsController.cs" />
     <Compile Include="Enums\CellColor.cs" />
     <Compile Include="Enums\NumberArguments.cs" />
+    <Compile Include="Factories\BoardFactory.cs" />
+    <Compile Include="Factories\CellFactory.cs" />
+    <Compile Include="Factories\IBoardFactory.cs" />
+    <Compile Include="Factories\ICellFactory.cs" />
+    <Compile Include="Logger\ILogger.cs" />
+    <Compile Include="Logger\SimpleLogger.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
-    <Compile Include="Models\Instraction.cs" />
+    <Compile Include="Models\Instruction.cs" />
     <Compile Include="Models\Interfaces\IBoard.cs" />
     <Compile Include="Models\Interfaces\IMessage.cs" />
     <Compile Include="Models\Interfaces\IModel.cs" />
     <Compile Include="Models\InvalidArguments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DIResolver.cs" />
+    <Compile Include="Services\Interfaces\IDIResolver.cs" />
     <Compile Include="Services\Interfaces\IRouter.cs" />
     <Compile Include="Services\Router.cs" />
-    <Compile Include="Utils\ConverterCountArguments.cs" />
-    <Compile Include="Utils\Interfaces\IConverterCountArgument.cs" />
     <Compile Include="Utils\Interfaces\IParser.cs" />
     <Compile Include="Utils\Parser.cs" />
     <Compile Include="Views\BoardView.cs" />
     <Compile Include="Views\BaseView\ConsoleView.cs" />
-    <Compile Include="Views\InstractionView.cs" />
+    <Compile Include="Views\InstructionView.cs" />
     <Compile Include="Views\InvalidArgumentsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

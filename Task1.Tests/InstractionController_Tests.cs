@@ -17,7 +17,7 @@ namespace Task1_Board.Tests
 
             mockView.Setup(v => v.Display(mockModel.Object));
 
-            var controller = new InstractionController(mockView.Object, mockModel.Object);
+            var controller = new InstructionController(mockView.Object, mockModel.Object);
             controller.Show();
 
             mockView.Verify(v => v.Display(mockModel.Object), Times.Once);

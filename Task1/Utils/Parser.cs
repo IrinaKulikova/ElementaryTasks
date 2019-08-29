@@ -11,26 +11,17 @@ namespace Task1_Board.Utils
             var validArgs = new List<int>();
             foreach (var arg in args)
             {
-                try
+                int size = int.Parse(arg);
+
+                if ( size > 0 )
                 {
-                    int size = int.Parse(arg);
-                    if (size > 0)
-                    {
-                        validArgs.Add(size);
-                    }
-                    else
-                    {
-                        throw new ArgumentException();
-                    }
+                    validArgs.Add(size);
                 }
-                catch (FormatException ex)
+                else
                 {
-                    throw ex;
+                    throw new ArgumentException();
                 }
-                catch (ArgumentException ex)
-                {
-                    throw ex;
-                }
+
             }
             return validArgs.ToArray();
         }

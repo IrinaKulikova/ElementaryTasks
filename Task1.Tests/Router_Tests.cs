@@ -35,7 +35,7 @@ namespace Task1_Board.Tests
             var controller = router.GetController(args);
 
             //Assert
-            Assert.AreEqual(typeof(InstractionController), controller.GetType());
+            Assert.AreEqual(typeof(InstructionController), controller.GetType());
         }
 
         [TestMethod]

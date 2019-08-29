@@ -4,6 +4,5 @@
     {        
         Zero = 0,
         Necessary = 2,
-        Default = 3
     }
 }

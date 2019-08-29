@@ -6,15 +6,15 @@ using Task1_Board.Views.BaseView;
 
 namespace Task1_Board.Views
 {
-    public class InstractionView : ConsoleView
+    public class InstructionView : ConsoleView
     {
-        public InstractionView(ConsoleColor color) : base(color) { }
+        public InstructionView(ConsoleColor color, IModel model) : base(color, model) { }
 
-        public override void Display(IModel model)
+        public override void Display()
         {
             Console.ForegroundColor = Color;
 
-            if ( model is IMessage instraction )
+            if ( Model is IMessage instraction )
             {
                 Console.WriteLine(instraction.Message);
             }
