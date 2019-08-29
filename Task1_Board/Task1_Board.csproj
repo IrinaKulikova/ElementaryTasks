@@ -62,13 +62,13 @@
     <Compile Include="Models\Interfaces\IMessage.cs" />
     <Compile Include="Models\Interfaces\IModel.cs" />
     <Compile Include="Models\InvalidArguments.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program.cs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DIResolver.cs" />
     <Compile Include="Services\Interfaces\IDIResolver.cs" />
+    <Compile Include="Services\Interfaces\IParser.cs" />
     <Compile Include="Services\Interfaces\IRouter.cs" />
     <Compile Include="Services\Router.cs" />
-    <Compile Include="Services\Interfaces\IParser.cs" />
     <Compile Include="Services\Parser.cs" />
     <Compile Include="Views\BoardView.cs" />
     <Compile Include="Views\BaseView\ConsoleView.cs" />
