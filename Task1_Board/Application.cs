@@ -1,27 +1,21 @@
 ﻿using System;
-using Task1_Board.Controllers.Interfaces;
-using Task1_Board.Services;
+using Task1.Logger;
+using Task1_Board.Controllers;
 using Task1_Board.Services.Interfaces;
-using Task1_Board.Utils;
-using Task1_Board.Utils.Interfaces;
 
 namespace Task1_Board
 {
     public class Application
     {
-        IParser Parser { get; set; }
-        IRouter Router { get; set; }
+        public IParser Parser { get; private set; }
+        public IRouter Router { get; private set; }
+        public ILogger Logger { get; private set; }
 
-        public Application()
-        {
-            Parser = new Parser();
-            Router = new Router();
-        }
-
-        public Application(IParser parser, IRouter router)
+        public Application(IParser parser, IRouter router, ILogger logger)
         {
             Parser = parser;
             Router = router;
+            Logger = logger;
         }
 
         public void Start(string[] args)
@@ -36,15 +30,18 @@ namespace Task1_Board
             }
             catch (FormatException ex)
             {
-                controller = Router.GetErrorController(ex);
+                controller = Router.GetErrorController();
+                Logger.Error(ex);
             }
             catch (ArgumentException ex)
             {
-                controller = Router.GetErrorController(ex);
+                controller = Router.GetErrorController();
+                Logger.Error(ex);
             }
             catch (OverflowException ex)
             {
-                controller = Router.GetErrorController(ex);
+                controller = Router.GetErrorController();
+                Logger.Error(ex);
             }
 
             controller.Show();

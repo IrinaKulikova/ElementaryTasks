@@ -5,15 +5,15 @@ namespace Task1_Board.Views.BaseView
 {
     public abstract class ConsoleView
     {
-        public ConsoleColor Color { get; set; } = ConsoleColor.Green;
+        public ConsoleColor Color { get; private set; } = ConsoleColor.Green;
+        public IModel Model { get; private set; }
 
-        public ConsoleView() { }
-
-        public ConsoleView(ConsoleColor color)
+        public ConsoleView(ConsoleColor color, IModel model)
         {
             Color = color;
+            Model = model;
         }
 
-        public abstract void Display(IModel model);
+        public abstract void Display();
     }
 }
