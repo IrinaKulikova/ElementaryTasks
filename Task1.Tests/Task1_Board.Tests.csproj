@@ -70,7 +70,7 @@
   <ItemGroup>
     <Compile Include="Application_Tests.cs" />
     <Compile Include="BoardController_tests.cs" />
-    <Compile Include="InstractionController_Tests.cs" />
+    <Compile Include="InstructionController_Tests.cs" />
     <Compile Include="InvalidArgumentController_Tests.cs" />
     <Compile Include="Parser_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

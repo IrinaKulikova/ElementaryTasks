@@ -2,7 +2,6 @@
 using Task1.Logger;
 using Task1_Board.Controllers;
 using Task1_Board.Services.Interfaces;
-using Task1_Board.Utils.Interfaces;
 
 namespace Task1_Board
 {

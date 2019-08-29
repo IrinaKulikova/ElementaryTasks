@@ -68,8 +68,8 @@
     <Compile Include="Services\Interfaces\IDIResolver.cs" />
     <Compile Include="Services\Interfaces\IRouter.cs" />
     <Compile Include="Services\Router.cs" />
-    <Compile Include="Utils\Interfaces\IParser.cs" />
-    <Compile Include="Utils\Parser.cs" />
+    <Compile Include="Services\Interfaces\IParser.cs" />
+    <Compile Include="Services\Parser.cs" />
     <Compile Include="Views\BoardView.cs" />
     <Compile Include="Views\BaseView\ConsoleView.cs" />
     <Compile Include="Views\InstructionView.cs" />
@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
