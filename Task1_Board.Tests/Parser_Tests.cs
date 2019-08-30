@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Task1_Board.Utils;
+using Task1_Board.Services;
 
 namespace Task1_Board.Tests
 {

@@ -4,6 +4,8 @@ using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.DTOModels;
 using Task2_Envelopes.Models.Interfaces;
 using System;
+using DIResolver;
+using Logger;
 
 namespace Task2_Envelopes
 {
@@ -13,11 +15,12 @@ namespace Task2_Envelopes
     public delegate Answer AnswerReader();
     public delegate void Error();
 
-    public class Application
+    public class Application : IApplication
     {
         readonly IComparator comparator = null;
         readonly IParser parser = null;
         readonly IManager consoleManager = null;
+        readonly ILogger logger = null;
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
@@ -25,11 +28,13 @@ namespace Task2_Envelopes
         public event Instruction ShowInstruction;
         public event Error ShowError;
 
-        public Application(IComparator comparator, IParser parser, IManager consoleManager)
+        public Application(IComparator comparator, IParser parser,
+                           IManager consoleManager, ILogger logger)
         {
             this.comparator = comparator;
             this.parser = parser;
             this.consoleManager = consoleManager;
+            this.logger = logger;
 
             Subscribe();
         }
@@ -69,14 +74,17 @@ namespace Task2_Envelopes
                 catch (ArgumentException ex)
                 {
                     ShowError?.Invoke();
+                    logger.Error(ex);
                 }
                 catch (FormatException ex)
                 {
                     ShowError?.Invoke();
+                    logger.Error(ex);
                 }
                 catch (OverflowException ex)
                 {
                     ShowError?.Invoke();
+                    logger.Error(ex);
                 }
                 finally
                 {

@@ -10,8 +10,8 @@
     <ProjectGuid>{001E8A52-B9B2-4313-B49C-5FCD26AD895D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Task1.Tests</RootNamespace>
-    <AssemblyName>Task1.Tests</AssemblyName>
+    <RootNamespace>Task1_Board.Tests</RootNamespace>
+    <AssemblyName>Task1_Board.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -70,7 +70,7 @@
   <ItemGroup>
     <Compile Include="Application_Tests.cs" />
     <Compile Include="BoardController_tests.cs" />
-    <Compile Include="InstractionController_Tests.cs" />
+    <Compile Include="InstructionController_Tests.cs" />
     <Compile Include="InvalidArgumentController_Tests.cs" />
     <Compile Include="Parser_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +80,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{fbad5a77-7d2d-497a-9554-528fcf704440}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Task1_Board\Task1_Board.csproj">
       <Project>{a8e9eb56-30b2-49f9-8f6a-fc2411b9c470}</Project>
       <Name>Task1_Board</Name>

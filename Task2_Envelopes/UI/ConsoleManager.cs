@@ -28,7 +28,7 @@ namespace Task2_Envelopes.UI
 
         public void ShowInstruction()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void WriteResult(ResultEnvelopeCompare result)

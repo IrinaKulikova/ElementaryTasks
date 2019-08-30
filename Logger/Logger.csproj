@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E03858B8-7267-4885-B518-F5C2070DD572}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Task2_Envelopes</RootNamespace>
-    <AssemblyName>Task2_Envelopes</AssemblyName>
+    <ProjectGuid>{FBAD5A77-7D2D-497A-9554-528FCF704440}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logger</RootNamespace>
+    <AssemblyName>Logger</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,36 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-    <Compile Include="DTOModels\EnvelopeParameters.cs" />
-    <Compile Include="Enums\Answer.cs" />
-    <Compile Include="Enums\ResultEnvelopeCompare.cs" />
-    <Compile Include="Factories\EnvelopeFactory.cs" />
-    <Compile Include="Factories\IEnvelopeFactory.cs" />
-    <Compile Include="Models\Envelope.cs" />
-    <Compile Include="Models\Interfaces\IEnvelope.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ILogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Resolver.cs" />
-    <Compile Include="UI\ConsoleManager.cs" />
-    <Compile Include="UI\IManager.cs" />
-    <Compile Include="Services\Comparator.cs" />
-    <Compile Include="Services\Interfaces\IComparator.cs" />
-    <Compile Include="Services\Interfaces\IParser.cs" />
-    <Compile Include="Services\Parser.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DIResolver\DIResolver.csproj">
-      <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
-      <Name>DIResolver</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger\Logger.csproj">
-      <Project>{fbad5a77-7d2d-497a-9554-528fcf704440}</Project>
-      <Name>Logger</Name>
-    </ProjectReference>
+    <Compile Include="SimpleLogger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using Task1_Board.Models.Interfaces;
+﻿using Task1_Board.Factories;
+using Task1_Board.Models.Interfaces;
 
 namespace Task1_Board.Models
 {
@@ -16,24 +17,11 @@ namespace Task1_Board.Models
             set => Cells[i, j] = value;
         }
 
-        public Board() { }
-
-        public Board(int heigth, int width)
+        public Board(int heigth, int width, Cell[,] cells)
         {
             Heigth = heigth;
             Width = width;
-
-            Cells = new Cell[Heigth, Width];
-
-            for ( int i = 0; i < Heigth; i++ )
-            {
-
-                for ( int j = 0; j < Width; j++ )
-                {
-                    Cells[i, j] = new Cell(i, j);
-                }
-
-            }
-        }
+            Cells = cells;
+        }        
     }
 }
