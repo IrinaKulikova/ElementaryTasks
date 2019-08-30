@@ -1,6 +1,6 @@
 ﻿using Task2_Envelopes.Models.Interfaces;
 
-namespace Task2_Envelopes.Utils.Interfaces
+namespace Task2_Envelopes.Services.Interfaces
 {
     public interface IParser
     {
