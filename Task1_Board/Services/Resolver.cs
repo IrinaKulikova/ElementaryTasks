@@ -9,7 +9,7 @@ namespace Task1_Board.Services
     {
         public IApplication Build()
         {
-            string logFile = "log.txt";
+            string logFile = "Task1_Board_Log.txt";
             IBoardFactory boardFactory = new BoardFactory();
             IParser parser = new Parser();
             IRouter router = new Router(boardFactory);
