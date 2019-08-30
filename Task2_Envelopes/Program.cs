@@ -1,3 +1,4 @@
+using Task2_Envelopes.Factories;
 using Task2_Envelopes.Services;
 using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.UI;
@@ -8,7 +9,8 @@ namespace Task2_Envelopes
     {
         static void Main(string[] args)
         {
-            IParser parser = new Parser();
+            IEnvelopeFactory envelopeFactory = new EnvelopeFactory();
+            IParser parser = new Parser(envelopeFactory);
             IComparator comparator = new Comparator();
             IManager consoleManager = new ConsoleManager();
 

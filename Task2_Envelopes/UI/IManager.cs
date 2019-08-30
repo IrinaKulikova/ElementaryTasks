@@ -9,5 +9,6 @@ namespace Task2_Envelopes.UI
         EnvelopeDTO GetParametersEnvelopes();
         Answer ReadAnswerContinue();
         void ShowInstruction();
+        void ShowError();
     }
 }

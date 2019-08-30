@@ -5,7 +5,7 @@ namespace Task2_Envelopes.Factories
 {
     public class EnvelopeFactory : IEnvelopeFactory
     {
-        public IEnvelope Create(int heigth, int width)
+        public IEnvelope Create(float heigth, float width)
         {
             var envelope = new Envelope(heigth, width);
             return envelope;

@@ -2,7 +2,7 @@
 {
     public interface IEnvelope
     {
-        int Height { get; }
-        int Width { get; }
+        float Height { get; }
+        float Width { get; }
     }
 }

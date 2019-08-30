@@ -4,6 +4,6 @@ namespace Task2_Envelopes.Factories
 {
     public interface IEnvelopeFactory
     {
-        IEnvelope Create(int heigth, int width);
+        IEnvelope Create(float heigth, float width);
     }
 }

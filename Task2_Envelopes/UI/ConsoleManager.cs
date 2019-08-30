@@ -21,6 +21,11 @@ namespace Task2_Envelopes.UI
             throw new NotImplementedException();
         }
 
+        public void ShowError()
+        {
+            throw new NotImplementedException();
+        }
+
         public void ShowInstruction()
         {
             throw new NotImplementedException();
