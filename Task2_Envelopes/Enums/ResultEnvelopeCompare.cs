@@ -6,6 +6,6 @@
         Equales,
         FistBigger,
         SecondBigger,
-        NoFitted
+        NoFit
     }
 }

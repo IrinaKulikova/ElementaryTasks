@@ -3,7 +3,6 @@ using Task2_Envelopes.UI;
 using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.DTOModels;
 using Task2_Envelopes.Models.Interfaces;
-using System;
 using DIResolver;
 using Logger;
 
@@ -13,44 +12,60 @@ namespace Task2_Envelopes
     public delegate void Instruction();
     public delegate EnvelopeDTO EnvelopsReader();
     public delegate Answer AnswerReader();
-    public delegate void Error();
 
     public class Application : IApplication
     {
         readonly IComparator comparator = null;
-        readonly IParser parser = null;
         readonly IManager consoleManager = null;
         readonly ILogger logger = null;
+        readonly IEnvelopeMapper envelopeMapper = null;
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
         public event AnswerReader Continue;
         public event Instruction ShowInstruction;
-        public event Error ShowError;
 
-        public Application(IComparator comparator, IParser parser,
-                           IManager consoleManager, ILogger logger)
+        public Application(IComparator comparator, IManager consoleManager,
+                           ILogger logger, IEnvelopeMapper envelopeMapper)
         {
             this.comparator = comparator;
-            this.parser = parser;
             this.consoleManager = consoleManager;
             this.logger = logger;
-
-            Subscribe();
+            this.envelopeMapper = envelopeMapper;
         }
 
-        private void Subscribe()
+        #region PRIVATE METHODS
+
+        private void subscribe()
         {
             DisplayResult += consoleManager.WriteResult;
             EnvelopsReader += consoleManager.GetParametersEnvelopes;
             Continue += consoleManager.ReadAnswerContinue;
             ShowInstruction += consoleManager.ShowInstruction;
-            ShowError += consoleManager.ShowError;
+            envelopeMapper.ShowError += consoleManager.ShowError;
         }
+
+        private void unsubscribe()
+        {
+            DisplayResult -= consoleManager.WriteResult;
+            EnvelopsReader -= consoleManager.GetParametersEnvelopes;
+            Continue -= consoleManager.ReadAnswerContinue;
+            ShowInstruction -= consoleManager.ShowInstruction;
+            envelopeMapper.ShowError -= consoleManager.ShowError;
+        }
+
+        private static bool validArguments(string[] args)
+        {
+            return args != null && args.Length == (int)CountArgument.Necessary;
+        }
+
+        #endregion
 
         public void Start(string[] args)
         {
-            if (args == null || args.Length != 4)
+            subscribe();
+
+            if (!validArguments(args))
             {
                 ShowInstruction?.Invoke();
             }
@@ -60,53 +75,28 @@ namespace Task2_Envelopes
                 EnvelopeDTO envelopeDTO1 = null;
                 EnvelopeDTO envelopeDTO2 = null;
 
-                getEnvelopParameters(args, out envelopeDTO1, out envelopeDTO2);
+                if (validArguments(args))
+                {
+                    envelopeDTO1 = new EnvelopeDTO(args[0], args[1]);
+                    envelopeDTO2 = new EnvelopeDTO(args[2], args[3]);
+                }
+                else
+                {
+                    envelopeDTO1 = EnvelopsReader?.Invoke();
+                    envelopeDTO2 = EnvelopsReader?.Invoke();
+                }
 
-                try
-                {
-                    IEnvelope envelope1 = parser.GetEnvelope(envelopeDTO1);
-                    IEnvelope envelope2 = parser.GetEnvelope(envelopeDTO2);
+                IEnvelope envelope1 = envelopeMapper.Map(envelopeDTO1);
+                IEnvelope envelope2 = envelopeMapper.Map(envelopeDTO2);                
 
-                    var result = comparator.СheckAttachment(envelope1, envelope2);
-                    DisplayResult?.Invoke(result);
-
-                }
-                catch (ArgumentException ex)
+                if (envelope1 != null && envelope2 != null)
                 {
-                    ShowError?.Invoke();
-                    logger.Error(ex);
-                }
-                catch (FormatException ex)
-                {
-                    ShowError?.Invoke();
-                    logger.Error(ex);
-                }
-                catch (OverflowException ex)
-                {
-                    ShowError?.Invoke();
-                    logger.Error(ex);
-                }
-                finally
-                {
-                    args = null;
+                    DisplayResult?.Invoke(comparator.СheckAttachment(envelope1, envelope2));
                 }
 
             } while (Continue?.Invoke() == Answer.Yes);
-        }
 
-
-        private void getEnvelopParameters(string[] args, out EnvelopeDTO envelopeDTO1, out EnvelopeDTO envelopeDTO2)
-        {
-            if (args != null && args.Length == 4)
-            {
-                envelopeDTO1 = new EnvelopeDTO(args[0], args[1]);
-                envelopeDTO2 = new EnvelopeDTO(args[2], args[3]);
-            }
-            else
-            {
-                envelopeDTO1 = EnvelopsReader?.Invoke();
-                envelopeDTO2 = EnvelopsReader?.Invoke();
-            }
+            unsubscribe();
         }
     }
 }

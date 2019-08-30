@@ -17,8 +17,9 @@ namespace Task2_Envelopes.Services
             IParser parser = new Parser(envelopeFactory);
             IComparator comparator = new Comparator();
             IManager consoleManager = new ConsoleManager();
+            IEnvelopeMapper envelopeMapper = new EnvelopeMapper(parser, logger);
 
-            return new Application(comparator, parser, consoleManager, logger);
+            return new Application(comparator, consoleManager, logger, envelopeMapper);
         }
     }
 }

@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="DTOModels\EnvelopeParameters.cs" />
+    <Compile Include="DTOModels\EnvelopeDTO.cs" />
     <Compile Include="Enums\Answer.cs" />
+    <Compile Include="Enums\CountArquments.cs" />
     <Compile Include="Enums\ResultEnvelopeCompare.cs" />
     <Compile Include="Factories\EnvelopeFactory.cs" />
     <Compile Include="Factories\IEnvelopeFactory.cs" />
+    <Compile Include="Services\EnvelopeMapper.cs" />
+    <Compile Include="Services\Interfaces\IEnvelopeMapper.cs" />
     <Compile Include="Models\Envelope.cs" />
     <Compile Include="Models\Interfaces\IEnvelope.cs" />
     <Compile Include="Program.cs" />
