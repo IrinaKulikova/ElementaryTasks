@@ -1,7 +1,7 @@
 ﻿using Task1_Board.Enums;
 using Task1_Board.Models;
 
-namespace Task1.Factories
+namespace Task1_Board.Factories
 {
     public class CellFactory : ICellFactory
     {

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1_Board", "Task1_Board\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1_Board.Tests", "Task1_Board.Tests\Task1_Board.Tests.csproj", "{001E8A52-B9B2-4313-B49C-5FCD26AD895D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{FBAD5A77-7D2D-497A-9554-528FCF704440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIResolver", "DIResolver\DIResolver.csproj", "{AC677AF8-B992-4E6C-823F-BC30E15F1936}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{001E8A52-B9B2-4313-B49C-5FCD26AD895D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{001E8A52-B9B2-4313-B49C-5FCD26AD895D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{001E8A52-B9B2-4313-B49C-5FCD26AD895D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBAD5A77-7D2D-497A-9554-528FCF704440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBAD5A77-7D2D-497A-9554-528FCF704440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBAD5A77-7D2D-497A-9554-528FCF704440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBAD5A77-7D2D-497A-9554-528FCF704440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC677AF8-B992-4E6C-823F-BC30E15F1936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC677AF8-B992-4E6C-823F-BC30E15F1936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC677AF8-B992-4E6C-823F-BC30E15F1936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC677AF8-B992-4E6C-823F-BC30E15F1936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

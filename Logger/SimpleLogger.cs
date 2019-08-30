@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Task1.Logger
+namespace Logger
 {
     public class SimpleLogger : ILogger
     {

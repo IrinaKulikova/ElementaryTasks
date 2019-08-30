@@ -1,5 +1,5 @@
-﻿using Task1.Services;
-using Task1.Services.Interfaces;
+﻿using DIResolver;
+using Task1_Board.Services;
 
 namespace Task1_Board
 {
@@ -8,7 +8,7 @@ namespace Task1_Board
 
         static void Main(string[] args)
         {
-            IDIResolver resolver = new DIResolver();
+            IResolver resolver = new Resolver();
             resolver.Build().Start(args);
         }
     }

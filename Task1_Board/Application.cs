@@ -1,11 +1,12 @@
-﻿using System;
-using Task1.Logger;
+﻿using DIResolver;
+using Logger;
+using System;
 using Task1_Board.Controllers;
 using Task1_Board.Services.Interfaces;
 
 namespace Task1_Board
 {
-    public class Application
+    public class Application : IApplication
     {
         public IParser Parser { get; private set; }
         public IRouter Router { get; private set; }

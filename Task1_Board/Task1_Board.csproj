@@ -53,8 +53,6 @@
     <Compile Include="Factories\CellFactory.cs" />
     <Compile Include="Factories\IBoardFactory.cs" />
     <Compile Include="Factories\ICellFactory.cs" />
-    <Compile Include="Logger\ILogger.cs" />
-    <Compile Include="Logger\SimpleLogger.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\Instruction.cs" />
@@ -64,8 +62,7 @@
     <Compile Include="Models\InvalidArguments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DIResolver.cs" />
-    <Compile Include="Services\Interfaces\IDIResolver.cs" />
+    <Compile Include="Services\Resolver.cs" />
     <Compile Include="Services\Interfaces\IParser.cs" />
     <Compile Include="Services\Interfaces\IRouter.cs" />
     <Compile Include="Services\Router.cs" />
@@ -79,6 +76,15 @@
     <None Include="App.config" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DIResolver\DIResolver.csproj">
+      <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
+      <Name>DIResolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{fbad5a77-7d2d-497a-9554-528fcf704440}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Logger;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Task1.Logger;
 using Task1_Board.Controllers;
 using Task1_Board.Services.Interfaces;
 

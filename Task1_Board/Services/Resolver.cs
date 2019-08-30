@@ -1,15 +1,13 @@
-﻿using Task1.Factories;
-using Task1.Logger;
-using Task1.Services.Interfaces;
-using Task1_Board;
-using Task1_Board.Services;
+﻿using Task1_Board.Factories;
 using Task1_Board.Services.Interfaces;
+using Logger;
+using DIResolver;
 
-namespace Task1.Services
+namespace Task1_Board.Services
 {
-    internal class DIResolver : IDIResolver
+    internal class Resolver : IResolver
     {
-        public Application Build()
+        public IApplication Build()
         {
             string logFile = "log.txt";
             IBoardFactory boardFactory = new BoardFactory();

@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task1_Board.Controllers;
 using Task1_Board.Services;
-using Task1.Factories;
+using Task1_Board.Factories;
 
 namespace Task1_Board.Tests
 {

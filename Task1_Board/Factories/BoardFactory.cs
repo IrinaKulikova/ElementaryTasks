@@ -1,7 +1,7 @@
 ﻿using Task1_Board.Models;
 using Task1_Board.Models.Interfaces;
 
-namespace Task1.Factories
+namespace Task1_Board.Factories
 {
     public class BoardFactory : IBoardFactory
     {
