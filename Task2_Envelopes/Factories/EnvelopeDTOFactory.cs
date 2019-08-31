@@ -2,7 +2,7 @@
 
 namespace Task2_Envelopes.Factories
 {
-    public class FactoryEnvelopeDTO : IFactoryEnvelopeDTO
+    public class EnvelopeDTOFactory : IEnvelopeDTOFactory
     {
         public EnvelopeDTO Create(string height, string width)
         {

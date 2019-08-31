@@ -2,11 +2,9 @@
 using Task2_Envelopes.UI;
 using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.DTOModels;
-using Task2_Envelopes.Models.Interfaces;
 using DIResolver;
 using Logger;
-using Task2_Envelopes.Factories;
-using CustomCollections;
+using Task2_Envelopes.Containers.interfaces;
 
 namespace Task2_Envelopes
 {
@@ -20,26 +18,28 @@ namespace Task2_Envelopes
         readonly IComparator comparator = null;
         readonly IManager consoleManager = null;
         readonly ILogger logger = null;
-        readonly IEnvelopeMapper envelopeMapper = null;
         readonly IValidator validatorArguments;
-        readonly IFactoryEnvelopeDTO factoryEnvelopeDTO = null;
+        readonly IEnvelopeContainer envelopesContainer = null;
+        readonly IEnvelopeMapper envelopeMapper = null;
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
         public event AnswerReader Continue;
         public event Instruction ShowInstruction;
 
-        public Application(IComparator comparator, IManager consoleManager,
-                           ILogger logger, IEnvelopeMapper envelopeMapper,
+        public Application(IComparator comparator,
+                           IManager consoleManager,
+                           ILogger logger,
                            IValidator validatorArguments,
-                           IFactoryEnvelopeDTO factoryEnvelopeDTO)
+                           IEnvelopeContainer envelopesContainer,
+                           IEnvelopeMapper envelopeMapper)
         {
             this.comparator = comparator;
             this.consoleManager = consoleManager;
             this.logger = logger;
-            this.envelopeMapper = envelopeMapper;
             this.validatorArguments = validatorArguments;
-            this.factoryEnvelopeDTO = factoryEnvelopeDTO;
+            this.envelopesContainer = envelopesContainer;
+            this.envelopeMapper = envelopeMapper;
         }
 
         #region PRIVATE METHODS
@@ -79,26 +79,21 @@ namespace Task2_Envelopes
                 EnvelopeDTO envelopeDTO1 = null;
                 EnvelopeDTO envelopeDTO2 = null;
 
-                if (validatorArguments.IsValid(args))
-                {
-                    envelopeDTO1 = factoryEnvelopeDTO.Create(args[0], args[1]);
-                    envelopeDTO2 = factoryEnvelopeDTO.Create(args[2], args[3]);
-                }
-                else
+                if (!validatorArguments.IsValid(args))
                 {
                     envelopeDTO1 = EnvelopsReader?.Invoke();
                     envelopeDTO2 = EnvelopsReader?.Invoke();
                 }
 
-                IEnvelope envelope1 = envelopeMapper.Map(envelopeDTO1);
-                IEnvelope envelope2 = envelopeMapper.Map(envelopeDTO2);
+                envelopesContainer.UpdateEnvelopes(args, envelopeDTO1, envelopeDTO2);
 
-                if (envelope1 != null && envelope2 != null)
+                if (envelopesContainer.FirstEnvelope != null &&
+                    envelopesContainer.SecondEnvelope != null)
                 {
-                    DisplayResult?.Invoke(comparator.СheckAttachment(envelope1, envelope2));
+                    var campareResult = comparator.СheckAttachment(envelopesContainer.FirstEnvelope,
+                                                                   envelopesContainer.SecondEnvelope);
+                    DisplayResult?.Invoke(campareResult);
                 }
-
-                args = null;
 
             } while (Continue?.Invoke() == Answer.Yes);
 

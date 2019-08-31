@@ -2,7 +2,7 @@
 
 namespace Task2_Envelopes.Factories
 {
-    public interface IFactoryEnvelopeDTO
+    public interface IEnvelopeDTOFactory
     {
         EnvelopeDTO Create(string height, string width);
     }

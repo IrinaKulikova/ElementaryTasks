@@ -11,7 +11,7 @@ namespace Task2_Envelopes.UI
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Height: ");
-            var height = Console.ReadLine().Replace('.',',');
+            var height = Console.ReadLine().Replace('.', ',');
             Console.Write("Width: ");
             var width = Console.ReadLine().Replace('.', ',');
 
@@ -31,10 +31,13 @@ namespace Task2_Envelopes.UI
         }
 
 
-        public void ShowError()
+        public void ShowError(EnvelopeDTO envelopeDTO)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Arguments are invalid!");
+            Console.WriteLine("Arguments are invalid:");
+            Console.WriteLine("Heigth is " + envelopeDTO.Heigth);
+            Console.WriteLine("Width is " + envelopeDTO.Width);
+
             Console.ReadKey();
             Console.ForegroundColor = ConsoleColor.White;
         }

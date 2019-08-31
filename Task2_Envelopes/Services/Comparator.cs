@@ -8,6 +8,11 @@ namespace Task2_Envelopes.Services
     {
         public ResultEnvelopeCompare СheckAttachment(IEnvelope first, IEnvelope second)
         {
+            if (first == null || second == null)
+            {
+                return ResultEnvelopeCompare.NoCompared;
+            }
+
             if (first.Height == second.Height && first.Width == second.Width)
             {
                 return ResultEnvelopeCompare.Equales;

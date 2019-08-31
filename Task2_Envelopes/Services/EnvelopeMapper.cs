@@ -6,7 +6,7 @@ using Task2_Envelopes.Services.Interfaces;
 
 namespace Task2_Envelopes.Services
 {
-    public delegate void Error();
+    public delegate void Error(EnvelopeDTO envelopeDTO);
 
     public class EnvelopeMapper : IEnvelopeMapper
     {
@@ -30,18 +30,17 @@ namespace Task2_Envelopes.Services
             catch (ArgumentException ex)
             {
                 logger.Error(ex);
-                ShowError?.Invoke();
-
+                ShowError?.Invoke(envelopeDTO);
             }
             catch (FormatException ex)
             {
                 logger.Error(ex);
-                ShowError?.Invoke();
+                ShowError?.Invoke(envelopeDTO);
             }
             catch (OverflowException ex)
             {
                 logger.Error(ex);
-                ShowError?.Invoke();
+                ShowError?.Invoke(envelopeDTO);
             }
             return envelope;
         }
