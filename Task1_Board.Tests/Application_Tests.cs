@@ -13,7 +13,7 @@ namespace Task1_Board.Tests
         [TestMethod]
         public void Start_Success()
         {
-            var mockRouter = new Mock<IRouter>();
+            var mockRouter = new Mock<IManager>();
             var mockParser = new Mock<IParser>();
             var mockLogger = new Mock<ILogger>();
 

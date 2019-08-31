@@ -6,53 +6,52 @@ using Task1_Board.Services.Interfaces;
 using Task1_Board.Views;
 using Task1_Board.Views.BaseView;
 using Task1_Board.Factories;
+using CustomCollections;
+using Task1_Board.Controllers.Interfaces;
 
 namespace Task1_Board.Services
 {
-    public class Router : IRouter
+    public class Manager : IManager
     {
         IBoardFactory BoardFactory { get; set; }
 
-        public Router(IBoardFactory boardFactory)
+        public Manager(IBoardFactory boardFactory)
         {
             BoardFactory = boardFactory;
         }
 
-        public Controller GetController(int[] args)
+        public IController Routing(IArgumentCollection<int> args)
         {
-            Controller controller = null;
             ConsoleView view = null;
             IModel model = null;
 
-            switch ((CountArgument)args.Length)
+            switch ((CountArgument)args.Count)
             {
                 case CountArgument.Zero:
                     model = new Instruction();
-                    view = new InstructionView(ConsoleColor.Green, model);
-                    controller = new InstructionController(view, model);
+                    view = new InstructionView(ConsoleColor.Green);
                     break;
 
                 case CountArgument.Necessary:
                     model = BoardFactory.Create(args[0], args[1]);
-                    view = new BoardView(ConsoleColor.White, model);
-                    controller = new BoardController(view, model);
+                    view = new BoardView(ConsoleColor.White);
                     break;
 
                 default:
-                    controller = GetErrorController();
+                    model = new InvalidArguments();
+                    view = new InvalidArgumentsView(ConsoleColor.Red);
                     break;
-
             }
 
-            return controller;
+            return new Controller(view, model);
         }
 
-        public Controller GetErrorController()
+        public IController GetErrorController()
         {
             var model = new InvalidArguments();
-            var view = new InvalidArgumentsView(ConsoleColor.Red, model);
+            var view = new InvalidArgumentsView(ConsoleColor.Red);
 
-            return new InvalidArgumentsController(view, model);
+            return new Controller(view, model);
         }
     }
 }

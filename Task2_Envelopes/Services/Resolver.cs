@@ -18,8 +18,13 @@ namespace Task2_Envelopes.Services
             IComparator comparator = new Comparator();
             IManager consoleManager = new ConsoleManager();
             IEnvelopeMapper envelopeMapper = new EnvelopeMapper(parser, logger);
+            IValidator validatorArguments = new ValidatorArguments();
+            IFactoryEnvelopeDTO factoryEnvelopeDTO = new FactoryEnvelopeDTO();
 
-            return new Application(comparator, consoleManager, logger, envelopeMapper);
+            var application = new Application(comparator, consoleManager, logger, envelopeMapper,
+                                              validatorArguments, factoryEnvelopeDTO);
+
+            return application;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Task1_Board.Tests
         public void GetController_BoardController_Success(int[] args)
         {
             //Arrage
-            var router = new Router(new BoardFactory());
+            var router = new Manager(new BoardFactory());
 
             //Act
             var controller = router.GetController(args);
@@ -27,7 +27,7 @@ namespace Task1_Board.Tests
         public void GetController_InstractionController_Success(int[] args)
         {
            //Arrage
-            var router = new Router(new BoardFactory());
+            var router = new Manager(new BoardFactory());
 
             //Act
             var controller = router.GetController(args);
@@ -43,7 +43,7 @@ namespace Task1_Board.Tests
         public void GetController_InvalidArgumentsController_Success(int[] args)
         {
             //Arrage
-            var router = new Router(new BoardFactory());
+            var router = new Manager(new BoardFactory());
 
             //Act
             var controller = router.GetController(args);

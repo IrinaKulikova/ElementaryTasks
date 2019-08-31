@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomCollections;
+using System;
 using System.Collections.Generic;
 using Task1_Board.Services.Interfaces;
 
@@ -6,10 +7,11 @@ namespace Task1_Board.Services
 {
     public class Parser : IParser
     {
-        public int[] GetValidArgs(string[] args)
+        public IArgumentCollection<int> GetValidArgs(string[] args)
         {
-            var validArgs = new List<int>();
-            foreach (var arg in args)
+            var validArgs = new ArgumentCollection<int>();
+
+            foreach ( var arg in args )
             {
                 int size = int.Parse(arg);
 
@@ -23,7 +25,7 @@ namespace Task1_Board.Services
                 }
 
             }
-            return validArgs.ToArray();
+            return validArgs;
         }
     }
 }

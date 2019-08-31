@@ -5,6 +5,8 @@ using Task2_Envelopes.DTOModels;
 using Task2_Envelopes.Models.Interfaces;
 using DIResolver;
 using Logger;
+using Task2_Envelopes.Factories;
+using CustomCollections;
 
 namespace Task2_Envelopes
 {
@@ -19,6 +21,8 @@ namespace Task2_Envelopes
         readonly IManager consoleManager = null;
         readonly ILogger logger = null;
         readonly IEnvelopeMapper envelopeMapper = null;
+        readonly IValidator validatorArguments;
+        readonly IFactoryEnvelopeDTO factoryEnvelopeDTO = null;
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
@@ -26,12 +30,16 @@ namespace Task2_Envelopes
         public event Instruction ShowInstruction;
 
         public Application(IComparator comparator, IManager consoleManager,
-                           ILogger logger, IEnvelopeMapper envelopeMapper)
+                           ILogger logger, IEnvelopeMapper envelopeMapper,
+                           IValidator validatorArguments,
+                           IFactoryEnvelopeDTO factoryEnvelopeDTO)
         {
             this.comparator = comparator;
             this.consoleManager = consoleManager;
             this.logger = logger;
             this.envelopeMapper = envelopeMapper;
+            this.validatorArguments = validatorArguments;
+            this.factoryEnvelopeDTO = factoryEnvelopeDTO;
         }
 
         #region PRIVATE METHODS
@@ -54,18 +62,14 @@ namespace Task2_Envelopes
             envelopeMapper.ShowError -= consoleManager.ShowError;
         }
 
-        private static bool validArguments(string[] args)
-        {
-            return args != null && args.Length == (int)CountArgument.Necessary;
-        }
-
         #endregion
+
 
         public void Start(string[] args)
         {
             subscribe();
 
-            if (!validArguments(args))
+            if (!validatorArguments.IsValid(args))
             {
                 ShowInstruction?.Invoke();
             }
@@ -75,10 +79,10 @@ namespace Task2_Envelopes
                 EnvelopeDTO envelopeDTO1 = null;
                 EnvelopeDTO envelopeDTO2 = null;
 
-                if (validArguments(args))
+                if (validatorArguments.IsValid(args))
                 {
-                    envelopeDTO1 = new EnvelopeDTO(args[0], args[1]);
-                    envelopeDTO2 = new EnvelopeDTO(args[2], args[3]);
+                    envelopeDTO1 = factoryEnvelopeDTO.Create(args[0], args[1]);
+                    envelopeDTO2 = factoryEnvelopeDTO.Create(args[2], args[3]);
                 }
                 else
                 {
@@ -87,12 +91,14 @@ namespace Task2_Envelopes
                 }
 
                 IEnvelope envelope1 = envelopeMapper.Map(envelopeDTO1);
-                IEnvelope envelope2 = envelopeMapper.Map(envelopeDTO2);                
+                IEnvelope envelope2 = envelopeMapper.Map(envelopeDTO2);
 
                 if (envelope1 != null && envelope2 != null)
                 {
                     DisplayResult?.Invoke(comparator.СheckAttachment(envelope1, envelope2));
                 }
+
+                args = null;
 
             } while (Continue?.Invoke() == Answer.Yes);
 
