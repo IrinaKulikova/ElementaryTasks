@@ -1,12 +1,14 @@
-﻿using Task1_Board.Models;
+﻿using Task1_Board.Controllers.Interfaces;
+using Task1_Board.Models;
 using Task1_Board.Views.BaseView;
 
 namespace Task1_Board.Controllers
 {
-    public abstract class Controller
+    public class Controller : IController
     {
-        protected ConsoleView View { get; private set; }
-        protected IModel Model { get; private set; }
+        public ConsoleView View { get; private set; }
+
+        public IModel Model { get; private set; }
 
         public Controller(ConsoleView view, IModel model)
         {
@@ -14,6 +16,9 @@ namespace Task1_Board.Controllers
             Model = model;
         }
 
-        public virtual void Show() => View.Display();
+        public virtual void Show()
+        {
+            View.Display(Model);
+        }
     }
 }

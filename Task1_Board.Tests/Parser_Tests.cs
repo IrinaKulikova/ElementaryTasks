@@ -22,7 +22,7 @@ namespace Task1_Board.Tests
             var ints = parser.GetValidArgs(args);
 
             //Assert
-            Assert.AreEqual(args.Length, ints.Length);
+            Assert.AreEqual(args.Length, ints.Count);
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace Task1_Board.Tests
             var ints = parser.GetValidArgs(args);
 
             //Assert
-            Assert.AreEqual(args.Length, ints.Length);
+            Assert.AreEqual(args.Length, ints.Count);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace Task1_Board.Tests
             var ints = parser.GetValidArgs(args);
 
             //Assert
-            Assert.AreEqual(args.Length, ints.Length);
+            Assert.AreEqual(args.Length, ints.Count);
         }
 
 
@@ -76,7 +76,7 @@ namespace Task1_Board.Tests
             var ints = parser.GetValidArgs(args);
 
             //Assert
-            Assert.AreEqual(args.Length, ints.Length);
+            Assert.AreEqual(args.Length, ints.Count);
         }
     }
 }

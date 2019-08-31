@@ -7,13 +7,13 @@ namespace Task1_Board.Views
 {
     class InvalidArgumentsView : ConsoleView
     {
-        public InvalidArgumentsView(ConsoleColor color, IModel model) : base(color, model) { }
+        public InvalidArgumentsView(ConsoleColor color) : base(color) { }
 
-        public override void Display()
+        public override void Display(IModel model)
         {
             Console.ForegroundColor = Color;
 
-            if ( Model is IMessage invalidArgument )
+            if ( model is IMessage invalidArgument )
             {
                 Console.WriteLine(invalidArgument.Message);
             }

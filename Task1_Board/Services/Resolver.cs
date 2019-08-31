@@ -12,10 +12,10 @@ namespace Task1_Board.Services
             string logFile = "Task1_Board_Log.txt";
             IBoardFactory boardFactory = new BoardFactory();
             IParser parser = new Parser();
-            IRouter router = new Router(boardFactory);
+            IManager manager = new Manager(boardFactory);
             ILogger logger = new SimpleLogger(logFile);
 
-            var app = new Application(parser, router, logger);
+            var app = new Application(parser, manager, logger);
 
             return app;
         }

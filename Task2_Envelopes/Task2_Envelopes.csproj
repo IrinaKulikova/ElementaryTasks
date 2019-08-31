@@ -43,19 +43,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Containers\EnvelopesContainer.cs" />
+    <Compile Include="Containers\interfaces\IEnvelopeContainer.cs" />
     <Compile Include="DTOModels\EnvelopeDTO.cs" />
     <Compile Include="Enums\Answer.cs" />
     <Compile Include="Enums\CountArquments.cs" />
     <Compile Include="Enums\ResultEnvelopeCompare.cs" />
     <Compile Include="Factories\EnvelopeFactory.cs" />
+    <Compile Include="Factories\EnvelopeDTOFactory.cs" />
     <Compile Include="Factories\IEnvelopeFactory.cs" />
+    <Compile Include="Factories\IEnvelopeDTOFactory.cs" />
     <Compile Include="Services\EnvelopeMapper.cs" />
     <Compile Include="Services\Interfaces\IEnvelopeMapper.cs" />
     <Compile Include="Models\Envelope.cs" />
     <Compile Include="Models\Interfaces\IEnvelope.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Interfaces\IValidator.cs" />
     <Compile Include="Services\Resolver.cs" />
+    <Compile Include="Services\ValidatorArguments.cs" />
     <Compile Include="UI\ConsoleManager.cs" />
     <Compile Include="UI\IManager.cs" />
     <Compile Include="Services\Comparator.cs" />
@@ -67,6 +73,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomCollections\CustomCollections.csproj">
+      <Project>{5260d10d-6f3e-4dea-929e-a847201fcd17}</Project>
+      <Name>CustomCollections</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DIResolver\DIResolver.csproj">
       <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
       <Name>DIResolver</Name>

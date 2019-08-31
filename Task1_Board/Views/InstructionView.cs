@@ -8,13 +8,13 @@ namespace Task1_Board.Views
 {
     public class InstructionView : ConsoleView
     {
-        public InstructionView(ConsoleColor color, IModel model) : base(color, model) { }
+        public InstructionView(ConsoleColor color) : base(color) { }
 
-        public override void Display()
+        public override void Display(IModel model)
         {
             Console.ForegroundColor = Color;
 
-            if ( Model is IMessage instraction )
+            if ( model is IMessage instraction )
             {
                 Console.WriteLine(instraction.Message);
             }

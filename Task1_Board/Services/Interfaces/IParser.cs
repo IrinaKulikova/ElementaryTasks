@@ -1,7 +1,9 @@
-﻿namespace Task1_Board.Services.Interfaces
+﻿using CustomCollections;
+
+namespace Task1_Board.Services.Interfaces
 {
     public interface IParser
     {
-        int[] GetValidArgs(string[] arg);
+        IArgumentCollection<int> GetValidArgs(string[] arg);
     }
 }

@@ -11,17 +11,17 @@ namespace Task1_Board.Views
     {
         IDictionary<CellColor, char> Symbols = new Dictionary<CellColor, char>();
 
-        public BoardView(ConsoleColor color, IModel model) : base(color, model)
+        public BoardView(ConsoleColor color) : base(color)
         {
             Symbols.Add(CellColor.White, ' ');
             Symbols.Add(CellColor.Black, '*');
         }
 
-        public override void Display()
+        public override void Display(IModel model)
         {
             Console.ForegroundColor = Color;
 
-            if ( Model is IBoard board )
+            if ( model is IBoard board )
             {
 
                 for ( int i = 0; i < board.Heigth; i++ )
