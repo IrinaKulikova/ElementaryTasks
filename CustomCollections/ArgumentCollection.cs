@@ -6,19 +6,19 @@ namespace CustomCollections
 {
     public class ArgumentCollection<T> : IArgumentCollection<T>
     {
-        private int _count = 0;
-        int _capacity = 4;
-        private T[] _arguments;
+        private int count = 0;
+        int capacity = 4;
+        private T[] arguments;
 
-        public int Count => _count;
+        public int Count => count;
 
         public int Capacity
         {
-            get => _capacity;
+            get => capacity;
             set
             {
-                _capacity = value;
-                Array.Resize(ref _arguments, _capacity);
+                capacity = value;
+                Array.Resize(ref arguments, capacity);
             }
         }
 
@@ -26,9 +26,9 @@ namespace CustomCollections
         {
             get
             {
-                if (index >= 0 && index < _count)
+                if (index >= 0 && index < count)
                 {
-                    return _arguments[index];
+                    return arguments[index];
                 }
                 else
                 {
@@ -38,11 +38,11 @@ namespace CustomCollections
 
             set
             {
-                if (index >= 0 && index < _count)
+                if (index >= 0 && index < count)
                 {
-                    _arguments[index] = value;
+                    arguments[index] = value;
                 }
-                else if (index == _count)
+                else if (index == count)
                 {
                     Add(value);
                 }
@@ -55,24 +55,24 @@ namespace CustomCollections
 
         public void Add(T item)
         {
-            if (Count >= _arguments.Length)
+            if (Count >= arguments.Length)
             {
-                Array.Resize(ref _arguments, (int)1.5 * _arguments.Length);
+                Array.Resize(ref arguments, (int)1.5 * arguments.Length);
             }
-            _arguments[_count++] = item;
+            arguments[count++] = item;
         }
 
         public void Clear()
         {
-            Array.Clear(_arguments, 0, Count);
-            _count = 0;
+            Array.Clear(arguments, 0, Count);
+            count = 0;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i <= Count; i++)
             {
-                yield return _arguments[i];
+                yield return arguments[i];
             }
         }
 
@@ -83,12 +83,22 @@ namespace CustomCollections
 
         public ArgumentCollection()
         {
-            _arguments = new T[_capacity];
+            arguments = new T[capacity];
         }
 
         public ArgumentCollection(int capacity) : this()
         {
             this.Capacity = capacity;
+        }
+
+        public ArgumentCollection(T[] args)
+        {
+            arguments = new T[capacity];
+
+            for (int i = 0; i < arguments.Length; i++)
+            {
+                Add(args[i]);
+            }
         }
     }
 }
