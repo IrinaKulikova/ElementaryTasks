@@ -11,6 +11,7 @@ namespace Task5_NumberWord.Dictionaries
         public IDictionary<string, string> dictionaryNumbers = new Dictionary<string, string>();
         public IDictionary<string, string> dictionaryTens = new Dictionary<string, string>();
         public IDictionary<int, string> dictionaryBits = new Dictionary<int, string>();
+
         private IDigitsFactory NumberPartFactory { get; set; }
 
         private string zero = "0";
@@ -21,57 +22,55 @@ namespace Task5_NumberWord.Dictionaries
             NumberPartFactory = factory;
         }
 
-        public virtual string GetValue(NumberPart number)
+        public virtual string GetValue(NumberPart numberPart)
         {
-            if (number.Value.All(s => s.ToString() == zero))
+            if (numberPart.Value.All(s => s.ToString() == zero))
             {
                 return string.Empty;
             }
 
-            var numberPart = NumberPartFactory.Create(number.Value);
+            var digits = NumberPartFactory.Create(numberPart.Value);
 
             var builder = new StringBuilder();
             int keyHundred = 0;
 
-            if (numberPart.First != zero)
+            if (digits.First != zero)
             {
-                AppendNumberWord(numberPart.First, builder);
+                AppendNumberWord(digits.First, builder);
                 AppendBitWord(keyHundred, builder);
             }
 
-            if (numberPart.Second != zero)
+            if (digits.Second != zero)
             {
-                if (numberPart.Second == one)
+                if (digits.Second == one)
                 {
-                    AppendNumberWord(numberPart.Second + numberPart.Third, builder);
+                    AppendNumberWord(digits.Second + digits.Third, builder);
                 }
                 else
                 {
-                    AppendTensWord(numberPart.Second, builder);
-                    AppendNumberWord(numberPart.Third, builder);
+                    AppendTensWord(digits.Second, builder);
+                    AppendNumberWord(digits.Third, builder);
                 }
             }
             else
             {
-                if (numberPart.Third != zero)
-                {
-                    AppendNumberWord(numberPart.Third, builder);
-                }
+                AppendNumberWord(digits.Third, builder);
             }
 
-            if (number.Position > keyHundred)
+            if (numberPart.Position > keyHundred)
             {
-                AppendBitWord(number.Position, builder);
+                AppendBitWord(numberPart.Position, builder);
             }
+
             return builder.ToString();
         }
 
         private void AppendTensWord(string tens, StringBuilder builder)
         {
-            dictionaryTens.TryGetValue(tens, out string valueNumber);
-            if (!string.IsNullOrEmpty(valueNumber))
+            dictionaryTens.TryGetValue(tens, out string valueTens);
+            if (!string.IsNullOrEmpty(valueTens))
             {
-                builder.Append(valueNumber);
+                builder.Append(valueTens);
                 builder.Append(" ");
             }
         }

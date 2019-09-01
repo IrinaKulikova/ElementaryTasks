@@ -6,9 +6,9 @@ namespace Task5_NumberWord.Dictionaries
     {
         public DictionaryWordsEU(IDigitsFactory factory) : base (factory)
         {
-            //read from resoucers
+            //read from resources
 
-            dictionaryNumbers.Add("0", "zero");
+            //dictionaryNumbers.Add("0", "zero");
             dictionaryNumbers.Add("1", "one");
             dictionaryNumbers.Add("2", "two");
             dictionaryNumbers.Add("3", "three");

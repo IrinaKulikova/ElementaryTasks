@@ -2,6 +2,6 @@
 {
     public interface IArgumentsValidator
     {
-        bool IsNumber(string number);
+        bool Check(string[] args);
     }
 }

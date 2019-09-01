@@ -17,8 +17,11 @@ namespace Task5_NumberWord.Services
             IManagerDictionary managerDictionary = new ManagerDictionary(numerPartFactory);
             INumberPartsCollectionFactory numberCollectionFactory = new NumberPartsCollectionFactory();
 
-            var app = new Application(factoryArguments, numberCollectionFactory,
-                                      managerViews, managerDictionary);
+            var app = new Application(argumentsValidator,
+                                      factoryArguments,
+                                      numberCollectionFactory,
+                                      managerDictionary);
+            app.AddObserver(managerViews);
 
             return app;
         }

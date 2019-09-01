@@ -1,4 +1,4 @@
-﻿namespace Task5_NumberWord.ExtentionsMethods
+﻿namespace Task5_NumberWord.ExtensionsMethods
 {
     public static class ArrayExtention
     {

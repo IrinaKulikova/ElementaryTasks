@@ -11,16 +11,20 @@ namespace Task5_NumberWord.Factories
         {
             Arguments arguments = null;
 
-            switch ((CountArgument)args.Length)
+            switch ((ValidArgumentsLength)args.Length)
             {
-                case CountArgument.Min:
-                default:
+                case ValidArgumentsLength.Number:
                     arguments = new Arguments(args[0], Language.EU);
                     break;
 
-                case CountArgument.Max:
+                case ValidArgumentsLength.NumberLanguage:
                     Enum.TryParse(args[1], out Language language);
+                    int.TryParse(args[0], out int number);
                     arguments = new Arguments(args[0], language);
+                    break;
+
+                default:
+                    arguments = null;
                     break;
             }
 

@@ -1,4 +1,4 @@
-﻿using Task5_NumberWord.ExtentionsMethods;
+﻿using Task5_NumberWord.ExtensionsMethods;
 using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Models;
 

@@ -5,26 +5,29 @@ using Task5_NumberWord.Interfaces;
 using Task5_NumberWord.UI;
 using System.Collections.Generic;
 using Task5_NumberWord.Factories;
+using Task5_NumberWord.Services.Interfaces;
 
 namespace Task5_NumberWord
 {
     public class Application : IApplication, IObservable
     {
         readonly IArgumentsFactory factoryArguments = null;
-        INumberPartsCollectionFactory numberPartsCollectionFactory = null;
+        readonly IArgumentsValidator argumentsValidator = null;
         readonly IManagerDictionary managerDictionary = null;
+
+        INumberPartsCollectionFactory numberPartsCollectionFactory = null;
         IManagerViews managerViews = null;
 
 
-        public Application(IArgumentsFactory factoryArguments,
+        public Application(IArgumentsValidator argumentsValidator,
+                           IArgumentsFactory factoryArguments,
                            INumberPartsCollectionFactory numberPartsCollectionFactory,
-                           IManagerViews managerViews,
                            IManagerDictionary managerDictionary)
         {
             this.factoryArguments = factoryArguments;
             this.numberPartsCollectionFactory = numberPartsCollectionFactory;
             this.managerDictionary = managerDictionary;
-            AddObserver(managerViews);
+            this.argumentsValidator = argumentsValidator;
         }
 
         public void AddObserver(IManagerViews manager)
@@ -32,29 +35,30 @@ namespace Task5_NumberWord
             managerViews = manager;
         }
 
-        public void NotifyShowInstruction() => managerViews.Instruction();
+        public void NotifyShowInstruction()
+        {
+            managerViews?.Instruction();
+        }
 
         public void NotifyShowNumberWords(List<string> words)
         {
-            managerViews.Result(words);
+            managerViews?.Result(words);
         }
 
         public void Start(string[] args)
         {
-            var arguments = factoryArguments.Create(args);
-
-            if (arguments == null)
+            if (!argumentsValidator.Check(args))
             {
                 NotifyShowInstruction();
                 return;
             }
 
+            var arguments = factoryArguments.Create(args);           
+
             var dictionary = managerDictionary.GetDictionary(arguments.Language);
-            var parts = numberPartsCollectionFactory.Parse(arguments.Number);
+            var context = new Context(dictionary, arguments.Number);
 
-            var context = new Context(arguments.Number, dictionary, parts);
-
-            IExpression expression = new NonterminalExpression();
+            IExpression expression = new NonterminalExpression(numberPartsCollectionFactory);
             expression.Interpret(context);
 
             NotifyShowNumberWords(context.Result);

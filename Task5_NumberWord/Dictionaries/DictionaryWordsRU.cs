@@ -9,7 +9,7 @@ namespace Task5_NumberWord.Dictionaries
         {
             //read from resoucers
 
-            dictionaryNumbers.Add("0", "ноль");
+            //dictionaryNumbers.Add("0", "ноль");
             dictionaryNumbers.Add("1", "один");
             dictionaryNumbers.Add("2", "два");
             dictionaryNumbers.Add("3", "три");
