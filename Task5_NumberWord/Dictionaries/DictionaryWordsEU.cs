@@ -4,7 +4,7 @@ namespace Task5_NumberWord.Dictionaries
 {
     public class DictionaryWordsEU : AbstractDictionaryWords
     {
-        public DictionaryWordsEU(INumberPartFactory factory) : base (factory)
+        public DictionaryWordsEU(IDigitsFactory factory) : base (factory)
         {
             //read from resoucers
 

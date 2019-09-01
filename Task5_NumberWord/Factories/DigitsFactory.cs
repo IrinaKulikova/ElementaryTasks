@@ -4,9 +4,9 @@ using Task5_NumberWord.Models;
 
 namespace Task5_NumberWord.Factories
 {
-    public class NumberPartFactory : INumberPartFactory
+    public class DigitsFactory : IDigitsFactory
     {
-        public NumberPart Create(string numberPart)
+        public Digits Create(string numberPart)
         {
             int necessaryLength = 3;
             var argsNumbers = new string[necessaryLength];
@@ -17,7 +17,7 @@ namespace Task5_NumberWord.Factories
                 argsNumbers[i] = numberPart[i].ToString();
             }
 
-            return new NumberPart(argsNumbers[0], argsNumbers[1], argsNumbers[2]);
+            return new Digits(argsNumbers[0], argsNumbers[1], argsNumbers[2]);
         }
     }
 }

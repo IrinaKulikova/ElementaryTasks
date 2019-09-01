@@ -2,6 +2,7 @@
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Services.Interfaces;
+using Task5_NumberWord.UI;
 
 namespace Task5_NumberWord.Services
 {
@@ -9,9 +10,15 @@ namespace Task5_NumberWord.Services
     {
         public IApplication Build()
         {
-            IValidator validator = new Validator();
-            INumberPartFactory numerPartFactory = new NumberPartFactory();
-            var app = new Application(validator, numerPartFactory);
+            IArgumentsValidator argumentsValidator = new ArgumentsValidator();
+            IDigitsFactory numerPartFactory = new DigitsFactory();
+            IArgumentsFactory factoryArguments = new ArgumentsFactory();
+            IManagerViews managerViews = new ManagerConsole();
+            IManagerDictionary managerDictionary = new ManagerDictionary(numerPartFactory);
+            INumberPartsCollectionFactory numberCollectionFactory = new NumberPartsCollectionFactory();
+
+            var app = new Application(factoryArguments, numberCollectionFactory,
+                                      managerViews, managerDictionary);
 
             return app;
         }

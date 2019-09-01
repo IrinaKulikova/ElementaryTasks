@@ -11,17 +11,17 @@ namespace Task5_NumberWord.Dictionaries
         public IDictionary<string, string> dictionaryNumbers = new Dictionary<string, string>();
         public IDictionary<string, string> dictionaryTens = new Dictionary<string, string>();
         public IDictionary<int, string> dictionaryBits = new Dictionary<int, string>();
-        private INumberPartFactory NumberPartFactory { get; set; }
+        private IDigitsFactory NumberPartFactory { get; set; }
 
         private string zero = "0";
         private string one = "1";
 
-        public AbstractDictionaryWords(INumberPartFactory factory)
+        public AbstractDictionaryWords(IDigitsFactory factory)
         {
             NumberPartFactory = factory;
         }
 
-        public virtual string GetValue(Number number)
+        public virtual string GetValue(NumberPart number)
         {
             if (number.Value.All(s => s.ToString() == zero))
             {

@@ -2,8 +2,8 @@
 
 namespace Task5_NumberWord.Factories.Interfaces
 {
-    public interface INumberPartFactory
+    public interface IArgumentsFactory
     {
-        NumberPart Create(string number);
+        Arguments Create(string[] args);
     }
 }

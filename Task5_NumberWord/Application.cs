@@ -1,59 +1,63 @@
 ﻿using DIResolver;
-using System;
-using Task5_NumberWord.Dictionaries;
 using Task5_NumberWord.Expressions;
 using Task5_NumberWord.Factories.Interfaces;
-using Task5_NumberWord.Services.Interfaces;
+using Task5_NumberWord.Interfaces;
+using Task5_NumberWord.UI;
+using System.Collections.Generic;
+using Task5_NumberWord.Factories;
 
 namespace Task5_NumberWord
 {
-    public class Application : IApplication
+    public class Application : IApplication, IObservable
     {
-        IValidator validator = null;
-        AbstractDictionaryWords dictionary = null;
-        INumberPartFactory numberFactory = null;
+        readonly IArgumentsFactory factoryArguments = null;
+        INumberPartsCollectionFactory numberPartsCollectionFactory = null;
+        readonly IManagerDictionary managerDictionary = null;
+        IManagerViews managerViews = null;
 
-        public Application(IValidator validator, INumberPartFactory numberFactory)
+
+        public Application(IArgumentsFactory factoryArguments,
+                           INumberPartsCollectionFactory numberPartsCollectionFactory,
+                           IManagerViews managerViews,
+                           IManagerDictionary managerDictionary)
         {
-            this.validator = validator;
-            this.numberFactory = numberFactory;
+            this.factoryArguments = factoryArguments;
+            this.numberPartsCollectionFactory = numberPartsCollectionFactory;
+            this.managerDictionary = managerDictionary;
+            AddObserver(managerViews);
+        }
+
+        public void AddObserver(IManagerViews manager)
+        {
+            managerViews = manager;
+        }
+
+        public void NotifyShowInstruction() => managerViews.Instruction();
+
+        public void NotifyShowNumberWords(List<string> words)
+        {
+            managerViews.Result(words);
         }
 
         public void Start(string[] args)
         {
-            if (!validator.IsNumber(args))
+            var arguments = factoryArguments.Create(args);
+
+            if (arguments == null)
             {
-                //Show instruction
+                NotifyShowInstruction();
+                return;
             }
 
-            Strategy(args);
+            var dictionary = managerDictionary.GetDictionary(arguments.Language);
+            var parts = numberPartsCollectionFactory.Parse(arguments.Number);
 
-            var context = new Context(args[0], dictionary);
+            var context = new Context(arguments.Number, dictionary, parts);
 
             IExpression expression = new NonterminalExpression();
             expression.Interpret(context);
 
-            context.Result.ForEach(s => Console.Write(s));
-            Console.ReadKey();
-        }
-
-        private void Strategy(string[] args)
-        {
-            var lang = "EU";
-            if (args.Length > 1)
-            {
-                lang = args[1];
-            }
-
-            switch (lang)
-            {
-                case "EU":
-                default:
-
-                    dictionary = new DictionaryWordsEU(numberFactory);
-                    break;
-
-            }
+            NotifyShowNumberWords(context.Result);
         }
     }
 }

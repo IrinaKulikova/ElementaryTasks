@@ -4,7 +4,7 @@
     {
         public void Interpret(Context context)
         {
-            while (context.Position < context.Source.Length)
+            while (context.Position < context.Source.Count)
             {
                 var terminalExcpression = new TerminalExpression();
                 terminalExcpression.Interpret(context);
