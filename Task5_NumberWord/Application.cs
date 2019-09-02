@@ -6,6 +6,7 @@ using Task5_NumberWord.UI;
 using System.Collections.Generic;
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Services.Interfaces;
+using Logger;
 
 namespace Task5_NumberWord
 {
@@ -14,6 +15,7 @@ namespace Task5_NumberWord
         readonly IArgumentsFactory factoryArguments = null;
         readonly IArgumentsValidator argumentsValidator = null;
         readonly IManagerDictionary managerDictionary = null;
+        readonly ILogger logger = null;
 
         INumberPartsCollectionFactory numberPartsCollectionFactory = null;
         IManagerViews managerViews = null;
@@ -22,12 +24,14 @@ namespace Task5_NumberWord
         public Application(IArgumentsValidator argumentsValidator,
                            IArgumentsFactory factoryArguments,
                            INumberPartsCollectionFactory numberPartsCollectionFactory,
-                           IManagerDictionary managerDictionary)
+                           IManagerDictionary managerDictionary,
+                           ILogger logger)
         {
             this.factoryArguments = factoryArguments;
             this.numberPartsCollectionFactory = numberPartsCollectionFactory;
             this.managerDictionary = managerDictionary;
             this.argumentsValidator = argumentsValidator;
+            this.logger = logger;
         }
 
         public void AddObserver(IManagerViews manager)
@@ -50,10 +54,11 @@ namespace Task5_NumberWord
             if (!argumentsValidator.Check(args))
             {
                 NotifyShowInstruction();
+                logger.Warging("invalid arguments");
                 return;
             }
 
-            var arguments = factoryArguments.Create(args);           
+            var arguments = factoryArguments.Create(args);
 
             var dictionary = managerDictionary.GetDictionary(arguments.Language);
             var context = new Context(dictionary, arguments.Number);

@@ -1,4 +1,5 @@
 ﻿using DIResolver;
+using Logger;
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Services.Interfaces;
@@ -10,6 +11,8 @@ namespace Task5_NumberWord.Services
     {
         public IApplication Build()
         {
+            string logFile = "Task5_NumberWord_Log.txt";
+            ILogger logger = new SimpleLogger(logFile);
             IArgumentsValidator argumentsValidator = new ArgumentsValidator();
             IDigitsFactory numerPartFactory = new DigitsFactory();
             IArgumentsFactory factoryArguments = new ArgumentsFactory();
@@ -20,7 +23,9 @@ namespace Task5_NumberWord.Services
             var app = new Application(argumentsValidator,
                                       factoryArguments,
                                       numberCollectionFactory,
-                                      managerDictionary);
+                                      managerDictionary,
+                                      logger);
+
             app.AddObserver(managerViews);
 
             return app;
