@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCollections", "Custom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5_NumberWord", "Task5_NumberWord\Task5_NumberWord.csproj", "{3687D033-6CE1-4EE6-A46F-3A81523F2810}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4_Parser", "Task4_Parser\Task4_Parser.csproj", "{8D81F882-1FD0-4021-AB27-9875462C33AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{3687D033-6CE1-4EE6-A46F-3A81523F2810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3687D033-6CE1-4EE6-A46F-3A81523F2810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3687D033-6CE1-4EE6-A46F-3A81523F2810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D81F882-1FD0-4021-AB27-9875462C33AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D81F882-1FD0-4021-AB27-9875462C33AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D81F882-1FD0-4021-AB27-9875462C33AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D81F882-1FD0-4021-AB27-9875462C33AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
