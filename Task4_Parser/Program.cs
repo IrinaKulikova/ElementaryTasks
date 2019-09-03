@@ -8,7 +8,8 @@ namespace Task4_Parser
         static void Main(string[] args)
         {
             IResolver resolver = new Resolver();
-            resolver.Build().Start(args);
+            IApplication app = resolver.Configuration();
+            app.Start(args);
         }
     }
 }

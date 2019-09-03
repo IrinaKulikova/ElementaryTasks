@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using Task4_Parser.Models;
+﻿using Task4_Parser.Models;
 
 namespace Task4_Parser.Services.Interfaces
 {
     public interface IParser
     {
-        int IterateOver(ParseArguments parseArguments);
+        int FindText(ParseArguments parseArguments);
     }
 }

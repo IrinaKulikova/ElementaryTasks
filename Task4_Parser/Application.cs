@@ -14,8 +14,7 @@ namespace Task4_Parser
         readonly IParserManager parserManager = null;
         readonly ILogger logger = null;
         readonly IParseArgumentsFactory parseArgumentsFactory = null;
-
-
+        
         public Application(IArgumentsValidator argumentsValidator,
                            IParserManager parserManager,
                            ILogger logger,
@@ -34,7 +33,7 @@ namespace Task4_Parser
                 IArgumentCollection<string> argumentsCollection = new ArgumentCollection<string>(args);
                 IParser parser = parserManager.GetParser((ValidArgumentsLength)argumentsCollection.Count);
                 ParseArguments parseArguments = parseArgumentsFactory.Create(argumentsCollection);
-                parser.IterateOver(parseArguments);
+                parser.FindText(parseArguments);
             }
         }
     }

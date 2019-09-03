@@ -8,7 +8,7 @@ namespace Task4_Parser.Services
 {
     public class Resolver : IResolver
     {
-        public IApplication Build()
+        public IApplication Configuration()
         {
             string fileName = "Task4_Parser_log.txt";
             ILogger logger = new SimpleLogger(fileName);

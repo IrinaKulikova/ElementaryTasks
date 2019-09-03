@@ -6,7 +6,7 @@ namespace Task4_Parser.Services
 {
     public class ReaderParser : IParser
     {
-        public int IterateOver(ParseArguments arguments)
+        public int FindText(ParseArguments arguments)
         {
             var bufferSize = 1024;
             int offset = 0;
