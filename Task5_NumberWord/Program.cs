@@ -8,7 +8,8 @@ namespace Task5_NumberWord
         static void Main(string[] args)
         {
             IResolver resolver = new Resolver();
-            resolver.Build().Start(args);
+            IApplication application = resolver.Configuration();
+            application.Start(args);
         }
     }
 }

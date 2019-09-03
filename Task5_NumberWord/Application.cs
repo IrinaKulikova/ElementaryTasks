@@ -1,5 +1,4 @@
 ﻿using DIResolver;
-using Task5_NumberWord.Expressions;
 using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Interfaces;
 using Task5_NumberWord.UI;
@@ -7,6 +6,9 @@ using System.Collections.Generic;
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Services.Interfaces;
 using Logger;
+using Task5_NumberWord.Dictionaries;
+using Task5_NumberWord.Models;
+using Task5_NumberWord.Services;
 
 namespace Task5_NumberWord
 {
@@ -16,10 +18,9 @@ namespace Task5_NumberWord
         readonly IArgumentsValidator argumentsValidator = null;
         readonly IManagerDictionary managerDictionary = null;
         readonly ILogger logger = null;
+        readonly INumberPartsCollectionFactory numberPartsCollectionFactory = null;
 
-        INumberPartsCollectionFactory numberPartsCollectionFactory = null;
         IManagerViews managerViews = null;
-
 
         public Application(IArgumentsValidator argumentsValidator,
                            IArgumentsFactory factoryArguments,
@@ -44,9 +45,9 @@ namespace Task5_NumberWord
             managerViews?.Instruction();
         }
 
-        public void NotifyShowNumberWords(List<string> words)
+        public void NotifyShowNumberWords(string words)
         {
-            managerViews?.Result(words);
+            managerViews?.ShowResultWords(words);
         }
 
         public void Start(string[] args)
@@ -54,19 +55,20 @@ namespace Task5_NumberWord
             if (!argumentsValidator.Check(args))
             {
                 NotifyShowInstruction();
-                logger.Warging("invalid arguments");
+                logger.Warning("invalid arguments: " + string.Join(", ", args));
                 return;
             }
 
-            var arguments = factoryArguments.Create(args);
+            Arguments arguments = factoryArguments.Create(args);
+            AbstractDictionaryWords dictionary = managerDictionary.GetDictionary(arguments.Language);
+            List<NumberPart> numberParts = numberPartsCollectionFactory.Parse(arguments.Number);
 
-            var dictionary = managerDictionary.GetDictionary(arguments.Language);
-            var context = new Context(dictionary, arguments.Number);
+            IConverterNumber converter = new ConverterNumber(numberPartsCollectionFactory,
+                                                             dictionary,
+                                                             numberParts);
+            string words = converter.GetWord();
 
-            IExpression expression = new NonterminalExpression(numberPartsCollectionFactory);
-            expression.Interpret(context);
-
-            NotifyShowNumberWords(context.Result);
+            NotifyShowNumberWords(words);
         }
     }
 }

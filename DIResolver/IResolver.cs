@@ -2,6 +2,6 @@
 {
     public interface IResolver
     {
-        IApplication Build();
+        IApplication Configuration();
     }
 }

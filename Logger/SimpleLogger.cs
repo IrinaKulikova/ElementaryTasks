@@ -22,7 +22,7 @@ namespace Logger
             //throw new NotImplementedException();
         }
 
-        public void Warging(string message)
+        public void Warning(string message)
         {
             //throw new NotImplementedException();
         }

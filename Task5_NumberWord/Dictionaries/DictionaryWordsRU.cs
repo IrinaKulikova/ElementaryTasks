@@ -1,5 +1,4 @@
 ﻿using Task5_NumberWord.Factories.Interfaces;
-using Task5_NumberWord.Models;
 
 namespace Task5_NumberWord.Dictionaries
 {

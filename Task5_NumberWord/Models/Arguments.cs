@@ -12,5 +12,7 @@ namespace Task5_NumberWord.Models
             Number = number;
             Language = language;
         }
+
+        public Arguments(string number) : this(number, Language.EU) { }
     }
 }
