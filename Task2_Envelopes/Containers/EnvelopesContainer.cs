@@ -16,8 +16,8 @@ namespace Task2_Envelopes.Containers
         readonly IEnvelopeDTOFactory envelopeDTOFactory = null;
 
         public EnvelopesContainer(IValidator validatorArguments,
-                                 IEnvelopeMapper envelopeMapper,
-                                IEnvelopeDTOFactory envelopeDTOFactory)
+                                  IEnvelopeMapper envelopeMapper,
+                                  IEnvelopeDTOFactory envelopeDTOFactory)
         {
             this.envelopeDTOFactory = envelopeDTOFactory;
             this.envelopeMapper = envelopeMapper;

@@ -69,11 +69,6 @@ namespace Task2_Envelopes
         {
             subscribe();
 
-            if (!validatorArguments.IsValid(args))
-            {
-                ShowInstruction?.Invoke();
-            }
-
             do
             {
                 EnvelopeDTO envelopeDTO1 = null;
@@ -81,6 +76,8 @@ namespace Task2_Envelopes
 
                 if (!validatorArguments.IsValid(args))
                 {
+                    ShowInstruction?.Invoke();
+
                     envelopeDTO1 = EnvelopsReader?.Invoke();
                     envelopeDTO2 = EnvelopsReader?.Invoke();
                 }
@@ -94,6 +91,8 @@ namespace Task2_Envelopes
                                                                    envelopesContainer.SecondEnvelope);
                     DisplayResult?.Invoke(campareResult);
                 }
+
+                args = null;
 
             } while (Continue?.Invoke() == Answer.Yes);
 
