@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Task5_NumberWord.UI;
+﻿using Task5_NumberWord.UI;
 
 namespace Task5_NumberWord.Interfaces
 {
@@ -7,6 +6,6 @@ namespace Task5_NumberWord.Interfaces
     {
         void AddObserver(IManagerViews m);
         void NotifyShowInstruction();
-        void NotifyShowNumberWords(List<string> words);
+        void NotifyShowNumberWords(string words);
     }
 }

@@ -8,18 +8,18 @@ namespace Task5_NumberWord.Dictionaries
 {
     public abstract class AbstractDictionaryWords
     {
-        public IDictionary<string, string> dictionaryNumbers = new Dictionary<string, string>();
-        public IDictionary<string, string> dictionaryTens = new Dictionary<string, string>();
-        public IDictionary<int, string> dictionaryBits = new Dictionary<int, string>();
+        readonly protected IDictionary<string, string> dictionaryNumbers = new Dictionary<string, string>();
+        readonly protected IDictionary<string, string> dictionaryTens = new Dictionary<string, string>();
+        readonly protected IDictionary<int, string> dictionaryBits = new Dictionary<int, string>();
 
-        private IDigitsFactory NumberPartFactory { get; set; }
+        readonly IDigitsFactory numberPartFactory = null;
 
         private string zero = "0";
         private string one = "1";
 
-        public AbstractDictionaryWords(IDigitsFactory factory)
+        public AbstractDictionaryWords(IDigitsFactory numberPartFactory)
         {
-            NumberPartFactory = factory;
+            this.numberPartFactory = numberPartFactory;
         }
 
         public virtual string GetValue(NumberPart numberPart)
@@ -29,43 +29,43 @@ namespace Task5_NumberWord.Dictionaries
                 return string.Empty;
             }
 
-            var digits = NumberPartFactory.Create(numberPart.Value);
+            var digits = numberPartFactory.Create(numberPart.Value);
 
             var builder = new StringBuilder();
             int keyHundred = 0;
 
             if (digits.First != zero)
             {
-                AppendNumberWord(digits.First, builder);
-                AppendBitWord(keyHundred, builder);
+                appendNumberWord(digits.First, builder);
+                appendBitWord(keyHundred, builder);
             }
 
             if (digits.Second != zero)
             {
                 if (digits.Second == one)
                 {
-                    AppendNumberWord(digits.Second + digits.Third, builder);
+                    appendNumberWord(digits.Second + digits.Third, builder);
                 }
                 else
                 {
-                    AppendTensWord(digits.Second, builder);
-                    AppendNumberWord(digits.Third, builder);
+                    appendTensWord(digits.Second, builder);
+                    appendNumberWord(digits.Third, builder);
                 }
             }
             else
             {
-                AppendNumberWord(digits.Third, builder);
+                appendNumberWord(digits.Third, builder);
             }
 
             if (numberPart.Position > keyHundred)
             {
-                AppendBitWord(numberPart.Position, builder);
+                appendBitWord(numberPart.Position, builder);
             }
 
             return builder.ToString();
         }
 
-        private void AppendTensWord(string tens, StringBuilder builder)
+        private void appendTensWord(string tens, StringBuilder builder)
         {
             dictionaryTens.TryGetValue(tens, out string valueTens);
             if (!string.IsNullOrEmpty(valueTens))
@@ -75,7 +75,7 @@ namespace Task5_NumberWord.Dictionaries
             }
         }
 
-        private void AppendBitWord(int position, StringBuilder builder)
+        private void appendBitWord(int position, StringBuilder builder)
         {
             dictionaryBits.TryGetValue(position, out string bits);
             if (!string.IsNullOrEmpty(bits))
@@ -85,7 +85,7 @@ namespace Task5_NumberWord.Dictionaries
             }
         }
 
-        private void AppendNumberWord(string numberPart, StringBuilder builder)
+        private void appendNumberWord(string numberPart, StringBuilder builder)
         {
             dictionaryNumbers.TryGetValue(numberPart, out string valueNumber);
             if (!string.IsNullOrEmpty(valueNumber))

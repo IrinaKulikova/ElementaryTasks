@@ -47,12 +47,10 @@
     <Compile Include="Dictionaries\DictionaryWordsRU.cs" />
     <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\ValidArgumentsLength.cs" />
-    <Compile Include="Expressions\Context.cs" />
     <Compile Include="Dictionaries\DictionaryWordsEU.cs" />
     <Compile Include="Dictionaries\AbstractDictionaryWords.cs" />
-    <Compile Include="Expressions\IExpression.cs" />
-    <Compile Include="Expressions\NonterminalExpression.cs" />
-    <Compile Include="Expressions\TerminalExpression.cs" />
+    <Compile Include="Services\Interfaces\IConverterNumber.cs" />
+    <Compile Include="Services\ConverterNumber.cs" />
     <Compile Include="ExtensionMethods\ArrayExtension.cs" />
     <Compile Include="Factories\ArgumentsFactory.cs" />
     <Compile Include="Factories\Interfaces\IArgumentsFactory.cs" />

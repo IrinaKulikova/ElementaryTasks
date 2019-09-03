@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Task5_NumberWord.UI
 {
@@ -7,13 +6,13 @@ namespace Task5_NumberWord.UI
     {
         public void Instruction()
         {
-            Console.WriteLine("Instruction");
+            Console.WriteLine("Instruction: ...");
             Console.ReadKey();
         }
 
-        public void Result(List<string> numberWords)
+        public void ShowResultWords(string numberWords)
         {
-            numberWords.ForEach(n => Console.Write(n));
+            Console.Write(numberWords);
             Console.ReadKey();
         }
     }

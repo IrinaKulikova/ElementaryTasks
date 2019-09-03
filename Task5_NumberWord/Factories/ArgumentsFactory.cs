@@ -14,17 +14,15 @@ namespace Task5_NumberWord.Factories
             switch ((ValidArgumentsLength)args.Length)
             {
                 case ValidArgumentsLength.Number:
-                    arguments = new Arguments(args[0], Language.EU);
+                    arguments = new Arguments(args[0]);
                     break;
 
                 case ValidArgumentsLength.NumberLanguage:
                     Enum.TryParse(args[1], out Language language);
-                    int.TryParse(args[0], out int number);
-                    arguments = new Arguments(args[0], language);
+                    arguments = new Arguments(args[0]);
                     break;
 
                 default:
-                    arguments = null;
                     break;
             }
 
