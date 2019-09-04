@@ -12,9 +12,9 @@ namespace Task5_NumberWord.Factories
             var argsNumbers = new string[necessaryLength];
             argsNumbers.Populate("0");
 
-            for (int i = numberPart.Length - 1; i >= 0; i--)
+            for (int i = numberPart.Length - 1, j = necessaryLength -1; i >= 0; i--, j--)
             {
-                argsNumbers[i] = numberPart[i].ToString();
+                argsNumbers[j] = numberPart[i].ToString();
             }
 
             return new Digits(argsNumbers[0], argsNumbers[1], argsNumbers[2]);

@@ -6,9 +6,9 @@ namespace Task5_NumberWord.Factories
 {
     public class NumberPartsCollectionFactory : INumberPartsCollectionFactory
     {
-        public List<NumberPart> Parse(string number)
+        public Queue<NumberPart> Parse(string number)
         {
-            var partsNumber = new List<NumberPart>();
+            var partsNumber = new Queue<NumberPart>();
 
             int particleSize = 3;
             int higher = number.Length % particleSize;
@@ -31,7 +31,7 @@ namespace Task5_NumberWord.Factories
             return partsNumber;
         }
 
-        private void AddPart(string number, int particleSize, int capacity, ref int counter, ref int position, List<NumberPart> partsNumber)
+        private void AddPart(string number, int particleSize, int capacity, ref int counter, ref int position, Queue<NumberPart> partsNumber)
         {
             var part = new NumberPart()
             {
@@ -41,7 +41,7 @@ namespace Task5_NumberWord.Factories
 
             position += particleSize;
             counter++;
-            partsNumber.Add(part);
+            partsNumber.Enqueue(part);
         }
     }
 }
