@@ -62,7 +62,7 @@ namespace Task5_NumberWord
             Arguments arguments = factoryArguments.Create(args);
 
             AbstractDictionaryWords dictionary = managerDictionary.GetDictionary(arguments.Language);
-            List<NumberPart> numberParts = numberPartsCollectionFactory.Parse(arguments.Number);
+            Queue<NumberPart> numberParts = numberPartsCollectionFactory.Parse(arguments.Number);
 
             IConverterNumber converter = new ConverterNumber(dictionary, numberParts);
             string words = converter.GetWord();
