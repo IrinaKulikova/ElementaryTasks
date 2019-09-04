@@ -6,7 +6,6 @@ namespace Task5_NumberWord.Services
 {
     public class ArgumentsValidator : IArgumentsValidator
     {
-
         public bool Check(string[] args)
         {
             return IsValidLength(args) && FirstIsNumber(args[0]) && SecondIsValid(args);

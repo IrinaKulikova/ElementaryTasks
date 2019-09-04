@@ -91,15 +91,12 @@ namespace CustomCollections
             this.Capacity = capacity;
         }
 
-        public ArgumentCollection(T[] args)
+        public ArgumentCollection(T[] args) : this(args.Length)
         {
-            arguments = new T[capacity];
-
-            for (int i = 0; i < arguments.Length; i++)
+            for (int i = 0; i < args.Length; i++)
             {
                 Add(args[i]);
             }
         }
     }
 }
-

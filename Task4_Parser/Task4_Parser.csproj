@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3687D033-6CE1-4EE6-A46F-3A81523F2810}</ProjectGuid>
+    <ProjectGuid>{8D81F882-1FD0-4021-AB27-9875462C33AA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task5_NumberWord</RootNamespace>
-    <AssemblyName>Task5_NumberWord</AssemblyName>
+    <RootNamespace>Task4_Parser</RootNamespace>
+    <AssemblyName>Task4_Parser</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,33 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="Dictionaries\DictionaryWordsRU.cs" />
-    <Compile Include="Enums\Language.cs" />
     <Compile Include="Enums\ValidArgumentsLength.cs" />
-    <Compile Include="Dictionaries\DictionaryWordsEU.cs" />
-    <Compile Include="Dictionaries\AbstractDictionaryWords.cs" />
-    <Compile Include="Services\Interfaces\IConverterNumber.cs" />
-    <Compile Include="Services\ConverterNumber.cs" />
-    <Compile Include="ExtensionMethods\ArrayExtension.cs" />
-    <Compile Include="Factories\ArgumentsFactory.cs" />
-    <Compile Include="Factories\Interfaces\IArgumentsFactory.cs" />
-    <Compile Include="Factories\Interfaces\IDigitsFactory.cs" />
-    <Compile Include="Factories\Interfaces\IDictionaryFactory.cs" />
-    <Compile Include="Factories\Interfaces\INumberPartsCollectionFactory.cs" />
-    <Compile Include="Factories\ManagerDictionary.cs" />
-    <Compile Include="Factories\NumberPartsCollectionFactory.cs" />
-    <Compile Include="Factories\DigitsFactory.cs" />
-    <Compile Include="Interfaces\IObservable.cs" />
-    <Compile Include="Models\Arguments.cs" />
-    <Compile Include="Models\NumberPart.cs" />
-    <Compile Include="Models\Digits.cs" />
+    <Compile Include="Factories\Interfaces\IParseArgumentsFactory.cs" />
+    <Compile Include="Factories\ParseArgumentsFactory.cs" />
+    <Compile Include="Models\ParseArguments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Interfaces\IArgumentsValidator.cs" />
-    <Compile Include="Services\Resolver.cs" />
     <Compile Include="Services\ArgumentsValidator.cs" />
-    <Compile Include="UI\IManagerViews.cs" />
-    <Compile Include="UI\ManagerConsole.cs" />
+    <Compile Include="Services\FileSystemWorker.cs" />
+    <Compile Include="Services\Interfaces\IFileSystemWorker.cs" />
+    <Compile Include="Services\Interfaces\IParser.cs" />
+    <Compile Include="Services\Interfaces\IArgumentsValidator.cs" />
+    <Compile Include="Services\Interfaces\ParserManager.cs" />
+    <Compile Include="Services\ParserManager.cs" />
+    <Compile Include="Services\ReaderParser.cs" />
+    <Compile Include="Services\Resolver.cs" />
+    <Compile Include="Services\SwitcherParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
