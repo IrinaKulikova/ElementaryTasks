@@ -51,6 +51,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ArgumentsValidator.cs" />
+    <Compile Include="Services\FileSystemWorker.cs" />
+    <Compile Include="Services\Interfaces\IFileSystemWorker.cs" />
     <Compile Include="Services\Interfaces\IParser.cs" />
     <Compile Include="Services\Interfaces\IArgumentsValidator.cs" />
     <Compile Include="Services\Interfaces\ParserManager.cs" />

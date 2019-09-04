@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Logger;
+using System.IO;
 using Task4_Parser.Models;
 using Task4_Parser.Services.Interfaces;
 
@@ -6,44 +7,45 @@ namespace Task4_Parser.Services
 {
     public class ReaderParser : IParser
     {
-        public int FindText(ParseArguments arguments)
+        readonly ILogger logger = null;
+
+        public ReaderParser(ILogger logger)
         {
-            var bufferSize = 1024;
-            int offset = 0;
+            this.logger = logger;
+        }
+
+        public int RunText(ParseArguments arguments)
+        {
             int count = 0;
+            int bufferSize = arguments.SearchText.Length * 100;
 
-            using (Stream stream = new FileStream(arguments.FilePath, FileMode.Open, FileAccess.ReadWrite))
+            try
             {
-                byte[] dataArray = new byte[bufferSize];
-                int length = 0;
-                while ((length = stream.Read(dataArray, offset, bufferSize)) > 0)
+                using (Stream stream = new FileStream(arguments.FilePath, FileMode.Open, FileAccess.Read))
                 {
-                    string bufferedText = System.Text.Encoding.UTF8.GetString(dataArray);
-                    int index = 0;
-
-                    while ((index = bufferedText.IndexOf(arguments.SearchText, index)) != -1)
+                    using (StreamReader sr = new StreamReader(stream))
                     {
-                        index += arguments.SearchText.Length;
-                        count++;
-                        if (!string.IsNullOrEmpty(arguments.NewText))
+                        char[] dataArray = new char[bufferSize];
+                        while (sr.Peek() >= 0)
                         {
-                            bufferedText = NewMethod(arguments.SearchText, arguments.NewText, bufferedText);
+                            sr.Read(dataArray, 0, dataArray.Length);
+                            int index = 0;
+
+                            while ((index = new string(dataArray).IndexOf(arguments.SearchText, index)) != -1)
+                            {
+                                index += arguments.SearchText.Length;
+                                count++;
+                            }
                         }
                     }
-                } while (length > 0) ;
+                }
             }
+            catch (FileNotFoundException ex)
+            {
+                logger.Error(ex);
+            }
+
             return count;
         }
-
-        private static string NewMethod(string searchText, string newText, string bufferedText)
-        {
-            if (newText != null)
-            {
-                bufferedText = bufferedText.Replace(searchText, newText);
-            }
-            return bufferedText;
-        }
-
-        protected virtual void ReplaceHook(string newText, string oldText, string source, int index) { }
     }
 }

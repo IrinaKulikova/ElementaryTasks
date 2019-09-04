@@ -9,15 +9,12 @@ namespace Task5_NumberWord.Services
 {
     public class ConverterNumber : IConverterNumber
     {
-        readonly INumberPartsCollectionFactory numberPartsCollectionFactory = null;
         readonly IEnumerable<NumberPart> numberParts = null;
         readonly AbstractDictionaryWords dictionary = null;
 
-        public ConverterNumber(INumberPartsCollectionFactory numberPartsCollectionFactory,
-                               AbstractDictionaryWords dictionary,
+        public ConverterNumber(AbstractDictionaryWords dictionary,
                                IEnumerable<NumberPart> numberParts)
         {
-            this.numberPartsCollectionFactory = numberPartsCollectionFactory;
             this.numberParts = numberParts;
             this.dictionary = dictionary;
         }
