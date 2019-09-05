@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4_Parser", "Task4_Parse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3_Triangles", "Task3_Triangles\Task3_Triangles.csproj", "{EFF6F624-28CF-42E2-B5B8-6E52364ED859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6_Tickets", "Task6_Tickets\Task6_Tickets.csproj", "{37F4A6BE-477C-4820-908E-2DEA95089C33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{EFF6F624-28CF-42E2-B5B8-6E52364ED859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFF6F624-28CF-42E2-B5B8-6E52364ED859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFF6F624-28CF-42E2-B5B8-6E52364ED859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F4A6BE-477C-4820-908E-2DEA95089C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F4A6BE-477C-4820-908E-2DEA95089C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F4A6BE-477C-4820-908E-2DEA95089C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F4A6BE-477C-4820-908E-2DEA95089C33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

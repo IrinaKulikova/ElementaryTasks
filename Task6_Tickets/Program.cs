@@ -1,7 +1,7 @@
 ﻿using DIResolver;
-using Task3_Triangles.Services;
+using Task6_Tickets.Services;
 
-namespace Task3_Triangles
+namespace Task6_Tickets
 {
     class Program
     {
