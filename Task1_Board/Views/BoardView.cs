@@ -41,6 +41,7 @@ namespace Task1_Board.Views
                 }
 
             }
+
             Console.ReadLine();
         }
     }

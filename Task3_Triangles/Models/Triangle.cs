@@ -6,9 +6,11 @@ namespace Task3_Triangles.Models
     {
         public List<float> Sides { get; private set; }
         public float Square { get; private set; }
+        public string Name { get; private set; }
 
-        public Triangle(IEnumerable<float> sides, float square)
+        public Triangle(string name, IEnumerable<float> sides, float square)
         {
+            Name = name;
             Sides = new List<float>(sides);
             Square = square;
         }

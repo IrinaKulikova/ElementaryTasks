@@ -2,7 +2,6 @@
 using Logger;
 using static System.Console;
 using System.Collections.Generic;
-using System.Linq;
 using Task3_Triangles.Models;
 using Task3_Triangles.Services.Interfaces;
 
@@ -37,7 +36,7 @@ namespace Task3_Triangles
             List<IFigure> figures = argumentsParser.Figures(args);
             figures.Sort(comparer);
 
-            figures.ForEach(f => WriteLine(f.Square));
+            figures.ForEach(f => WriteLine(f.Name + " " + f.Square));
             ReadKey();
         }
     }

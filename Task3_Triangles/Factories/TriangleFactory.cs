@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Task3_Triangles.Enums;
 using Task3_Triangles.Models;
 
@@ -8,9 +7,9 @@ namespace Task3_Triangles.Factories
 {
     public class TriangleFactory : IFigureFactory
     {
-        public ValidCountArguments CountSides => ValidCountArguments.CountTriangleSide;
+        public ValidCountArguments CountSides => ValidCountArguments.Triangle;
 
-        public IFigure Create(IEnumerable<float> sides)
+        public IFigure Create(string name, IEnumerable<float> sides)
         {
             float perimeter = 0;
             foreach (var side in sides)
@@ -22,10 +21,14 @@ namespace Task3_Triangles.Factories
 
             float multys = 1;
 
-            sides.ToList().ForEach(s => multys *= (halfPerimeter - s));
+            foreach(var side in sides)
+            {
+                multys *= (halfPerimeter - side);
+            }
+
             var square = Math.Sqrt(halfPerimeter * multys);
 
-            return new Triangle(sides, (float)square);
+            return new Triangle(name, sides, (float)square);
         }
     }
 }

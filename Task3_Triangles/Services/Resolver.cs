@@ -9,7 +9,7 @@ namespace Task3_Triangles.Services
 {
     public class Resolver : IResolver
     {
-        public IApplication Configuration()
+        public IApplication Initialization()
         {
             string fileName = "Task3_Triangles_log.txt";
             ILogger logger = new SimpleLogger(fileName);

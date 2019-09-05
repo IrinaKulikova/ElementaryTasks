@@ -21,6 +21,7 @@ namespace Task4_Parser.Services
             {
                 case ValidArgumentsLength.Empty:
                 default:
+                    logger.Debug("There are invalid count arguments: " + validArgumentsLength);
                     return null;
                 case ValidArgumentsLength.FileSearch:
                     return new ReaderParser(logger);

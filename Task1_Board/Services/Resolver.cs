@@ -7,7 +7,7 @@ namespace Task1_Board.Services
 {
     internal class Resolver : IResolver
     {
-        public IApplication Configuration()
+        public IApplication Initialization()
         {
             string logFile = "Task1_Board_Log.txt";
             IBoardFactory boardFactory = new BoardFactory();

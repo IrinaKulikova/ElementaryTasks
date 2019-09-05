@@ -2,6 +2,6 @@
 {
     public enum ValidCountArguments
     {
-        CountTriangleSide = 3
+        Triangle = 4
     }
 }

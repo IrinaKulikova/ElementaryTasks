@@ -14,9 +14,12 @@ namespace Task3_Triangles.Services
         {
             for (int i = 0; i < args.Length; i++)
             {
-                if (!float.TryParse(args[i], out float arg))
+                if (i % (int)ValidCountArguments.Triangle != 0)
                 {
-                    return false;
+                    if (!float.TryParse(args[i], out float arg))
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -24,7 +27,7 @@ namespace Task3_Triangles.Services
 
         private bool ValidCount(string[] args)
         {
-            return args.Length % (int)ValidCountArguments.CountTriangleSide == 0;
+            return args.Length % (int)ValidCountArguments.Triangle == 0;
         }
     }
 }
