@@ -4,22 +4,20 @@ namespace Task6_Tickets.Algorithms
 {
     public class PiterAlgorithm : IAlgorithm
     {
-        public bool GetCountLuckyTickets(ITicket ticket)
+        public bool IsLuckyTicket(ITicket ticket)
         {
             int sumPozitive = 0;
             int sumNegative = 0;
 
             for (int i = 0; i < ticket.Number.Length; i++)
             {
-                int digit = int.Parse(ticket.Number[i].ToString());
-
                 if (i % 2 == 0)
                 {
-                    sumPozitive += digit;
+                    sumPozitive += ticket.Number[i];
                 }
                 else
                 {
-                    sumNegative += digit;
+                    sumNegative += ticket.Number[i];
                 }
             }
 

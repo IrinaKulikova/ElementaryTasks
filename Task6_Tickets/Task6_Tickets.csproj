@@ -48,13 +48,21 @@
     <Compile Include="Algorithms\PiterAlgorithm.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Enums\Algorithm.cs" />
+    <Compile Include="Factories\ITicketFactory.cs" />
+    <Compile Include="Factories\TicketFactory.cs" />
     <Compile Include="Models\Interfaces\ITicket.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FileReader.cs" />
+    <Compile Include="Services\Interfaces\IManagerAlgorithm.cs" />
     <Compile Include="Services\Interfaces\IFileReader.cs" />
+    <Compile Include="Services\Interfaces\ILuckyTicketCounter.cs" />
+    <Compile Include="Services\Interfaces\ITicketGenerator.cs" />
+    <Compile Include="Services\LuckyTicketCounter.cs" />
+    <Compile Include="Services\ManagerAlgorithm.cs" />
     <Compile Include="Services\Resolver.cs" />
+    <Compile Include="Services\TicketGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -69,8 +77,9 @@
       <Name>Logger</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="Resources\algorithm.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

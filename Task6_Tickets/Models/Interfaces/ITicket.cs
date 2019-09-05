@@ -2,6 +2,6 @@
 {
     public interface ITicket
     {
-        string Number { get; }
+        byte[] Number { get; }
     }
 }

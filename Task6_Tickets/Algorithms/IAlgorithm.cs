@@ -4,6 +4,6 @@ namespace Task6_Tickets.Algorithms
 {
     public interface IAlgorithm
     {
-        bool GetCountLuckyTickets(ITicket ticket);
+        bool IsLuckyTicket(ITicket ticket);
     }
 }

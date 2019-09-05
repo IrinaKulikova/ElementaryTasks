@@ -4,9 +4,9 @@ namespace Task6_Tickets.Models
 {
     public class Ticket : ITicket
     {
-        public string Number { get; private set; }
+        public byte[] Number { get; private set; }
 
-        public Ticket(string number)
+        public Ticket(byte[] number)
         {
             Number = number;
         }
