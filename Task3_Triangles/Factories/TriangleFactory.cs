@@ -7,7 +7,7 @@ namespace Task3_Triangles.Factories
 {
     public class TriangleFactory : IFigureFactory
     {
-        public ValidCountArguments CountSides => ValidCountArguments.Triangle;
+        public ValidCountArguments CountSides => ValidCountArguments.Triangle - 1;
 
         public IFigure Create(string name, IEnumerable<float> sides)
         {

@@ -24,7 +24,7 @@ namespace Task3_Triangles.Services
 
             for (int i = 0; i < args.Length; i++)
             {
-                if (i % countSize != 0)
+                if (i % (countSize + 1) != 0)
                 {
                     if (float.TryParse(args[i], out float side))
                     {
@@ -39,9 +39,9 @@ namespace Task3_Triangles.Services
 
             var figures = new List<IFigure>();
 
-            for (int i = 0, j = 0; i < sides.Count; i += countSize-1, j++)
+            for (int i = 0, j = 0; i < sides.Count; i += countSize, j++)
             {
-                IEnumerable<float> figureSides = sides.Skip(i).Take(countSize - 1).ToList();
+                IEnumerable<float> figureSides = sides.Skip(i).Take(countSize).ToList();
                 IFigure figure = figureFactory.Create(names[j], figureSides);
                 figures.Add(figure);
             }
