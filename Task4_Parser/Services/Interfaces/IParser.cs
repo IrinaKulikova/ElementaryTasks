@@ -4,6 +4,6 @@ namespace Task4_Parser.Services.Interfaces
 {
     public interface IParser
     {
-        int RunText(ParseArguments parseArguments);
+        int RunText(IParseArguments parseArguments);
     }
 }

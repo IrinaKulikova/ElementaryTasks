@@ -1,6 +1,5 @@
 ﻿using Logger;
 using System.IO;
-using System.Text;
 using Task4_Parser.Models;
 using Task4_Parser.Services.Interfaces;
 
@@ -8,8 +7,12 @@ namespace Task4_Parser.Services
 {
     public class SwitcherParser : IParser
     {
+        #region
+
         readonly IFileSystemWorker fileSystemWorker = null;
         readonly ILogger logger = null;
+
+        #endregion
 
         public SwitcherParser(IFileSystemWorker fileSystemWorker,
                               ILogger logger)
@@ -18,43 +21,51 @@ namespace Task4_Parser.Services
             this.logger = logger;
         }
 
-        public int RunText(ParseArguments parseArguments)
+        public int RunText(IParseArguments parseArguments)
         {
             int count = 0;
             int bufferSize = parseArguments.SearchText.Length * 100;
 
             string copyFilePath = fileSystemWorker.CombineBufferFileName(parseArguments.FilePath);
 
-            using (Stream streamOrigin = new FileStream(parseArguments.FilePath, FileMode.Open, FileAccess.Read))
+            try
             {
-                using (Stream streamNew = new FileStream(copyFilePath, FileMode.OpenOrCreate, FileAccess.Write))
+
+                using (Stream streamOrigin = new FileStream(parseArguments.FilePath, FileMode.Open, FileAccess.Read))
                 {
-                    byte[] buf = new byte[bufferSize];
-
-                    using (StreamReader sr = new StreamReader(streamOrigin))
+                    using (Stream streamNew = new FileStream(copyFilePath, FileMode.OpenOrCreate, FileAccess.Write))
                     {
-                        using (StreamWriter sw = new StreamWriter(streamNew))
+                        byte[] buf = new byte[bufferSize];
+
+                        using (StreamReader sr = new StreamReader(streamOrigin))
                         {
-                            char[] dataArray = new char[bufferSize];
-
-                            while (sr.Peek() >= 0)
+                            using (StreamWriter sw = new StreamWriter(streamNew))
                             {
-                                sr.Read(dataArray, 0, dataArray.Length);
-                                string origin = new string(dataArray);
-                                int index = 0;
+                                char[] dataArray = new char[bufferSize];
 
-                                while ((index = new string(dataArray).IndexOf(parseArguments.SearchText, index)) != -1)
+                                while (sr.Peek() >= 0)
                                 {
-                                    index += parseArguments.SearchText.Length;
-                                    count++;
-                                }
+                                    sr.Read(dataArray, 0, dataArray.Length);
+                                    string origin = new string(dataArray);
+                                    int index = 0;
 
-                                string newText = origin.Replace(parseArguments.SearchText, parseArguments.NewText);
-                                sw.Write(newText);
+                                    while ((index = new string(dataArray).IndexOf(parseArguments.SearchText, index)) != -1)
+                                    {
+                                        index += parseArguments.SearchText.Length;
+                                        count++;
+                                    }
+
+                                    string newText = origin.Replace(parseArguments.SearchText, parseArguments.NewText);
+                                    sw.Write(newText);
+                                }
                             }
                         }
                     }
                 }
+            }
+            catch (FileNotFoundException ex)
+            {
+                logger.Error(ex);
             }
 
             fileSystemWorker.ReplaceFiles(parseArguments.FilePath, copyFilePath);

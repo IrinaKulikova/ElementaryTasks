@@ -9,7 +9,7 @@ namespace Task5_NumberWord.Services
 {
     public class Resolver : IResolver
     {
-        public IApplication Configuration()
+        public IApplication Initialization()
         {
             string logFile = "Task5_NumberWord_Log.txt";
             ILogger logger = new SimpleLogger(logFile);

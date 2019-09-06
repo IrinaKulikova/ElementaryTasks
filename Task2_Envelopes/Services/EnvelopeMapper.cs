@@ -10,8 +10,13 @@ namespace Task2_Envelopes.Services
 
     public class EnvelopeMapper : IEnvelopeMapper
     {
-        IParser parser = null;
-        ILogger logger = null;
+        #region private fields
+
+        private readonly IParser parser = null;
+        private readonly ILogger logger = null;
+
+        #endregion
+
         public event Error ShowError;
 
         public EnvelopeMapper(IParser parser, ILogger logger)
@@ -23,6 +28,7 @@ namespace Task2_Envelopes.Services
         public IEnvelope Map(EnvelopeDTO envelopeDTO)
         {
             IEnvelope envelope = null;
+
             try
             {
                 envelope = parser.GetEnvelope(envelopeDTO);
@@ -42,6 +48,7 @@ namespace Task2_Envelopes.Services
                 logger.Error(ex);
                 ShowError?.Invoke(envelopeDTO);
             }
+
             return envelope;
         }
     }

@@ -4,8 +4,12 @@ namespace Task5_NumberWord.Models
 {
     public class Arguments
     {
-        public string Number { get; set; }
-        public Language Language { get; set; }
+        #region properties
+
+        public string Number { get; private set; }
+        public Language Language { get; private set; }
+
+        #endregion
 
         public Arguments(string number, Language language)
         {

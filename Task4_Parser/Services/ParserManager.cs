@@ -6,10 +6,14 @@ namespace Task4_Parser.Services
 {
     public class ParserManager : IParserManager
     {
-        readonly IFileSystemWorker fileSystemWorker = null;
-        readonly ILogger logger = null;
+        #region private fields
 
-        public ParserManager(IFileSystemWorker fileSystemWorker)
+        private readonly IFileSystemWorker fileSystemWorker = null;
+        private readonly ILogger logger = null;
+
+        #endregion
+
+        public ParserManager(IFileSystemWorker fileSystemWorker, ILogger logger)
         {
             this.fileSystemWorker = fileSystemWorker;
             this.logger = logger;
@@ -17,16 +21,21 @@ namespace Task4_Parser.Services
 
         public IParser GetParser(ValidArgumentsLength validArgumentsLength)
         {
+
             switch (validArgumentsLength)
             {
                 case ValidArgumentsLength.Empty:
                 default:
+                    logger.Debug("There are invalid count arguments: " + validArgumentsLength);
                     return null;
+
                 case ValidArgumentsLength.FileSearch:
                     return new ReaderParser(logger);
+
                 case ValidArgumentsLength.FileSearchReplace:
                     return new SwitcherParser(fileSystemWorker, logger);
             }
+
         }
     }
 }

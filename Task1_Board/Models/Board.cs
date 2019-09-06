@@ -1,5 +1,4 @@
-﻿using Task1_Board.Factories;
-using Task1_Board.Models.Interfaces;
+﻿using Task1_Board.Models.Interfaces;
 
 namespace Task1_Board.Models
 {

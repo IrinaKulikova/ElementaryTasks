@@ -8,9 +8,13 @@ namespace Task1_Board
 {
     public class Application : IApplication
     {
-        public IParser Parser { get; private set; }
-        public IManager Manager { get; private set; }
-        public ILogger Logger { get; private set; }
+        #region private fields
+
+        private readonly IParser Parser = null;
+        private readonly IManager Manager = null;
+        private readonly ILogger Logger = null;
+
+        #endregion
 
         public Application(IParser parser, IManager manager, ILogger logger)
         {

@@ -10,7 +10,7 @@ namespace Task2_Envelopes.Services
 {
     public class Resolver : IResolver
     {
-        public IApplication Configuration()
+        public IApplication Initialization()
         {
             string logFile = "Task2_Envelopes.txt";
             ILogger logger = new SimpleLogger(logFile);

@@ -8,14 +8,14 @@ namespace Task4_Parser.Services
 {
     public class Resolver : IResolver
     {
-        public IApplication Configuration()
+        public IApplication Initialization()
         {
             string fileName = "Task4_Parser_log.txt";
             ILogger logger = new SimpleLogger(fileName);
 
             IArgumentsValidator argumentsValidator = new ArgumentsValidator();
             IFileSystemWorker fileSystemWorker = new FileSystemWorker();
-            IParserManager parserManager = new ParserManager(fileSystemWorker);
+            IParserManager parserManager = new ParserManager(fileSystemWorker, logger);
             IParseArgumentsFactory parseArgumentsFactory = new ParseArgumentsFactory(logger);
 
             var app = new Application(argumentsValidator, parserManager, logger, parseArgumentsFactory);

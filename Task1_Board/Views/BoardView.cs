@@ -9,7 +9,11 @@ namespace Task1_Board.Views
 {
     class BoardView : ConsoleView
     {
-        IDictionary<CellColor, char> Symbols = new Dictionary<CellColor, char>();
+        #region private fields
+
+        private readonly IDictionary<CellColor, char> Symbols = new Dictionary<CellColor, char>();
+
+        #endregion
 
         public BoardView(ConsoleColor color) : base(color)
         {
@@ -41,6 +45,7 @@ namespace Task1_Board.Views
                 }
 
             }
+
             Console.ReadLine();
         }
     }

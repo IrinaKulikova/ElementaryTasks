@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Task5_NumberWord.Dictionaries;
-using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Models;
 using Task5_NumberWord.Services.Interfaces;
 
@@ -9,8 +8,12 @@ namespace Task5_NumberWord.Services
 {
     public class ConverterNumber : IConverterNumber
     {
-        readonly IEnumerable<NumberPart> numberParts = null;
-        readonly AbstractDictionaryWords dictionary = null;
+        #region
+
+        private readonly IEnumerable<NumberPart> numberParts = null;
+        private readonly AbstractDictionaryWords dictionary = null;
+
+        #endregion
 
         public ConverterNumber(AbstractDictionaryWords dictionary,
                                IEnumerable<NumberPart> numberParts)

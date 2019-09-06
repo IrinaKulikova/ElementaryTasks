@@ -5,6 +5,6 @@ namespace Task5_NumberWord.Factories.Interfaces
 {
     public interface INumberPartsCollectionFactory
     {
-        List<NumberPart> Parse(string number);
+        Queue<NumberPart> Parse(string number);
     }
 }

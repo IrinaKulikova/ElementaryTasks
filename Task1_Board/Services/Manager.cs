@@ -13,7 +13,11 @@ namespace Task1_Board.Services
 {
     public class Manager : IManager
     {
-        IBoardFactory BoardFactory { get; set; }
+        #region private fields
+
+        private readonly IBoardFactory BoardFactory = null;
+
+        #endregion
 
         public Manager(IBoardFactory boardFactory)
         {

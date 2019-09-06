@@ -11,10 +11,14 @@ namespace Task4_Parser
 {
     public class Application : IApplication
     {
-        readonly IArgumentsValidator argumentsValidator = null;
-        readonly IParserManager parserManager = null;
-        readonly ILogger logger = null;
-        readonly IParseArgumentsFactory parseArgumentsFactory = null;
+        #region private fields
+
+        private readonly IArgumentsValidator argumentsValidator = null;
+        private readonly IParserManager parserManager = null;
+        private readonly ILogger logger = null;
+        private readonly IParseArgumentsFactory parseArgumentsFactory = null;
+
+        #endregion
 
         public Application(IArgumentsValidator argumentsValidator,
                            IParserManager parserManager,
@@ -38,8 +42,9 @@ namespace Task4_Parser
             {
                 IArgumentCollection<string> argumentsCollection = new ArgumentCollection<string>(args);
                 IParser parser = parserManager.GetParser((ValidArgumentsLength)argumentsCollection.Count);
-                ParseArguments parseArguments = parseArgumentsFactory.Create(argumentsCollection);
+                IParseArguments parseArguments = parseArgumentsFactory.Create(argumentsCollection);
                 int count = parser.RunText(parseArguments);
+
                 Console.WriteLine(count);
                 Console.ReadKey();
             }

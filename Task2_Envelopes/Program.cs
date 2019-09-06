@@ -8,7 +8,7 @@ namespace Task2_Envelopes
         static void Main(string[] args)
         {
             IResolver resolver = new Resolver();
-            IApplication app = resolver.Configuration();
+            IApplication app = resolver.Initialization();
             app.Start(args);
         }
     }

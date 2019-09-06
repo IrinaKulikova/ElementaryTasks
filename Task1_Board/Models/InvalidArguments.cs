@@ -4,7 +4,7 @@ namespace Task1_Board.Models
 {
     class InvalidArguments : IMessage
     {
-        private readonly string message = "You shold input 2 valid arguments! ";
+        private readonly string message = "You shold input two valid arguments! ";
         public string Message => message;
     }
 }

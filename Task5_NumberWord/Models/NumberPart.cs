@@ -2,7 +2,13 @@
 {
     public class NumberPart
     {
-        public string Value { get; set; }
-        public int Position { get; set; }
+        public string Value { get; private set; }
+        public int Position { get; private set; }
+
+        public NumberPart(string value, int position)
+        {
+            this.Position = position;
+            this.Value = value;
+        }
     }
 }

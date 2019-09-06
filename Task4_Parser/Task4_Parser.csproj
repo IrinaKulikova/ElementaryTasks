@@ -47,6 +47,7 @@
     <Compile Include="Enums\ValidArgumentsLength.cs" />
     <Compile Include="Factories\Interfaces\IParseArgumentsFactory.cs" />
     <Compile Include="Factories\ParseArgumentsFactory.cs" />
+    <Compile Include="Models\IParseArguments.cs" />
     <Compile Include="Models\ParseArguments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +79,8 @@
       <Name>Logger</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\alica.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

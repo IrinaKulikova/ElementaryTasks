@@ -5,7 +5,11 @@ namespace Task4_Parser.Services
 {
     public class FileSystemWorker : IFileSystemWorker
     {
-        readonly string copy = "_copy";
+        #region private fields
+
+        private readonly string copy = "_copy";
+
+        #endregion
 
         public string CombineBufferFileName(string fileNamePath)
         {
@@ -19,11 +23,13 @@ namespace Task4_Parser.Services
 
         public void ReplaceFiles(string filePath, string copyFilePath)
         {
+
             if (File.Exists(filePath) && File.Exists(copyFilePath))
             {
                 File.Delete(filePath);
                 File.Move(copyFilePath, filePath);
             }
+
         }
     }
 }
