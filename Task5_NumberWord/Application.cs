@@ -14,13 +14,17 @@ namespace Task5_NumberWord
 {
     public class Application : IApplication, IObservable
     {
-        readonly IArgumentsFactory factoryArguments = null;
-        readonly IArgumentsValidator argumentsValidator = null;
-        readonly IManagerDictionary managerDictionary = null;
-        readonly ILogger logger = null;
-        readonly INumberPartsCollectionFactory numberPartsCollectionFactory = null;
+        #region private fields
 
-        IManagerViews managerViews = null;
+        private readonly IArgumentsFactory factoryArguments = null;
+        private readonly IArgumentsValidator argumentsValidator = null;
+        private readonly IManagerDictionary managerDictionary = null;
+        private readonly ILogger logger = null;
+        private readonly INumberPartsCollectionFactory numberPartsCollectionFactory = null;
+
+        private IManagerViews managerViews = null;
+
+        #endregion
 
         public Application(IArgumentsValidator argumentsValidator,
                            IArgumentsFactory factoryArguments,

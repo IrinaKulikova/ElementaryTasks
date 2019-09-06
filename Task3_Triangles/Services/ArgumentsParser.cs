@@ -8,7 +8,11 @@ namespace Task3_Triangles.Services
 {
     public class ArgumentsParser : IArgumentsParser
     {
-        IFigureFactory figureFactory = null;
+        #region private fields
+
+        private readonly IFigureFactory figureFactory = null;
+
+        #endregion
 
         public ArgumentsParser(IFigureFactory figureFactory)
         {

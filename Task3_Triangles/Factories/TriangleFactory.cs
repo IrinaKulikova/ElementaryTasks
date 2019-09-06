@@ -7,7 +7,11 @@ namespace Task3_Triangles.Factories
 {
     public class TriangleFactory : IFigureFactory
     {
-        public ValidCountArguments CountSides => ValidCountArguments.Triangle - 1;
+
+        public ValidCountArguments CountSides
+        {
+            get => ValidCountArguments.Triangle - 1;
+        }
 
         public IFigure Create(string name, IEnumerable<float> sides)
         {
@@ -21,7 +25,7 @@ namespace Task3_Triangles.Factories
 
             float multys = 1;
 
-            foreach(var side in sides)
+            foreach (var side in sides)
             {
                 multys *= (halfPerimeter - side);
             }

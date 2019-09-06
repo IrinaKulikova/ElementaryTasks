@@ -8,12 +8,21 @@ namespace Task2_Envelopes.Containers
 {
     public class EnvelopesContainer : IEnvelopeContainer
     {
+        #region private fields 
+
+        private readonly IEnvelopeMapper envelopeMapper = null;
+        private readonly IValidator validatorArguments;
+        private readonly IEnvelopeDTOFactory envelopeDTOFactory = null;
+
+        #endregion
+
+        #region properties
+
         public IEnvelope FirstEnvelope { get; private set; }
         public IEnvelope SecondEnvelope { get; private set; }
 
-        readonly IEnvelopeMapper envelopeMapper = null;
-        readonly IValidator validatorArguments;
-        readonly IEnvelopeDTOFactory envelopeDTOFactory = null;
+        #endregion
+
 
         public EnvelopesContainer(IValidator validatorArguments,
                                   IEnvelopeMapper envelopeMapper,

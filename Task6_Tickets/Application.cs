@@ -9,12 +9,12 @@ namespace Task6_Tickets
 {
     public class Application : IApplication
     {
-        #region PRIVATE FIELDS
+        #region private fields
 
-        readonly IFileReader fileReader = null;
-        readonly ILogger logger = null;
-        readonly ILuckyTicketCounter luckyTicketCounter = null;
-        readonly IManagerAlgorithm managerAlgorithm = null;
+        private readonly IFileReader fileReader = null;
+        private readonly ILogger logger = null;
+        private readonly ILuckyTicketCounter luckyTicketCounter = null;
+        private readonly IManagerAlgorithm managerAlgorithm = null;
 
         #endregion
 

@@ -15,7 +15,7 @@ namespace Task4_Parser.Services
 
             IArgumentsValidator argumentsValidator = new ArgumentsValidator();
             IFileSystemWorker fileSystemWorker = new FileSystemWorker();
-            IParserManager parserManager = new ParserManager(fileSystemWorker);
+            IParserManager parserManager = new ParserManager(fileSystemWorker, logger);
             IParseArgumentsFactory parseArgumentsFactory = new ParseArgumentsFactory(logger);
 
             var app = new Application(argumentsValidator, parserManager, logger, parseArgumentsFactory);

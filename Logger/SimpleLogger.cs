@@ -38,7 +38,8 @@ namespace Logger
             {
                 using (StreamWriter stringStream = new StreamWriter(stream))
                 {
-                    stringStream.WriteLine(DateTime.Now.ToUniversalTime() + "  |  " + "error exception" + "  |  " + ex.StackTrace);
+                    stringStream.WriteLine(DateTime.Now.ToUniversalTime() +
+                        "  |  " + "error exception" + "  |  " + ex.StackTrace);
                 }
             }
         }

@@ -7,7 +7,12 @@ namespace Task6_Tickets.Services
 {
     public class ManagerAlgorithm : IManagerAlgorithm
     {
-        readonly ILogger logger = null;
+
+        #region private fields
+
+        private readonly ILogger logger = null;
+
+        #endregion
 
         public ManagerAlgorithm(ILogger logger)
         {

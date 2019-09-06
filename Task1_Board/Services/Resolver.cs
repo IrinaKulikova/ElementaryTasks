@@ -10,10 +10,12 @@ namespace Task1_Board.Services
         public IApplication Initialization()
         {
             string logFile = "Task1_Board_Log.txt";
-            IBoardFactory boardFactory = new BoardFactory();
+            ILogger logger = new SimpleLogger(logFile);
+
+            ICellFactory cellFactory = new CellFactory();
+            IBoardFactory boardFactory = new BoardFactory(cellFactory);
             IParser parser = new Parser();
             IManager manager = new Manager(boardFactory);
-            ILogger logger = new SimpleLogger(logFile);
 
             var app = new Application(parser, manager, logger);
 

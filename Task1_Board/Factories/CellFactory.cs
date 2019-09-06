@@ -8,6 +8,7 @@ namespace Task1_Board.Factories
         public Cell Create(int x, int y)
         {
             var color = (y + x) % 2 == 0 ? CellColor.Black : CellColor.White;
+
             return new Cell(y, x, color);
         }
     }

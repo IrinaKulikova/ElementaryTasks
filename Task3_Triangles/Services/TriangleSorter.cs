@@ -7,6 +7,7 @@ namespace Task3_Triangles.Services
     {
         public int Compare(IFigure triangle1, IFigure triangle2)
         {
+
             if (triangle1.Square > triangle2.Square)
             {
                 return -1;

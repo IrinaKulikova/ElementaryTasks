@@ -9,10 +9,14 @@ namespace Task3_Triangles
 {
     public class Application : IApplication
     {
-        readonly IValidatorArguments validatorArguments = null;
-        readonly ILogger logger = null;
-        readonly IArgumentsParser argumentsParser = null;
-        readonly IComparer<IFigure> comparer = null;
+        #region private fields
+
+        private readonly IValidatorArguments validatorArguments = null;
+        private readonly ILogger logger = null;
+        private readonly IArgumentsParser argumentsParser = null;
+        private readonly IComparer<IFigure> comparer = null;
+
+        #endregion
 
         public Application(IValidatorArguments validatorArguments,
                            ILogger logger,

@@ -15,17 +15,25 @@ namespace Task2_Envelopes
 
     public class Application : IApplication
     {
-        readonly IComparator comparator = null;
-        readonly IManager consoleManager = null;
-        readonly ILogger logger = null;
-        readonly IValidator validatorArguments;
-        readonly IEnvelopeContainer envelopesContainer = null;
-        readonly IEnvelopeMapper envelopeMapper = null;
+        #region private fields
+
+        private readonly IComparator comparator = null;
+        private readonly IManager consoleManager = null;
+        private readonly ILogger logger = null;
+        private readonly IValidator validatorArguments;
+        private readonly IEnvelopeContainer envelopesContainer = null;
+        private readonly IEnvelopeMapper envelopeMapper = null;
+
+        #endregion
+
+        #region events
 
         public event DisplayResult DisplayResult;
         public event EnvelopsReader EnvelopsReader;
         public event AnswerReader Continue;
         public event Instruction ShowInstruction;
+
+        #endregion
 
         public Application(IComparator comparator,
                            IManager consoleManager,
@@ -42,7 +50,7 @@ namespace Task2_Envelopes
             this.envelopeMapper = envelopeMapper;
         }
 
-        #region PRIVATE METHODS
+        #region private methods
 
         private void subscribe()
         {

@@ -8,18 +8,23 @@ namespace Task4_Parser.Factories
 {
     public class ParseArgumentsFactory : IParseArgumentsFactory
     {
-        ILogger logger = null;
+        #region private fields
+
+        private readonly ILogger logger = null;
+
+        #endregion
 
         public ParseArgumentsFactory(ILogger logger)
         {
             this.logger = logger;
         }
 
-        public ParseArguments Create(IArgumentCollection<string> collection)
+        public IParseArguments Create(IArgumentCollection<string> collection)
         {
             var filePath = collection[0];
             var searchText = collection[1];
             string newText = null;
+
             try
             {
                 newText = collection[2];

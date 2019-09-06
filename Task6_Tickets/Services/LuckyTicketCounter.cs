@@ -7,8 +7,12 @@ namespace Task6_Tickets.Services
 {
     public class LuckyTicketCounter : ILuckyTicketCounter
     {
+        #region private fields
+
         private IAlgorithm algorithm = null;
         private readonly ITicketFactory ticketFactory = null;
+
+        #endregion
 
         public LuckyTicketCounter(ITicketFactory ticketFactory)
         {

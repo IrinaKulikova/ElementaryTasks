@@ -22,6 +22,7 @@ namespace Task3_Triangles.Services
                     }
                 }
             }
+
             return true;
         }
 

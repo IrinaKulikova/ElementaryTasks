@@ -5,7 +5,16 @@ namespace Task1_Board.Factories
 {
     public class BoardFactory : IBoardFactory
     {
-        ICellFactory cellFactory = new CellFactory();
+        #region private fields
+
+        private readonly ICellFactory cellFactory = null;
+
+        #endregion
+
+        public BoardFactory(ICellFactory cellFactory)
+        {
+            this.cellFactory = cellFactory;
+        }
 
         public IBoard Create(int heigth, int width)
         {

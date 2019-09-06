@@ -8,7 +8,11 @@ namespace Task2_Envelopes.Services
 {
     public class Parser : IParser
     {
-        IEnvelopeFactory envelopeFactory;
+        #region private fields
+
+        private readonly IEnvelopeFactory envelopeFactory = null;
+
+        #endregion
 
         public Parser(IEnvelopeFactory envelopeFactory)
         {

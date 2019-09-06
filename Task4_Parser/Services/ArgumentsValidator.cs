@@ -8,20 +8,20 @@ namespace Task4_Parser.Services
     {
         public bool Check(string[] args)
         {
-            return isValidLength(args) && File.Exists(args[0]);
+            return IsValidLength(args) && File.Exists(args[0]);
         }
 
-        private bool isValidLength(string[] args)
+        private bool IsValidLength(string[] args)
         {
-            return checkTwoArguments(args) || checkThreeArguments(args);
+            return CheckTwoArguments(args) || CheckThreeArguments(args);
         }
 
-        private bool checkTwoArguments(string[] args)
+        private bool CheckTwoArguments(string[] args)
         {
             return args.Length == (int)ValidArgumentsLength.FileSearch;
         }
 
-        private bool checkThreeArguments(string[] args)
+        private bool CheckThreeArguments(string[] args)
         {
             return args.Length == (int)ValidArgumentsLength.FileSearchReplace;
         }

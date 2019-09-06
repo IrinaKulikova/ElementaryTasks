@@ -7,14 +7,18 @@ namespace Task4_Parser.Services
 {
     public class ReaderParser : IParser
     {
-        readonly ILogger logger = null;
+        #region private fields
+
+        private readonly ILogger logger = null;
+
+        #endregion
 
         public ReaderParser(ILogger logger)
         {
             this.logger = logger;
         }
 
-        public int RunText(ParseArguments arguments)
+        public int RunText(IParseArguments arguments)
         {
             int count = 0;
             int bufferSize = arguments.SearchText.Length * 100;
