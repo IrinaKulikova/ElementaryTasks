@@ -1,6 +1,6 @@
 ﻿namespace Task6_Tickets.Enums
 {
-    public enum Algorithm
+    public enum AlgorithmType
     {
         Undefined,
         Moskow,

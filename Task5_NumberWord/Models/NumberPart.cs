@@ -2,13 +2,24 @@
 {
     public class NumberPart
     {
-        public string Value { get; private set; }
-        public int Position { get; private set; }
+        #region private fields
+
+        private readonly string _value;
+        private readonly int _position;
+
+        #endregion
+
+        #region prperties
+
+        public string Value { get => _value; }
+        public int Position { get => _position; }
+
+        #endregion
 
         public NumberPart(string value, int position)
         {
-            this.Position = position;
-            this.Value = value;
+            _position = position;
+            _value = value;
         }
     }
 }

@@ -8,27 +8,31 @@ namespace Task5_NumberWord.Services
 {
     public class ConverterNumber : IConverterNumber
     {
-        #region
+        #region private fields
 
-        private readonly IEnumerable<NumberPart> numberParts = null;
-        private readonly AbstractDictionaryWords dictionary = null;
+        private readonly IEnumerable<NumberPart> _numberParts;
+        private readonly AbstractDictionaryWords _dictionary;
 
         #endregion
+
+        #region ctor
 
         public ConverterNumber(AbstractDictionaryWords dictionary,
                                IEnumerable<NumberPart> numberParts)
         {
-            this.numberParts = numberParts;
-            this.dictionary = dictionary;
+            _numberParts = numberParts;
+            _dictionary = dictionary;
         }
+
+        #endregion
 
         public string GetWord()
         {
             var resultText = new StringBuilder();
 
-            foreach (var part in numberParts)
+            foreach (var part in _numberParts)
             {
-                resultText.Append(dictionary.GetValue(part));
+                resultText.Append(_dictionary.GetValue(part));
             }
 
             return resultText.ToString();

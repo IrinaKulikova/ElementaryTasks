@@ -10,18 +10,18 @@ namespace Task3_Triangles.Services
     {
         #region private fields
 
-        private readonly IFigureFactory figureFactory = null;
+        private readonly IFigureFactory _figureFactory;
 
         #endregion
 
         public ArgumentsParser(IFigureFactory figureFactory)
         {
-            this.figureFactory = figureFactory;
+            _figureFactory = figureFactory;
         }
 
         public List<IFigure> Figures(string[] args)
         {
-            int countSize = (int)figureFactory.CountSides;
+            int countSize = (int)_figureFactory.CountSides;
 
             List<float> sides = new List<float>();
             List<string> names = new List<string>();
@@ -46,7 +46,7 @@ namespace Task3_Triangles.Services
             for (int i = 0, j = 0; i < sides.Count; i += countSize, j++)
             {
                 IEnumerable<float> figureSides = sides.Skip(i).Take(countSize).ToList();
-                IFigure figure = figureFactory.Create(names[j], figureSides);
+                IFigure figure = _figureFactory.Create(names[j], figureSides);
                 figures.Add(figure);
             }
 

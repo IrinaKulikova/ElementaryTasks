@@ -53,6 +53,7 @@
     <Compile Include="Factories\ICellFactory.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\ICell.cs" />
     <Compile Include="Models\Instruction.cs" />
     <Compile Include="Models\Interfaces\IBoard.cs" />
     <Compile Include="Models\Interfaces\IMessage.cs" />

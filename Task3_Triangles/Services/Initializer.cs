@@ -12,14 +12,14 @@ namespace Task3_Triangles.Services
         public IApplication InitializeApplication()
         {
             string fileName = "Task3_Triangles_log.txt";
-            ILogger logger = new SimpleLogger(fileName);
+            var logger = new SimpleLogger(fileName);
 
-            IValidatorArguments validatorArguments = new ValidatorArguments();
-            IFigureFactory figureFactory = new TriangleFactory();
-            IArgumentsParser argumentsParser = new ArgumentsParser(figureFactory);
-            IComparer<IFigure> comparer = new TriangleSorter();
+            var validatorArguments = new ValidatorArguments();
+            var figureFactory = new TriangleFactory();
+            var argumentsParser = new ArgumentsParser(figureFactory);
+            var comparer = new TriangleSorter();
 
-            IApplication app = new Application(validatorArguments, logger,
+            var app = new Application(validatorArguments, logger,
                                                argumentsParser, comparer);
 
             return app;

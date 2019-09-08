@@ -6,7 +6,7 @@ namespace Task1_Board.Models
     {
         #region private fields
 
-        private readonly Cell[,] cells = null;
+        private readonly ICell[,] cells = null;
 
         #endregion
 
@@ -18,13 +18,13 @@ namespace Task1_Board.Models
 
         #endregion
 
-        public Cell this[int i, int j]
+        public ICell this[int i, int j]
         {
             get => cells[i, j];
             set => cells[i, j] = value;
         }
 
-        public Board(int heigth, int width, Cell[,] cells)
+        public Board(int heigth, int width, ICell[,] cells)
         {
             Heigth = heigth;
             Width = width;

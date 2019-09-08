@@ -9,13 +9,13 @@ namespace Task1_Board.Services
     {
         #region private fields
 
-        private readonly ILogger logger = null;
+        private readonly ILogger _logger;
 
         #endregion
 
         public ArgumentsValidator(ILogger logger)
         {
-            this.logger = logger;
+            _logger = logger;
         }
 
         public bool IsValidInputArguments(string[] inputArguments, IArgumentCollection<int> argumets)
@@ -29,7 +29,7 @@ namespace Task1_Board.Services
                 }
                 else
                 {
-                    logger.Error($"Invalid argument: {argument}");
+                    _logger.Error($"Invalid argument: {argument}");
                     return false;
                 }
 

@@ -4,6 +4,6 @@ namespace Task6_Tickets.Services.Interfaces
 {
     public interface IFileReader
     {
-        Algorithm GetNameAlgorithm(string path);
+        AlgorithmType GetNameAlgorithm(string path);
     }
 }

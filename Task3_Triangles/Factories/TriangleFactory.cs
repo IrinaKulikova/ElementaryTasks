@@ -16,6 +16,7 @@ namespace Task3_Triangles.Factories
         public IFigure Create(string name, IEnumerable<float> sides)
         {
             float perimeter = 0;
+
             foreach (var side in sides)
             {
                 perimeter += side;

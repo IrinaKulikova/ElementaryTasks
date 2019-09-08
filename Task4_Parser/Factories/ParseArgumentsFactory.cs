@@ -10,14 +10,18 @@ namespace Task4_Parser.Factories
     {
         #region private fields
 
-        private readonly ILogger logger = null;
+        private readonly ILogger _logger;
 
         #endregion
 
+        #region ctor
+
         public ParseArgumentsFactory(ILogger logger)
         {
-            this.logger = logger;
+            _logger = logger;
         }
+
+        #endregion
 
         public IParseArguments Create(IArgumentCollection<string> collection)
         {
@@ -31,7 +35,7 @@ namespace Task4_Parser.Factories
             }
             catch (IndexOutOfRangeException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
             }
 
             return new ParseArguments(filePath, searchText, newText);

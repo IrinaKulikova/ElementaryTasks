@@ -12,8 +12,8 @@ namespace Task2_Envelopes.Services
     {
         #region private fields
 
-        private readonly IParser parser = null;
-        private readonly ILogger logger = null;
+        private readonly IParser _parser;
+        private readonly ILogger _logger;
 
         #endregion
 
@@ -21,8 +21,8 @@ namespace Task2_Envelopes.Services
 
         public EnvelopeMapper(IParser parser, ILogger logger)
         {
-            this.logger = logger;
-            this.parser = parser;
+            _logger = logger;
+            _parser = parser;
         }
 
         public IEnvelope Map(EnvelopeDTO envelopeDTO)
@@ -31,21 +31,21 @@ namespace Task2_Envelopes.Services
 
             try
             {
-                envelope = parser.GetEnvelope(envelopeDTO);
+                envelope = _parser.GetEnvelope(envelopeDTO);
             }
             catch (ArgumentException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
                 ShowError?.Invoke(envelopeDTO);
             }
             catch (FormatException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
                 ShowError?.Invoke(envelopeDTO);
             }
             catch (OverflowException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
                 ShowError?.Invoke(envelopeDTO);
             }
 

@@ -1,8 +1,6 @@
 ﻿using ApplicationInitializer;
 using Logger;
 using Task4_Parser.Factories;
-using Task4_Parser.Factories.Interfaces;
-using Task4_Parser.Services.Interfaces;
 
 namespace Task4_Parser.Services
 {
@@ -11,14 +9,15 @@ namespace Task4_Parser.Services
         public IApplication InitializeApplication()
         {
             string fileName = "Task4_Parser_log.txt";
-            ILogger logger = new SimpleLogger(fileName);
+            var logger = new SimpleLogger(fileName);
 
-            IArgumentsValidator argumentsValidator = new ArgumentsValidator();
-            IFileSystemWorker fileSystemWorker = new FileSystemWorker();
-            IParserManager parserManager = new ParserManager(fileSystemWorker, logger);
-            IParseArgumentsFactory parseArgumentsFactory = new ParseArgumentsFactory(logger);
+            var argumentsValidator = new ArgumentsValidator();
+            var fileSystemWorker = new FileSystemWorker();
+            var parserManager = new ParserManager(fileSystemWorker, logger);
+            var parseArgumentsFactory = new ParseArgumentsFactory(logger);
 
-            var app = new Application(argumentsValidator, parserManager, logger, parseArgumentsFactory);
+            var app = new Application(argumentsValidator, parserManager, 
+                                      logger, parseArgumentsFactory);
 
             return app;
         }

@@ -10,15 +10,16 @@ namespace Task6_Tickets.Services
         public IApplication InitializeApplication()
         {
             string fileName = "Task6_Tickets_log.txt";
-            ILogger logger = new SimpleLogger(fileName);
-            IFileReader fileReader = new FileReader();
-            ITicketFactory ticketFactory = new TicketFactory();
-            ILuckyTicketCounter luckyTicketCounter = new LuckyTicketCounter(ticketFactory);
-            IManagerAlgorithm managerAlgorithm = new ManagerAlgorithm(logger);
+            var logger = new SimpleLogger(fileName);
 
-            IApplication app = new Application(fileReader, logger,
-                                               luckyTicketCounter,
-                                               managerAlgorithm);
+            var fileReader = new FileReader();
+            var ticketFactory = new TicketFactory();
+            var luckyTicketCounter = new LuckyTicketCounter(ticketFactory);
+            var managerAlgorithm = new ManagerAlgorithm(logger);
+
+            var app = new Application(fileReader, logger,
+                                      luckyTicketCounter,
+                                      managerAlgorithm);
 
             return app;
         }

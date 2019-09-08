@@ -10,13 +10,13 @@ namespace Task2_Envelopes.Services
     {
         #region private fields
 
-        private readonly IEnvelopeFactory envelopeFactory = null;
+        private readonly IEnvelopeFactory _envelopeFactory;
 
         #endregion
 
         public Parser(IEnvelopeFactory envelopeFactory)
         {
-            this.envelopeFactory = envelopeFactory;
+            _envelopeFactory = envelopeFactory;
         }
 
         public IEnvelope GetEnvelope(EnvelopeDTO envelopeDTO)
@@ -28,7 +28,7 @@ namespace Task2_Envelopes.Services
             {
                 throw new ArgumentException();
             }
-            return envelopeFactory.Create(height, width);
+            return _envelopeFactory.Create(height, width);
         }
     }
 }

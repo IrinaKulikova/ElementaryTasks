@@ -1,12 +1,9 @@
 ﻿using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Interfaces;
 using Task5_NumberWord.UI;
-using System.Collections.Generic;
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Services.Interfaces;
 using Logger;
-using Task5_NumberWord.Dictionaries;
-using Task5_NumberWord.Models;
 using Task5_NumberWord.Services;
 using ApplicationInitializer;
 
@@ -16,15 +13,17 @@ namespace Task5_NumberWord
     {
         #region private fields
 
-        private readonly IArgumentsFactory factoryArguments = null;
-        private readonly IArgumentsValidator argumentsValidator = null;
-        private readonly IManagerDictionary managerDictionary = null;
-        private readonly ILogger logger = null;
-        private readonly INumberPartsCollectionFactory numberPartsCollectionFactory = null;
+        private readonly IArgumentsFactory _factoryArguments;
+        private readonly IArgumentsValidator _argumentsValidator;
+        private readonly IManagerDictionary _managerDictionary;
+        private readonly ILogger _logger;
+        private readonly INumberPartsCollectionFactory _numberPartsCollectionFactory;
 
-        private IManagerViews managerViews = null;
+        private IManagerViews _managerViews;
 
         #endregion
+
+        #region ctor
 
         public Application(IArgumentsValidator argumentsValidator,
                            IArgumentsFactory factoryArguments,
@@ -32,43 +31,45 @@ namespace Task5_NumberWord
                            IManagerDictionary managerDictionary,
                            ILogger logger)
         {
-            this.factoryArguments = factoryArguments;
-            this.numberPartsCollectionFactory = numberPartsCollectionFactory;
-            this.managerDictionary = managerDictionary;
-            this.argumentsValidator = argumentsValidator;
-            this.logger = logger;
+            _factoryArguments = factoryArguments;
+            _numberPartsCollectionFactory = numberPartsCollectionFactory;
+            _managerDictionary = managerDictionary;
+            _argumentsValidator = argumentsValidator;
+            _logger = logger;
         }
+
+        #endregion
 
         public void AddObserver(IManagerViews manager)
         {
-            managerViews = manager;
+            _managerViews = manager;
         }
 
         public void NotifyShowInstruction()
         {
-            managerViews?.Instruction();
+            _managerViews?.Instruction();
         }
 
         public void NotifyShowNumberWords(string words)
         {
-            managerViews?.ShowResultWords(words);
+            _managerViews?.ShowResultWords(words);
         }
 
         public void Start(string[] args)
         {
-            if (!argumentsValidator.Check(args))
+            if (!_argumentsValidator.Check(args))
             {
                 NotifyShowInstruction();
-                logger.Warning("invalid arguments: " + string.Join(", ", args));
+                _logger.Warning("invalid arguments: " + string.Join(", ", args));
                 return;
             }
 
-            Arguments arguments = factoryArguments.Create(args);
+            var arguments = _factoryArguments.Create(args);
 
-            AbstractDictionaryWords dictionary = managerDictionary.GetDictionary(arguments.Language);
-            Queue<NumberPart> numberParts = numberPartsCollectionFactory.Parse(arguments.Number);
+            var dictionary = _managerDictionary.GetDictionary(arguments.Language);
+            var numberParts = _numberPartsCollectionFactory.Parse(arguments.Number);
 
-            IConverterNumber converter = new ConverterNumber(dictionary, numberParts);
+            var converter = new ConverterNumber(dictionary, numberParts);
             string words = converter.GetWord();
 
             NotifyShowNumberWords(words);

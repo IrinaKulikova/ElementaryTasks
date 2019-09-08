@@ -11,20 +11,24 @@ namespace Task1_Board
     {
         #region private fields
 
-        private readonly IArgumentsValidator _argumentsValidator = null;
-        private readonly IControllerDictionary _controllerDictionry = null;
-        private readonly ILogger _logger = null;
+        private readonly IArgumentsValidator _argumentsValidator;
+        private readonly IControllerDictionary _controllerDictionry;
+        private readonly ILogger _logger;
 
         #endregion
+
+        #region ctor
 
         public Application(IArgumentsValidator argumentsValidator,
                            IControllerDictionary controllerDictionry,
                            ILogger logger)
         {
-            this._argumentsValidator = argumentsValidator;
-            this._controllerDictionry = controllerDictionry;
-            this._logger = logger;
+            _argumentsValidator = argumentsValidator;
+            _controllerDictionry = controllerDictionry;
+            _logger = logger;
         }
+
+        #endregion
 
         public void Start(string[] args)
         {

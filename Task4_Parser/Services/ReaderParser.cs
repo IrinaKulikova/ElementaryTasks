@@ -9,14 +9,18 @@ namespace Task4_Parser.Services
     {
         #region private fields
 
-        private readonly ILogger logger = null;
+        private readonly ILogger _logger;
 
         #endregion
 
+        #region ctor
+
         public ReaderParser(ILogger logger)
         {
-            this.logger = logger;
+            _logger = logger;
         }
+
+        #endregion
 
         public int RunText(IParseArguments arguments)
         {
@@ -46,7 +50,7 @@ namespace Task4_Parser.Services
             }
             catch (FileNotFoundException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
             }
 
             return count;

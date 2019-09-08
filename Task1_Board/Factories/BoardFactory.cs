@@ -7,24 +7,24 @@ namespace Task1_Board.Factories
     {
         #region private fields
 
-        private readonly ICellFactory cellFactory = null;
+        private readonly ICellFactory _cellFactory;
 
         #endregion
 
         public BoardFactory(ICellFactory cellFactory)
         {
-            this.cellFactory = cellFactory;
+            _cellFactory = cellFactory;
         }
 
         public IBoard Create(int heigth, int width)
         {
-            var cells = new Cell[heigth, width];
+            var cells = new ICell[heigth, width];
 
             for (int i = 0; i < heigth; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    cells[i, j] = cellFactory.Create(j, i);
+                    cells[i, j] = _cellFactory.Create(j, i);
                 }
             }
 

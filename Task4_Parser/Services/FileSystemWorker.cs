@@ -7,7 +7,7 @@ namespace Task4_Parser.Services
     {
         #region private fields
 
-        private readonly string copy = "_copy";
+        private readonly string _copy = "_copy";
 
         #endregion
 
@@ -16,7 +16,7 @@ namespace Task4_Parser.Services
             string directory = Path.GetDirectoryName(fileNamePath);
             string ex = Path.GetExtension(fileNamePath);
             string name = Path.GetFileNameWithoutExtension(fileNamePath);
-            string copyFile = Path.Combine(directory, name + copy + ex);
+            string copyFile = Path.Combine(directory, name + _copy + ex);
 
             return copyFile;
         }

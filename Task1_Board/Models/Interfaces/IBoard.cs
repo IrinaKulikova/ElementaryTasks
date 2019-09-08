@@ -4,6 +4,6 @@
     {
         int Heigth { get; }
         int Width { get; }
-        Cell this[int i, int j] { get; }
+        ICell this[int i, int j] { get; }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using ApplicationInitializer;
 using Logger;
 using Task2_Envelopes.Containers;
-using Task2_Envelopes.Containers.interfaces;
 using Task2_Envelopes.Factories;
-using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.UI;
 
 namespace Task2_Envelopes.Services
@@ -12,20 +10,24 @@ namespace Task2_Envelopes.Services
     {
         public IApplication InitializeApplication()
         {
-            string logFile = "Task2_Envelopes.txt";
-            ILogger logger = new SimpleLogger(logFile);
+            string logFile = "Task2_Envelopes_log.txt";
+            var logger = new SimpleLogger(logFile);
 
-            IEnvelopeFactory envelopeFactory = new EnvelopeFactory();
-            IParser parser = new Parser(envelopeFactory);
-            IComparator comparator = new Comparator();
-            IManager consoleManager = new ConsoleManager();
-            IEnvelopeMapper envelopeMapper = new EnvelopeMapper(parser, logger);
-            IValidator validatorArguments = new ValidatorArguments();
-            IEnvelopeDTOFactory factoryEnvelopeDTO = new EnvelopeDTOFactory();
-            IEnvelopeContainer envelopeContainer = new EnvelopesContainer(validatorArguments, envelopeMapper, factoryEnvelopeDTO);
+            var envelopeFactory = new EnvelopeFactory();
+            var parser = new Parser(envelopeFactory);
+            var comparator = new Comparator();
+            var consoleManager = new ConsoleManager();
+            var envelopeMapper = new EnvelopeMapper(parser, logger);
+            var validatorArguments = new ValidatorArguments();
+            var factoryEnvelopeDTO = new EnvelopeDTOFactory();
+            var envelopeContainer = new EnvelopesContainer(validatorArguments,
+                                                            envelopeMapper,
+                                                            factoryEnvelopeDTO);
 
-            var application = new Application(comparator, consoleManager, logger,
-                                              validatorArguments, envelopeContainer, envelopeMapper);
+            var application = new Application(comparator, consoleManager, 
+                                              logger, validatorArguments,
+                                              envelopeContainer, 
+                                              envelopeMapper);
 
             return application;
         }

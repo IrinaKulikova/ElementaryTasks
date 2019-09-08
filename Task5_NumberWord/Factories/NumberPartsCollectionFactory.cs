@@ -19,19 +19,23 @@ namespace Task5_NumberWord.Factories
             if (higher > 0)
             {
                 capacity++;
-                AddPart(number, higher, capacity, ref counter, ref position, partsNumber);
+                AddPart(number, higher, capacity, ref counter, 
+                        ref position, partsNumber);
             }
 
             do
             {
-                AddPart(number, particleSize, capacity, ref counter, ref position, partsNumber);
+                AddPart(number, particleSize, capacity, 
+                        ref counter, ref position, partsNumber);
 
             } while (position < number.Length);
 
             return partsNumber;
         }
 
-        private void AddPart(string number, int particleSize, int capacity, ref int counter, ref int position, Queue<NumberPart> partsNumber)
+        private void AddPart(string number, int particleSize, int capacity,
+                             ref int counter, ref int position, 
+                             Queue<NumberPart> partsNumber)
         {
             string value = number.Substring(position, particleSize);
             int positionBits = capacity - counter - 1;

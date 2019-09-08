@@ -8,41 +8,52 @@ namespace Task5_NumberWord.Dictionaries
 {
     public abstract class AbstractDictionaryWords
     {
+        #region private fields
+
+        private readonly IDigitsFactory _numberPartFactory;
+        private readonly string _zero = "0";
+        private readonly string _one = "1";
+
+        #endregion
+
+        #region proptected properties
+
         readonly protected IDictionary<string, string> dictionaryNumbers = new Dictionary<string, string>();
         readonly protected IDictionary<string, string> dictionaryTens = new Dictionary<string, string>();
         readonly protected IDictionary<int, string> dictionaryBits = new Dictionary<int, string>();
 
-        readonly IDigitsFactory numberPartFactory = null;
+        #endregion
 
-        private string zero = "0";
-        private string one = "1";
+        #region ctor
 
         public AbstractDictionaryWords(IDigitsFactory numberPartFactory)
         {
-            this.numberPartFactory = numberPartFactory;
+            _numberPartFactory = numberPartFactory;
         }
+
+        #endregion
 
         public virtual string GetValue(NumberPart numberPart)
         {
-            if (numberPart.Value.All(s => s.ToString() == zero))
+            if (numberPart.Value.All(s => s.ToString() == _zero))
             {
                 return string.Empty;
             }
 
-            var digits = numberPartFactory.Create(numberPart.Value);
+            var digits = _numberPartFactory.Create(numberPart.Value);
 
             var builder = new StringBuilder();
             int keyHundred = 0;
 
-            if (digits.First != zero)
+            if (digits.First != _zero)
             {
                 appendNumberWord(digits.First, builder);
                 appendBitWord(keyHundred, builder);
             }
 
-            if (digits.Second != zero)
+            if (digits.Second != _zero)
             {
-                if (digits.Second == one)
+                if (digits.Second == _one)
                 {
                     appendNumberWord(digits.Second + digits.Third, builder);
                 }
