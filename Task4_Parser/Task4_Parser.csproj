@@ -45,31 +45,32 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="Enums\ValidArgumentsLength.cs" />
-    <Compile Include="Factories\Interfaces\IParseArgumentsFactory.cs" />
-    <Compile Include="Factories\ParseArgumentsFactory.cs" />
-    <Compile Include="Models\IParseArguments.cs" />
-    <Compile Include="Models\ParseArguments.cs" />
+    <Compile Include="Factories\Interfaces\IInputArgumentsFactory.cs" />
+    <Compile Include="Factories\InputArgumentsFactory.cs" />
+    <Compile Include="Dictionaries\IParserDictionary.cs" />
+    <Compile Include="Models\IInputArguments.cs" />
+    <Compile Include="Models\InputArguments.cs" />
+    <Compile Include="Dictionaries\ParserDictionary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ArgumentsValidator.cs" />
-    <Compile Include="Services\FileSystemWorker.cs" />
-    <Compile Include="Services\Interfaces\IFileSystemWorker.cs" />
-    <Compile Include="Services\Interfaces\IParser.cs" />
-    <Compile Include="Services\Interfaces\IArgumentsValidator.cs" />
-    <Compile Include="Services\Interfaces\ParserManager.cs" />
-    <Compile Include="Services\ParserManager.cs" />
-    <Compile Include="Services\ReaderParser.cs" />
+    <Compile Include="Providers\ArgumentsProvider.cs" />
+    <Compile Include="Services\FileStreamSwitcher.cs" />
+    <Compile Include="Validators\ArgumentsLengthValidator.cs" />
+    <Compile Include="Validators\ArgumentsValidator.cs" />
+    <Compile Include="Services\FileStreamCounter.cs" />
+    <Compile Include="Providers\IArgumentsProvider.cs" />
+    <Compile Include="Services\Interfaces\IStreamWorker.cs" />
+    <Compile Include="Parsers\IParser.cs" />
+    <Compile Include="Validators\IArgumentsLengthValidator.cs" />
+    <Compile Include="Validators\IArgumentsValidator.cs" />
+    <Compile Include="Parsers\ParserCounter.cs" />
     <Compile Include="Services\Initializer.cs" />
-    <Compile Include="Services\SwitcherParser.cs" />
+    <Compile Include="Parsers\ParserSwitcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomCollections\CustomCollections.csproj">
-      <Project>{5260D10D-6F3E-4DEA-929E-A847201FCD17}</Project>
-      <Name>CustomCollections</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ApplicationInitializer\ApplicationInitializer.csproj">
       <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
       <Name>ApplicationInitializer</Name>
@@ -80,7 +81,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\alica_backup.txt" />
     <Content Include="Resources\alica.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

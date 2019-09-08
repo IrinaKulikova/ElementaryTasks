@@ -1,11 +1,13 @@
 ﻿using ApplicationInitializer;
-using CustomCollections;
 using Logger;
 using System;
+using Task4_Parser.Dictionaries;
 using Task4_Parser.Enums;
-using Task4_Parser.Factories.Interfaces;
 using Task4_Parser.Models;
+using Task4_Parser.Providers;
+using Task4_Parser.Services;
 using Task4_Parser.Services.Interfaces;
+using Task4_Parser.Validators;
 
 namespace Task4_Parser
 {
@@ -13,49 +15,53 @@ namespace Task4_Parser
     {
         #region private fields
 
-        private readonly IArgumentsValidator _argumentsValidator;
-        private readonly IParserManager _parserManager;
+        private readonly IArgumentsLengthValidator _argumentsLengthValidator;
+        private readonly IArgumentsProvider _argumentsProvider;
+        private readonly IParserDictionary _parserDictionary;
         private readonly ILogger _logger;
-        private readonly IParseArgumentsFactory _parseArgumentsFactory;
 
         #endregion
 
         #region ctor
 
-        public Application(IArgumentsValidator argumentsValidator,
-                           IParserManager parserManager,
-                           ILogger logger,
-                           IParseArgumentsFactory parseArgumentsFactory)
+        public Application(IArgumentsLengthValidator argumentsLengthValidator,
+                           IArgumentsProvider argumentsProvider,
+                           IParserDictionary parserDictionary,
+                           ILogger logger)
         {
-            _argumentsValidator = argumentsValidator;
-            _parserManager = parserManager;
+            _argumentsLengthValidator = argumentsLengthValidator;
+            _argumentsProvider = argumentsProvider;
+            _parserDictionary = parserDictionary;
             _logger = logger;
-            _parseArgumentsFactory = parseArgumentsFactory;
         }
 
         #endregion
 
         public void Start(string[] args)
         {
-            if (!_argumentsValidator.Check(args))
+            IInputArguments arguments = null;
+
+            if (!_argumentsLengthValidator.HasValidLength(args))
             {
-                _logger.Warning("Invalid arguments: " + string.Join(", ", args));
+                //Get args
             }
 
-            if (_argumentsValidator.Check(args))
+            try
             {
-                var argumentsCollection = new ArgumentCollection<string>(args);
-                var parser = _parserManager.GetParser((ValidArgumentsLength)argumentsCollection.Count);
-                var parseArguments = _parseArgumentsFactory.Create(argumentsCollection);
-                int count = parser.RunText(parseArguments);
+                arguments = _argumentsProvider.GetArguments(args);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.Error("Invalid arguments: " + string.Join(", ", args)
+                               + " " + ex.StackTrace);
+                //Show message
+                return;
+            }
 
-                Console.WriteLine(count);
-                Console.ReadKey();
-            }
-            else
-            {
-                _logger.Warning("End of program. Invalid arguments twice " + string.Join(", ", args));
-            }
+            int count = _parserDictionary.GetCount(arguments);
+
+            Console.WriteLine(count);
+            Console.ReadKey();
         }
     }
 }
