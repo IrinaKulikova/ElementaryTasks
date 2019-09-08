@@ -2,15 +2,27 @@
 {
     public class ParseArguments : IParseArguments
     {
-        public string FilePath { get; private set; }
-        public string SearchText { get; private set; }
-        public string NewText { get; private set; }
+        #region private fields
+
+        private readonly string _filePath;
+        private readonly string _searchText;
+        private readonly string _newText;
+
+        #endregion
+
+        #region properties
+
+        public string FilePath { get => _filePath; }
+        public string SearchText { get => _searchText; }
+        public string NewText { get => _newText; }
+
+        #endregion
 
         public ParseArguments(string filePath, string searchText, string newText)
         {
-            FilePath = filePath;
-            SearchText = searchText;
-            NewText = newText;
+            _filePath = filePath;
+            _searchText = searchText;
+            _newText = newText;
         }
     }
 }

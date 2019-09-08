@@ -8,7 +8,6 @@ namespace Task5_NumberWord.Dictionaries
         {
             //read from resources
 
-            //dictionaryNumbers.Add("0", "zero");
             dictionaryNumbers.Add("1", "one");
             dictionaryNumbers.Add("2", "two");
             dictionaryNumbers.Add("3", "three");

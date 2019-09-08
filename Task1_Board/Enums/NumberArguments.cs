@@ -4,5 +4,6 @@
     {        
         Zero = 0,
         Necessary = 2,
+        Invalid
     }
 }

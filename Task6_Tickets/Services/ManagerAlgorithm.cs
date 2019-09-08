@@ -10,29 +10,29 @@ namespace Task6_Tickets.Services
 
         #region private fields
 
-        private readonly ILogger logger = null;
+        private readonly ILogger _logger;
 
         #endregion
 
         public ManagerAlgorithm(ILogger logger)
         {
-            this.logger = logger;
+            _logger = logger;
         }
 
-        public IAlgorithm Create(Algorithm algorithmType)
+        public IAlgorithm Create(AlgorithmType algorithmType)
         {
             IAlgorithm algorithm = null;
 
             switch (algorithmType)
             {
-                case Algorithm.Moskow:
+                case AlgorithmType.Moskow:
                     algorithm = new MoskowAlgorithm();
                     break;
-                case Algorithm.Piter:
+                case AlgorithmType.Piter:
                     algorithm = new PiterAlgorithm();
                     break;
                 default:
-                    logger.Error("undefined algorithm");
+                    _logger.Error("undefined algorithm");
                     break;
             }
 

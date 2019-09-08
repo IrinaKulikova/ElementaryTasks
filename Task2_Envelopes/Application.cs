@@ -2,9 +2,9 @@
 using Task2_Envelopes.UI;
 using Task2_Envelopes.Services.Interfaces;
 using Task2_Envelopes.DTOModels;
-using DIResolver;
 using Logger;
 using Task2_Envelopes.Containers.interfaces;
+using ApplicationInitializer;
 
 namespace Task2_Envelopes
 {

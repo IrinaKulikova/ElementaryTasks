@@ -1,5 +1,4 @@
-﻿using DIResolver;
-using Task3_Triangles.Services;
+﻿using Task3_Triangles.Services;
 
 namespace Task3_Triangles
 {
@@ -7,8 +6,8 @@ namespace Task3_Triangles
     {
         static void Main(string[] args)
         {
-            IResolver resolver = new Resolver();
-            IApplication app = resolver.Initialization();
+            var initializer = new Initializer();
+            var app = initializer.InitializeApplication();
             app.Start(args);
         }
     }

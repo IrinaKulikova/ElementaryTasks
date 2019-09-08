@@ -27,7 +27,8 @@ namespace Task2_Envelopes.UI
 
             var trueAnswers = new List<string>() { "y", "yes" };
 
-            return trueAnswers.Contains(answer.ToLower()) ? Answer.Yes : Answer.No;
+            return trueAnswers.Contains(answer.ToLower()) ?
+                               Answer.Yes : Answer.No;
         }
 
 
@@ -35,7 +36,8 @@ namespace Task2_Envelopes.UI
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Arguments are invalid! ");
-            Console.WriteLine($"Heigth : {envelopeDTO.Heigth}, width : {envelopeDTO.Width}");
+            Console.WriteLine($"Heigth : {envelopeDTO.Heigth}, " +
+                        $"width : {envelopeDTO.Width}");
             Console.ForegroundColor = ConsoleColor.White;
         }
 
@@ -53,11 +55,13 @@ namespace Task2_Envelopes.UI
             switch (compareResult)
             {
                 case ResultEnvelopeCompare.FistBigger:
-                    Console.WriteLine("The first envelope is bigger! Put the second into the first one.");
+                    Console.WriteLine($"The first envelope is bigger!" +
+                        $" Put the second into the first one.");
                     break;
 
                 case ResultEnvelopeCompare.SecondBigger:
-                    Console.WriteLine("The second envelope is bigger! Put the first into the second one.");
+                    Console.WriteLine($"The second envelope is bigger! " +
+                        $"Put the first into the second one.");
                     break;
 
                 case ResultEnvelopeCompare.Equales:

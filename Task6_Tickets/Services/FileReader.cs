@@ -7,7 +7,7 @@ namespace Task6_Tickets.Services
 {
     public class FileReader : IFileReader
     {
-        public Algorithm GetNameAlgorithm(string path)
+        public AlgorithmType GetNameAlgorithm(string path)
         {
             string algorithmName = string.Empty;
 
@@ -22,7 +22,8 @@ namespace Task6_Tickets.Services
                 }
             }
 
-            var algorithm = (Algorithm)Enum.Parse(typeof(Algorithm),algorithmName);
+            var algorithm = (AlgorithmType)Enum
+                            .Parse(typeof(AlgorithmType),algorithmName);
 
             return algorithm;
         }

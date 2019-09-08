@@ -11,15 +11,19 @@ namespace Task1_Board.Views
     {
         #region private fields
 
-        private readonly IDictionary<CellColor, char> Symbols = new Dictionary<CellColor, char>();
+        private readonly IDictionary<CellColor, char> _symbols = new Dictionary<CellColor, char>();
 
         #endregion
 
+        #region ctor
+
         public BoardView(ConsoleColor color) : base(color)
         {
-            Symbols.Add(CellColor.White, ' ');
-            Symbols.Add(CellColor.Black, '*');
+            _symbols.Add(CellColor.White, ' ');
+            _symbols.Add(CellColor.Black, '*');
         }
+
+        #endregion
 
         public override void Display(IModel model)
         {
@@ -34,7 +38,7 @@ namespace Task1_Board.Views
                     for ( int j = 0; j < board.Width; j++ )
                     {
 
-                        if ( Symbols.TryGetValue(board[i, j].Color, out char symbol) )
+                        if ( _symbols.TryGetValue(board[i, j].Color, out char symbol) )
                         {
                             Console.Write(symbol);
                         }

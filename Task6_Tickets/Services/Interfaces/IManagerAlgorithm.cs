@@ -5,6 +5,6 @@ namespace Task6_Tickets.Services.Interfaces
 {
     public interface IManagerAlgorithm
     {
-        IAlgorithm Create(Algorithm algorithmType);
+        IAlgorithm Create(AlgorithmType algorithmType);
     }
 }

@@ -9,16 +9,16 @@ namespace Task4_Parser.Services
     {
         #region
 
-        readonly IFileSystemWorker fileSystemWorker = null;
-        readonly ILogger logger = null;
+        readonly IFileSystemWorker _fileSystemWorker;
+        readonly ILogger _logger;
 
         #endregion
 
         public SwitcherParser(IFileSystemWorker fileSystemWorker,
                               ILogger logger)
         {
-            this.fileSystemWorker = fileSystemWorker;
-            this.logger = logger;
+            _fileSystemWorker = fileSystemWorker;
+            _logger = logger;
         }
 
         public int RunText(IParseArguments parseArguments)
@@ -26,7 +26,7 @@ namespace Task4_Parser.Services
             int count = 0;
             int bufferSize = parseArguments.SearchText.Length * 100;
 
-            string copyFilePath = fileSystemWorker.CombineBufferFileName(parseArguments.FilePath);
+            string copyFilePath = _fileSystemWorker.CombineBufferFileName(parseArguments.FilePath);
 
             try
             {
@@ -65,10 +65,10 @@ namespace Task4_Parser.Services
             }
             catch (FileNotFoundException ex)
             {
-                logger.Error(ex);
+                _logger.Error(ex);
             }
 
-            fileSystemWorker.ReplaceFiles(parseArguments.FilePath, copyFilePath);
+            _fileSystemWorker.ReplaceFiles(parseArguments.FilePath, copyFilePath);
 
             return count;
         }

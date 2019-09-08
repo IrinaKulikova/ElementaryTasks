@@ -6,11 +6,11 @@ namespace Task5_NumberWord.Factories
 {
     public class ManagerDictionary : IManagerDictionary
     {
-        IDigitsFactory numberPartFactory = null;
+        IDigitsFactory digitsFactory = null;
 
-        public ManagerDictionary(IDigitsFactory numberPartFactory)
+        public ManagerDictionary(IDigitsFactory digitsFactory)
         {
-            this.numberPartFactory = numberPartFactory;
+            this.digitsFactory = digitsFactory;
         }
 
         public AbstractDictionaryWords GetDictionary(Language language)
@@ -18,11 +18,11 @@ namespace Task5_NumberWord.Factories
             switch (language)
             {
                 case Language.RU:
-                    return new DictionaryWordsRU(numberPartFactory);
+                    return new DictionaryWordsRU(digitsFactory);
 
                 case Language.EU:
                 default:
-                    return new DictionaryWordsEU(numberPartFactory);
+                    return new DictionaryWordsEU(digitsFactory);
             }
         }
     }

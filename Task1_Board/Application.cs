@@ -1,4 +1,5 @@
-﻿using DIResolver;
+﻿using ApplicationInitializer;
+using CustomCollections;
 using Logger;
 using System;
 using Task1_Board.Controllers.Interfaces;
@@ -10,42 +11,39 @@ namespace Task1_Board
     {
         #region private fields
 
-        private readonly IParser Parser = null;
-        private readonly IManager Manager = null;
-        private readonly ILogger Logger = null;
+        private readonly IArgumentsValidator _argumentsValidator;
+        private readonly IControllerDictionary _controllerDictionry;
+        private readonly ILogger _logger;
 
         #endregion
 
-        public Application(IParser parser, IManager manager, ILogger logger)
+        #region ctor
+
+        public Application(IArgumentsValidator argumentsValidator,
+                           IControllerDictionary controllerDictionry,
+                           ILogger logger)
         {
-            Parser = parser;
-            Manager = manager;
-            Logger = logger;
+            _argumentsValidator = argumentsValidator;
+            _controllerDictionry = controllerDictionry;
+            _logger = logger;
         }
+
+        #endregion
 
         public void Start(string[] args)
         {
+            IArgumentCollection<int> arguments = new ArgumentCollection<int>();
+            _argumentsValidator.IsValidInputArguments(args, arguments);
             IController controller = null;
 
             try
             {
-                var validArgs = Parser.GetValidArgs(args);
-                controller = Manager.Routing(validArgs);
+                controller = _controllerDictionry.GetController(arguments);
             }
-            catch (FormatException ex)
+            catch (ArgumentNullException ex)
             {
-                controller = Manager.GetErrorController();
-                Logger.Error(ex);
-            }
-            catch (ArgumentException ex)
-            {
-                controller = Manager.GetErrorController();
-                Logger.Error(ex);
-            }
-            catch (OverflowException ex)
-            {
-                controller = Manager.GetErrorController();
-                Logger.Error(ex);
+                _logger.Error(ex);
+                controller = _controllerDictionry.GetInvalidArgumentsController(arguments);
             }
 
             controller.Show();

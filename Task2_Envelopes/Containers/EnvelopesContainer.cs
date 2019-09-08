@@ -10,9 +10,9 @@ namespace Task2_Envelopes.Containers
     {
         #region private fields 
 
-        private readonly IEnvelopeMapper envelopeMapper = null;
-        private readonly IValidator validatorArguments;
-        private readonly IEnvelopeDTOFactory envelopeDTOFactory = null;
+        private readonly IEnvelopeMapper _envelopeMapper;
+        private readonly IValidator _validatorArguments;
+        private readonly IEnvelopeDTOFactory _envelopeDTOFactory;
 
         #endregion
 
@@ -28,21 +28,21 @@ namespace Task2_Envelopes.Containers
                                   IEnvelopeMapper envelopeMapper,
                                   IEnvelopeDTOFactory envelopeDTOFactory)
         {
-            this.envelopeDTOFactory = envelopeDTOFactory;
-            this.envelopeMapper = envelopeMapper;
-            this.validatorArguments = validatorArguments;
+            _envelopeDTOFactory = envelopeDTOFactory;
+            _envelopeMapper = envelopeMapper;
+            _validatorArguments = validatorArguments;
         }
 
         public void UpdateEnvelopes(string[] args, EnvelopeDTO firstEnvelopeDTO, EnvelopeDTO secondEnvelopeDTO)
         {
-            if (validatorArguments.IsValid(args))
+            if (_validatorArguments.IsValid(args))
             {
-                firstEnvelopeDTO = envelopeDTOFactory.Create(args[0], args[1]);
-                secondEnvelopeDTO = envelopeDTOFactory.Create(args[2], args[3]);
+                firstEnvelopeDTO = _envelopeDTOFactory.Create(args[0], args[1]);
+                secondEnvelopeDTO = _envelopeDTOFactory.Create(args[2], args[3]);
             }
 
-            FirstEnvelope = envelopeMapper.Map(firstEnvelopeDTO);
-            SecondEnvelope = envelopeMapper.Map(secondEnvelopeDTO);
+            FirstEnvelope = _envelopeMapper.Map(firstEnvelopeDTO);
+            SecondEnvelope = _envelopeMapper.Map(secondEnvelopeDTO);
         }
     }
 }

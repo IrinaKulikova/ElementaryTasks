@@ -2,17 +2,27 @@
 
 namespace Task1_Board.Models
 {
-    public class Cell
+    public class Cell : ICell
     {
-        public CellColor Color { get; private set; }
-        public int X { get; private set; }
-        public int Y { get; private set; }
+        #region private fields
+
+        private readonly CellColor _color;
+        private readonly int _x;
+        private readonly int _y;
+
+        #endregion
+
+        #region properties
+
+        public CellColor Color { get => _color; }
+
+        #endregion
 
         public Cell(int y, int x, CellColor color)
         {
-            Y = y;
-            X = x;
-            Color = color;
+            _y = y;
+            _x = x;
+            _color = color;
         }
     }
 }

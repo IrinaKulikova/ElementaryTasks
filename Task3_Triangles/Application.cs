@@ -1,9 +1,9 @@
-﻿using DIResolver;
-using Logger;
+﻿using Logger;
 using static System.Console;
 using System.Collections.Generic;
 using Task3_Triangles.Models;
 using Task3_Triangles.Services.Interfaces;
+using ApplicationInitializer;
 
 namespace Task3_Triangles
 {
@@ -11,34 +11,38 @@ namespace Task3_Triangles
     {
         #region private fields
 
-        private readonly IValidatorArguments validatorArguments = null;
-        private readonly ILogger logger = null;
-        private readonly IArgumentsParser argumentsParser = null;
-        private readonly IComparer<IFigure> comparer = null;
+        private readonly IValidatorArguments _validatorArguments;
+        private readonly ILogger _logger;
+        private readonly IArgumentsParser _argumentsParser;
+        private readonly IComparer<IFigure> _comparer;
 
         #endregion
+
+        #region ctor
 
         public Application(IValidatorArguments validatorArguments,
                            ILogger logger,
                            IArgumentsParser argumentsParser,
                            IComparer<IFigure> comparer)
         {
-            this.validatorArguments = validatorArguments;
-            this.logger = logger;
-            this.argumentsParser = argumentsParser;
-            this.comparer = comparer;
+            _validatorArguments = validatorArguments;
+            _logger = logger;
+            _argumentsParser = argumentsParser;
+            _comparer = comparer;
         }
+
+        #endregion
 
         public void Start(string[] args)
         {
-            if (!validatorArguments.Check(args))
+            if (!_validatorArguments.Check(args))
             {
-                logger.Warning("Invalid arguments: " + string.Join(", ", args));
+                _logger.Warning("Invalid arguments: " + string.Join(", ", args));
                 //Show Instructon
             }
 
-            List<IFigure> figures = argumentsParser.Figures(args);
-            figures.Sort(comparer);
+            List<IFigure> figures = _argumentsParser.Figures(args);
+            figures.Sort(_comparer);
 
             figures.ForEach(f => WriteLine(f.Name + " " + f.Square));
             ReadKey();

@@ -9,13 +9,13 @@ namespace Task6_Tickets.Services
     {
         #region private fields
 
-        private readonly ITicketFactory ticketFactory = null;
+        private readonly ITicketFactory _ticketFactory;
 
         #endregion
 
         public TicketGenerator(ITicketFactory ticketFactory)
         {
-            this.ticketFactory = ticketFactory;
+            _ticketFactory = ticketFactory;
         }
 
         public List<ITicket> GetTickets(int positions = 6, int min = 1, int max = 999999)
@@ -24,7 +24,7 @@ namespace Task6_Tickets.Services
 
             for (int i = min; i <= max; i++)
             {
-                ITicket ticket = ticketFactory.Create(i, positions);
+                ITicket ticket = _ticketFactory.Create(i, positions);
                 listTikets.Add(ticket);
             }
 
