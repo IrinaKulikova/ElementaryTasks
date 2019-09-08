@@ -1,7 +1,5 @@
 ﻿using Logger;
 using System;
-using Task6_Tickets.Algorithms;
-using Task6_Tickets.Enums;
 using Task6_Tickets.Services.Interfaces;
 using ApplicationInitializer;
 
