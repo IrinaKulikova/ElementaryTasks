@@ -4,23 +4,31 @@ namespace Task1_Board.Models
 {
     public class Board : IBoard
     {
-        private Cell[,] Cells { get; set; }
+        #region private fields
+
+        private readonly Cell[,] cells = null;
+
+        #endregion
+
+        #region properties
 
         public int Heigth { get; private set; }
 
         public int Width { get; private set; }
 
+        #endregion
+
         public Cell this[int i, int j]
         {
-            get => Cells[i, j];
-            set => Cells[i, j] = value;
+            get => cells[i, j];
+            set => cells[i, j] = value;
         }
 
         public Board(int heigth, int width, Cell[,] cells)
         {
             Heigth = heigth;
             Width = width;
-            Cells = cells;
-        }        
+            this.cells = cells;
+        }
     }
 }

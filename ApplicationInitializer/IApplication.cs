@@ -1,4 +1,4 @@
-﻿namespace DIResolver
+﻿namespace ApplicationInitializer
 {
     public interface IApplication
     {

@@ -28,7 +28,7 @@ namespace Task6_Tickets.Services
         {
             int countLuckyTickets = 0;
 
-            for (int i = min; i < max; i++)
+            for (int i = min; i <= max; i++)
             {
                 ITicket ticket = ticketFactory.Create(i, position);
 

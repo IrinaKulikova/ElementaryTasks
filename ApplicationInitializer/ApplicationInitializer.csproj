@@ -7,8 +7,8 @@
     <ProjectGuid>{AC677AF8-B992-4E6C-823F-BC30E15F1936}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DIResolver</RootNamespace>
-    <AssemblyName>DIResolver</AssemblyName>
+    <RootNamespace>ApplicationInitializer</RootNamespace>
+    <AssemblyName>ApplicationInitializer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IApplication.cs" />
-    <Compile Include="IResolver.cs" />
+    <Compile Include="IliInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

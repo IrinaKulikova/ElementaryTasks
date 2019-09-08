@@ -2,6 +2,7 @@
 {
     public interface ITicket
     {
-        byte[] Number { get; }
+        byte this[int index] { get; }
+        int Length { get; }
     }
 }

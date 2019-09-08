@@ -1,5 +1,4 @@
-﻿using DIResolver;
-using Task4_Parser.Services;
+﻿using Task4_Parser.Services;
 
 namespace Task4_Parser
 {
@@ -7,8 +6,8 @@ namespace Task4_Parser
     {
         static void Main(string[] args)
         {
-            IResolver resolver = new Resolver();
-            IApplication app = resolver.Initialization();
+            var initializer = new Initializer();
+            var app = initializer.InitializeApplication();
             app.Start(args);
         }
     }

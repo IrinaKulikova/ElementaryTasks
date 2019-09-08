@@ -1,4 +1,4 @@
-﻿using DIResolver;
+﻿using ApplicationInitializer;
 using Logger;
 using Task2_Envelopes.Containers;
 using Task2_Envelopes.Containers.interfaces;
@@ -8,9 +8,9 @@ using Task2_Envelopes.UI;
 
 namespace Task2_Envelopes.Services
 {
-    public class Resolver : IResolver
+    public class Initializer : IInitializer
     {
-        public IApplication Initialization()
+        public IApplication InitializeApplication()
         {
             string logFile = "Task2_Envelopes.txt";
             ILogger logger = new SimpleLogger(logFile);

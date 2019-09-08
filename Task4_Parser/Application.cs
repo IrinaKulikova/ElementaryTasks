@@ -1,5 +1,5 @@
-﻿using CustomCollections;
-using DIResolver;
+﻿using ApplicationInitializer;
+using CustomCollections;
 using Logger;
 using System;
 using Task4_Parser.Enums;

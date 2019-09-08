@@ -54,7 +54,7 @@
     <Compile Include="Services\ArgumentsParser.cs" />
     <Compile Include="Services\Interfaces\IArgumentsParser.cs" />
     <Compile Include="Services\Interfaces\IValidatorArguments.cs" />
-    <Compile Include="Services\Resolver.cs" />
+    <Compile Include="Services\Initializer.cs" />
     <Compile Include="Services\TriangleSorter.cs" />
     <Compile Include="Services\ValidatorArguments.cs" />
   </ItemGroup>
@@ -62,9 +62,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DIResolver\DIResolver.csproj">
+    <ProjectReference Include="..\ApplicationInitializer\ApplicationInitializer.csproj">
       <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
-      <Name>DIResolver</Name>
+      <Name>ApplicationInitializer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{fbad5a77-7d2d-497a-9554-528fcf704440}</Project>

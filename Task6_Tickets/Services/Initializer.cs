@@ -1,13 +1,13 @@
-﻿using DIResolver;
+﻿using ApplicationInitializer;
 using Logger;
 using Task6_Tickets.Factories;
 using Task6_Tickets.Services.Interfaces;
 
 namespace Task6_Tickets.Services
 {
-    public class Resolver : IResolver
+    public class Initializer : IInitializer
     {
-        public IApplication Initialization()
+        public IApplication InitializeApplication()
         {
             string fileName = "Task6_Tickets_log.txt";
             ILogger logger = new SimpleLogger(fileName);

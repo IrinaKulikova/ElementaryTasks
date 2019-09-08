@@ -59,7 +59,7 @@
     <Compile Include="Services\Interfaces\ParserManager.cs" />
     <Compile Include="Services\ParserManager.cs" />
     <Compile Include="Services\ReaderParser.cs" />
-    <Compile Include="Services\Resolver.cs" />
+    <Compile Include="Services\Initializer.cs" />
     <Compile Include="Services\SwitcherParser.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +70,9 @@
       <Project>{5260D10D-6F3E-4DEA-929E-A847201FCD17}</Project>
       <Name>CustomCollections</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DIResolver\DIResolver.csproj">
+    <ProjectReference Include="..\ApplicationInitializer\ApplicationInitializer.csproj">
       <Project>{ac677af8-b992-4e6c-823f-bc30e15f1936}</Project>
-      <Name>DIResolver</Name>
+      <Name>ApplicationInitializer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Logger\Logger.csproj">
       <Project>{fbad5a77-7d2d-497a-9554-528fcf704440}</Project>

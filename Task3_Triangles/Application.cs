@@ -1,9 +1,9 @@
-﻿using DIResolver;
-using Logger;
+﻿using Logger;
 using static System.Console;
 using System.Collections.Generic;
 using Task3_Triangles.Models;
 using Task3_Triangles.Services.Interfaces;
+using ApplicationInitializer;
 
 namespace Task3_Triangles
 {

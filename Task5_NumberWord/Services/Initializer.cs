@@ -1,4 +1,4 @@
-﻿using DIResolver;
+﻿using ApplicationInitializer;
 using Logger;
 using Task5_NumberWord.Factories;
 using Task5_NumberWord.Factories.Interfaces;
@@ -7,9 +7,9 @@ using Task5_NumberWord.UI;
 
 namespace Task5_NumberWord.Services
 {
-    public class Resolver : IResolver
+    public class Initializer : IInitializer
     {
-        public IApplication Initialization()
+        public IApplication InitializeApplication()
         {
             string logFile = "Task5_NumberWord_Log.txt";
             ILogger logger = new SimpleLogger(logFile);

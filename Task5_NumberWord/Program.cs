@@ -1,5 +1,4 @@
-﻿using DIResolver;
-using Task5_NumberWord.Services;
+﻿using Task5_NumberWord.Services;
 
 namespace Task5_NumberWord
 {
@@ -7,9 +6,9 @@ namespace Task5_NumberWord
     {
         static void Main(string[] args)
         {
-            IResolver resolver = new Resolver();
-            IApplication application = resolver.Initialization();
-            application.Start(args);
+            var initializer = new Initializer();
+            var app = initializer.InitializeApplication();
+            app.Start(args);
         }
     }
 }

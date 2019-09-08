@@ -1,5 +1,4 @@
-﻿using DIResolver;
-using Task5_NumberWord.Factories.Interfaces;
+﻿using Task5_NumberWord.Factories.Interfaces;
 using Task5_NumberWord.Interfaces;
 using Task5_NumberWord.UI;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using Logger;
 using Task5_NumberWord.Dictionaries;
 using Task5_NumberWord.Models;
 using Task5_NumberWord.Services;
+using ApplicationInitializer;
 
 namespace Task5_NumberWord
 {

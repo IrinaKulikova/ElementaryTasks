@@ -4,15 +4,36 @@ namespace Task6_Tickets.Models
 {
     public class Ticket : ITicket
     {
-        #region properties
+        #region private fields
 
-        public byte[] Number { get; private set; }
+        private byte[] _number;
+
+        public int Length
+        {
+            get
+            {
+                return _number.Length;
+            }
+        }
 
         #endregion
 
+        #region properties
+
+        public byte this[int index]
+        {
+            get
+            {
+                return _number[index];
+            }
+        }
+
+        #endregion
+
+
         public Ticket(byte[] number)
         {
-            Number = number;
+            _number = number;
         }
     }
 }

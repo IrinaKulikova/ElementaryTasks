@@ -1,9 +1,9 @@
-﻿using DIResolver;
-using Logger;
+﻿using Logger;
 using System;
 using Task6_Tickets.Algorithms;
 using Task6_Tickets.Enums;
 using Task6_Tickets.Services.Interfaces;
+using ApplicationInitializer;
 
 namespace Task6_Tickets
 {
@@ -31,12 +31,14 @@ namespace Task6_Tickets
 
         public void Start(string[] args)
         {
+            //TODO: validator
+
             Algorithm algorithmType = fileReader.GetNameAlgorithm(args[0]);
             IAlgorithm algorithm = managerAlgorithm.Create(algorithmType);
 
             luckyTicketCounter.SetAlgorithm(algorithm);
 
-            int luckyTickets = luckyTicketCounter.Сalculate(8, 0, 99999999);
+            int luckyTickets = luckyTicketCounter.Сalculate(6, 0, 999999);
 
             Console.WriteLine(luckyTickets);
             Console.ReadKey();

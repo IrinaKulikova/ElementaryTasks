@@ -9,15 +9,15 @@ namespace Task6_Tickets.Algorithms
             int sumPozitive = 0;
             int sumNegative = 0;
 
-            for (int i = 0; i < ticket.Number.Length; i++)
+            for (int i = 0; i < ticket.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    sumPozitive += ticket.Number[i];
+                    sumPozitive += ticket[i];
                 }
                 else
                 {
-                    sumNegative += ticket.Number[i];
+                    sumNegative += ticket[i];
                 }
             }
 

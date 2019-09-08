@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1_Board.Tests", "Task1_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{FBAD5A77-7D2D-497A-9554-528FCF704440}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIResolver", "DIResolver\DIResolver.csproj", "{AC677AF8-B992-4E6C-823F-BC30E15F1936}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationInitializer", "ApplicationInitializer\ApplicationInitializer.csproj", "{AC677AF8-B992-4E6C-823F-BC30E15F1936}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2_Envelopes", "Task2_Envelopes\Task2_Envelopes.csproj", "{E03858B8-7267-4885-B518-F5C2070DD572}"
 EndProject
