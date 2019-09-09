@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B8B16E74-A5E5-4D3F-BA87-22C6C1B08E2E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Task8_Fibonacci</RootNamespace>
-    <AssemblyName>Task8_Fibonacci</AssemblyName>
+    <RootNamespace>Task7_8_Sequence</RootNamespace>
+    <AssemblyName>Task7_8_Sequence</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,8 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="Collections\FibonacciSequence.cs" />
-    <Compile Include="Collections\SquareSequence.cs" />
+    <Compile Include="Sequences\FibonacciSequence.cs" />
+    <Compile Include="Sequences\SquareSequence.cs" />
     <Compile Include="Enums\CountArguments.cs" />
     <Compile Include="Factories\ISequenceLimitFactory.cs" />
     <Compile Include="Factories\SequenceLimitFactory.cs" />

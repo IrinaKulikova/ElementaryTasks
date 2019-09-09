@@ -1,13 +1,29 @@
-﻿using Task7_8_Sequence.Enums;
+﻿using Logger;
+using Task7_8_Sequence.Enums;
 
 namespace Task7_8_Sequence.Validators
 {
     public class ArgumentsLengthValidator : IValidator
     {
+        #region private fields
+
+        private readonly ILogger _logger;
+
+        #endregion
+
+        public ArgumentsLengthValidator(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public bool IsValid(string[] arguments)
         {
             if (arguments == null || arguments.Length == 0)
             {
+                _logger.Error("Arguments are null or empty. " +
+                    "class ArgumentsLengthValidator method IsValid " +
+                    "returned false");
+
                 return false;
             }
 
@@ -17,14 +33,24 @@ namespace Task7_8_Sequence.Validators
 
         private bool HasOneLimit(string[] arguments)
         {
-            return CountArguments.OneLimits ==
+            bool result = CountArguments.OneLimits ==
                    (CountArguments)arguments.Length;
+
+            _logger.Debug("ArgumentsLengthValidator method HasOneLimit" +
+                " returned " + result);
+
+            return result;
         }
 
         private bool HasTwoLimit(string[] arguments)
         {
-            return CountArguments.TwoLimits ==
+            bool result = CountArguments.TwoLimits ==
                    (CountArguments)arguments.Length;
+
+            _logger.Debug("ArgumentsLengthValidator method HasTwoLimit" +
+               " returned " + result);
+
+            return result;
         }
     }
 }

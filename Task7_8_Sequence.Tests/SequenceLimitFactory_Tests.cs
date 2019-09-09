@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Logger;
+using Moq;
+using System.Collections.Generic;
 using Task7_8_Sequence.Factories;
 using Task7_8_Sequence.Models;
 using Xunit;
@@ -10,9 +12,11 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [MemberData(nameof(TwoArguments))]
         public void Create_Success(string min, string max,
-                                   int expectedMin, int expectedMax)
+                             int expectedMin, int expectedMax)
         {
-            var sequenceLimitFactory = new SequenceLimitFactory();
+            var mockLogger = new Mock<ILogger>();
+
+            var sequenceLimitFactory = new SequenceLimitFactory(mockLogger.Object);
 
             var arguments = new string[] { min, max };
 
@@ -28,7 +32,7 @@ namespace Task7_8_Sequence.Tests
         new List<object[]>
         {
             new object[] { "1", "20", 1, 20 },
-            new object[] { "20","1", 1,20 }
+            new object[] { "20","1", 1, 20 }
         };
 
         [Theory]
@@ -36,7 +40,9 @@ namespace Task7_8_Sequence.Tests
         public void CreateOneArgument_Success(string max,
                                   int expectedMin, int expectedMax)
         {
-            var sequenceLimitFactory = new SequenceLimitFactory();
+            var mockLogger = new Mock<ILogger>();
+
+            var sequenceLimitFactory = new SequenceLimitFactory(mockLogger.Object);
 
             var arguments = new string[] { max };
 

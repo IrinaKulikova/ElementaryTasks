@@ -1,21 +1,29 @@
-﻿using Task7_8_Sequence.Validators;
+﻿using Logger;
+using Moq;
+using Task7_8_Sequence.Validators;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
     public class ArgumentsLengthValidator_Tests
     {
+        private IValidator validator;
+
+        public ArgumentsLengthValidator_Tests()
+        {
+            var mockLogger = new Mock<ILogger>();
+            validator = new ArgumentsLengthValidator(mockLogger.Object);
+        }
+
         [Theory]
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("2")]
         public void Length_Success(params string[] arguments)
         {
-            var validator = new ArgumentsLengthValidator();
+            bool isValidLength = validator.IsValid(arguments);
 
-            bool length = validator.IsValid(arguments);
-
-            Assert.True(length);
+            Assert.True(isValidLength);
         }
 
         [Theory]
@@ -23,22 +31,18 @@ namespace Task7_8_Sequence.Tests
         [InlineData()]
         public void Length_Fail(params string[] arguments)
         {
-            var validator = new ArgumentsLengthValidator();
+            bool isValidLength = validator.IsValid(arguments);
 
-            bool length = validator.IsValid(arguments);
-
-            Assert.False(length);
+            Assert.False(isValidLength);
         }
 
 
         [Fact]
         public void Numbers_Null_False()
         {
-            var validator = new ArgumentsLengthValidator();
+            bool isValidLength = validator.IsValid(null);
 
-            bool length = validator.IsValid(null);
-
-            Assert.False(length);
+            Assert.False(isValidLength);
         }
     }
 }

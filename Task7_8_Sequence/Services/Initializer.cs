@@ -12,26 +12,30 @@ namespace Task7_8_Sequence.Services
     {
         public IApplication InitializeApplication()
         {
-            string fileName = "Task8_Fibonacci_log.txt";
+            string fileName = "Task7_8_Sequence_log.txt";
             var logger = new SimpleLogger(fileName);
 
             var validatorList = new List<IValidator>()
             {
-                new ArgumentsNotNullValidator(),
-                new ArgumentsLengthValidator(),
-                new ArgumentsNumbersValidator()
+                new ArgumentsNotNullValidator(logger),
+                new ArgumentsLengthValidator(logger),
+                new ArgumentsNumbersValidator(logger)
             };
 
-            var argumentsValidator = new ArgumentsValidator(validatorList);
-            var sequenceLimitsFactory = new SequenceLimitFactory();
+            var argumentsValidator = new ArgumentsValidator(validatorList,
+                                                            logger);
+            var sequenceLimitsFactory = new SequenceLimitFactory(logger);
             var consoleManager = new ConsoleManager();
 
             var argumentsProvider = new ArgumentsProvider(argumentsValidator,
-                                                        sequenceLimitsFactory);
+                                                        sequenceLimitsFactory,
+                                                        logger);
 
 
             var app = new Application(argumentsProvider, logger,
                                       consoleManager);
+
+            logger.Info("Application is initialized");
 
             return app;
         }
