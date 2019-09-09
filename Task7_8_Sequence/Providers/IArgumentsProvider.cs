@@ -1,6 +1,6 @@
-﻿using Task8_Fibonacci.Models;
+﻿using Task7_8_Sequence.Models;
 
-namespace Task8_Fibonacci.Providers
+namespace Task7_8_Sequence.Providers
 {
     public interface IArgumentsProvider
     {

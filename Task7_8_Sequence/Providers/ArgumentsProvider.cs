@@ -1,8 +1,8 @@
-﻿using Task8_Fibonacci.Factories;
-using Task8_Fibonacci.Models;
-using Task8_Fibonacci.Validators;
+﻿using Task7_8_Sequence.Factories;
+using Task7_8_Sequence.Models;
+using Task7_8_Sequence.Validators;
 
-namespace Task8_Fibonacci.Providers
+namespace Task7_8_Sequence.Providers
 {
     public class ArgumentsProvider : IArgumentsProvider
     {
@@ -28,8 +28,7 @@ namespace Task8_Fibonacci.Providers
         {
             ISequenceLimit sequenceLimit = null;
 
-            if (_argumentsValidator.HasTwoArguments(arguments) &&
-                _argumentsValidator.HasNumbers(arguments))
+            if (_argumentsValidator.HasValidArguments(arguments))
             {
                 sequenceLimit = _sequenceLimitsFactory.Create(arguments);
             }

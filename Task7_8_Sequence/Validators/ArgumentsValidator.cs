@@ -1,36 +1,35 @@
-﻿using System;
-using Task8_Fibonacci.Enums;
+﻿using System.Collections.Generic;
 
-namespace Task8_Fibonacci.Validators
+namespace Task7_8_Sequence.Validators
 {
     public class ArgumentsValidator : IArgumentsValidator
     {
-        public bool HasNumbers(string[] args)
-        {
-            if (args == null)
-            {
-                return false;
-            }
+        #region private fields
 
-            for (int i = 0; i < args.Length; i++)
+        private readonly IEnumerable<IValidator> _validatorsList;
+
+        #endregion
+
+        #region ctor
+
+        public ArgumentsValidator(IEnumerable<IValidator> validatorsList)
+        {
+            _validatorsList = validatorsList;
+        }
+
+        #endregion
+
+        public bool HasValidArguments(string[] args)
+        {
+            foreach (var validator in _validatorsList)
             {
-                if (!Int32.TryParse(args[i], out int buffer))
+                if (!validator.IsValid(args))
                 {
                     return false;
                 }
             }
 
             return true;
-        }
-
-        public bool HasTwoArguments(string[] args)
-        {
-            if (args == null)
-            {
-                return false;
-            }
-
-            return CountArguments.Valid == (CountArguments)args.Length;
         }
     }
 }

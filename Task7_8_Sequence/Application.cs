@@ -1,11 +1,11 @@
 ﻿using System;
 using ApplicationInitializer;
 using Logger;
-using Task8_Fibonacci.Collections;
-using Task8_Fibonacci.Providers;
-using Task8_Fibonacci.UI;
+using Task7_8_Sequence.Collections;
+using Task7_8_Sequence.Providers;
+using Task7_8_Sequence.UI;
 
-namespace Task8_Fibonacci
+namespace Task7_8_Sequence
 {
     public class Application : IApplication
     {
@@ -41,7 +41,7 @@ namespace Task8_Fibonacci
                 return;
             }
 
-            var sequence = new SquareSequence(sequenceLimits);
+            var sequence = new FibonacciSequence(sequenceLimits);
             _consoleManager.ShowResult(sequence);
         }
     }

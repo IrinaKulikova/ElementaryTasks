@@ -1,11 +1,12 @@
 ﻿using ApplicationInitializer;
 using Logger;
-using Task8_Fibonacci.Factories;
-using Task8_Fibonacci.Providers;
-using Task8_Fibonacci.UI;
-using Task8_Fibonacci.Validators;
+using System.Collections.Generic;
+using Task7_8_Sequence.Factories;
+using Task7_8_Sequence.Providers;
+using Task7_8_Sequence.UI;
+using Task7_8_Sequence.Validators;
 
-namespace Task8_Fibonacci.Services
+namespace Task7_8_Sequence.Services
 {
     public class Initializer : IInitializer
     {
@@ -14,7 +15,14 @@ namespace Task8_Fibonacci.Services
             string fileName = "Task8_Fibonacci_log.txt";
             var logger = new SimpleLogger(fileName);
 
-            var argumentsValidator = new ArgumentsValidator();
+            var validatorList = new List<IValidator>()
+            {
+                new ArgumentsNotNullValidator(),
+                new ArgumentsLengthValidator(),
+                new ArgumentsNumbersValidator()
+            };
+
+            var argumentsValidator = new ArgumentsValidator(validatorList);
             var sequenceLimitsFactory = new SequenceLimitFactory();
             var consoleManager = new ConsoleManager();
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Task8_Fibonacci.UI
+namespace Task7_8_Sequence.UI
 {
     public interface IManager
     {
