@@ -68,7 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application_Tests.cs" />
     <Compile Include="Controller_tests.cs" />
     <Compile Include="ArgumentValidator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

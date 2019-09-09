@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Task8_Fibonacci.Models;
+using Task7_8_Sequence.Models;
 
-namespace Task8_Fibonacci.Collections
+namespace Task7_8_Sequence.Collections
 {
     public class FibonacciSequence : IEnumerable<int>
     {

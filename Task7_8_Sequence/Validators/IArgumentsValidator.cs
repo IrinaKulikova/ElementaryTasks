@@ -1,9 +1,7 @@
-﻿namespace Task8_Fibonacci.Validators
+﻿namespace Task7_8_Sequence.Validators
 {
     public interface IArgumentsValidator
     {
-        bool HasNumbers(string[] args);
-
-        bool HasTwoArguments(string[] args);
+        bool HasValidArguments(string[] args);
     }
 }

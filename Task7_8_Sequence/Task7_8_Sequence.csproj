@@ -58,8 +58,12 @@
     <Compile Include="Services\Initializer.cs" />
     <Compile Include="UI\ConsoleManager.cs" />
     <Compile Include="UI\IManager.cs" />
+    <Compile Include="Validators\ArgumentsLengthValidator.cs" />
+    <Compile Include="Validators\ArgumentsNotNullValidator.cs" />
+    <Compile Include="Validators\ArgumentsNumbersValidator.cs" />
     <Compile Include="Validators\ArgumentsValidator.cs" />
     <Compile Include="Validators\IArgumentsValidator.cs" />
+    <Compile Include="Validators\IValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

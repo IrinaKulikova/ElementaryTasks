@@ -1,9 +1,9 @@
 ﻿using System;
-using Task8_Fibonacci.Models;
+using Task7_8_Sequence.Models;
 
-namespace Task8_Fibonacci.Factories
+namespace Task7_8_Sequence.Factories
 {
-    class SequenceLimitFactory : ISequenceLimitFactory
+    public class SequenceLimitFactory : ISequenceLimitFactory
     {
         public ISequenceLimit Create(string[] limits)
         {
@@ -11,7 +11,11 @@ namespace Task8_Fibonacci.Factories
             int max = 0;
 
             Int32.TryParse(limits[0], out min);
-            Int32.TryParse(limits[1], out max);
+
+            if (limits.Length > 1)
+            {
+                Int32.TryParse(limits[1], out max);
+            }
 
             return (min < max) ? new SequenceLimit(min, max) :
                                  new SequenceLimit(max, min);

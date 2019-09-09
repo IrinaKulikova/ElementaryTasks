@@ -1,6 +1,6 @@
-﻿using Task8_Fibonacci.Services;
+﻿using Task7_8_Sequence.Services;
 
-namespace Task8_Fibonacci
+namespace Task7_8_Sequence
 {
     class Program
     {

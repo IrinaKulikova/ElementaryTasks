@@ -1,4 +1,4 @@
-﻿namespace Task8_Fibonacci.Models
+﻿namespace Task7_8_Sequence.Models
 {
     public class SequenceLimit : ISequenceLimit
     {
