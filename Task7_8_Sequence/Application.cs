@@ -1,7 +1,7 @@
 ﻿using System;
 using ApplicationInitializer;
 using Logger;
-using Task7_8_Sequence.Collections;
+using Task7_8_Sequence.Sequences;
 using Task7_8_Sequence.Providers;
 using Task7_8_Sequence.UI;
 
@@ -32,6 +32,9 @@ namespace Task7_8_Sequence
 
         public void Start(string[] args)
         {
+            _logger.Info("Application method Start is called with arguments: "
+                        + String.Join(", ", args));
+
             var sequenceLimits = _argumentsProvider.GetLimits(args);
 
             if (sequenceLimits == null)
@@ -42,6 +45,9 @@ namespace Task7_8_Sequence
             }
 
             var sequence = new FibonacciSequence(sequenceLimits);
+
+            _logger.Debug("FibonacciSequence: " + String.Join(", ", sequence));
+
             _consoleManager.ShowResult(sequence);
         }
     }

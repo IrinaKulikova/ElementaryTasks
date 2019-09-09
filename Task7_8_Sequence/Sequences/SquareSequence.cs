@@ -1,39 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Task7_8_Sequence.Models;
 
-namespace Task7_8_Sequence.Collections
+namespace Task7_8_Sequence.Sequences
 {
-    public class FibonacciSequence : IEnumerable<int>
+    public class SquareSequence : IEnumerable<int>
     {
         private readonly List<int> _sequence;
         private readonly ISequenceLimit _sequenceLimits;
 
-        public FibonacciSequence(ISequenceLimit sequenceLimit)
+        public SquareSequence(ISequenceLimit sequenceLimit)
         {
             _sequenceLimits = sequenceLimit;
             _sequence = new List<int>();
 
-            int f0 = 1;
-            int f1 = 1;
+            int limitMin = (int)Math.Sqrt(sequenceLimit.Min) + 1;
+            int limitMax = (int)Math.Sqrt(sequenceLimit.Max);
 
-            Init(f0, f1);
+            _sequence.AddRange(Enumerable.Range(limitMin, limitMax - limitMin));
         }
 
-        private void Init(int f0, int f1)
-        {
-            if (f0 > _sequenceLimits.Max)
-            {
-                return;
-            }
-
-            if (f0 >= _sequenceLimits.Min)
-            {
-                _sequence.Add(f0);
-            }
-
-            Init(f1, f0 + f1);
-        }
 
         public IEnumerator<int> GetEnumerator()
         {

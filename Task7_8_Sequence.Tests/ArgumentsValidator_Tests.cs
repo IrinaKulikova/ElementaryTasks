@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Logger;
+using Moq;
+using System.Collections.Generic;
 using Task7_8_Sequence.Validators;
 using Xunit;
 
@@ -33,14 +35,17 @@ namespace Task7_8_Sequence.Tests
 
         private static ArgumentsValidator GetValidator()
         {
+            var mockLogger = new Mock<ILogger>();
+
             var validatorList = new List<IValidator>()
             {
-                new ArgumentsNotNullValidator(),
-                new ArgumentsLengthValidator(),
-                new ArgumentsNumbersValidator()
+                new ArgumentsNotNullValidator(mockLogger.Object),
+                new ArgumentsLengthValidator(mockLogger.Object),
+                new ArgumentsNumbersValidator(mockLogger.Object)
             };
 
-            var argumentsValidator = new ArgumentsValidator(validatorList);
+            var argumentsValidator = new ArgumentsValidator(validatorList,
+                                                            mockLogger.Object);
             return argumentsValidator;
         }
     }
