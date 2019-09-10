@@ -74,6 +74,8 @@
     <Compile Include="ArgumentLengthValidator_Tests.cs" />
     <Compile Include="ArgumentsProvider_Tests.cs" />
     <Compile Include="InputArgumentsFactory_Tests.cs" />
+    <Compile Include="ParserCounter_Tests.cs" />
+    <Compile Include="ParserReplacer_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -58,11 +58,8 @@ namespace Task4_Parser.Services
             {
                 var parser = new ParserReplacer();
 
-                foreach (var line in replacer.GetLine())
-                {
-                    string newText = parser.Replace(line, arguments);
-                    replacer.SetText(newText);
-                }
+                parser.Replace(replacer.StreamWriter, replacer.StreamReader,
+                               arguments.SearchText, arguments.NewText);
             }
         }
 
@@ -75,10 +72,8 @@ namespace Task4_Parser.Services
             {
                 var parser = new ParserCounter();
 
-                foreach (var line in counter.GetLine())
-                {
-                    count += parser.Calculate(line, arguments);
-                }
+                count = parser.Calculate(counter.StreamReader,
+                                         arguments.SearchText);
             }
 
             return count;

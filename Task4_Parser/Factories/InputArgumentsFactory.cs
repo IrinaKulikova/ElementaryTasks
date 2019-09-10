@@ -1,5 +1,4 @@
-﻿using System;
-using Logger;
+﻿using Logger;
 using Task4_Parser.Enums;
 using Task4_Parser.Factories.Interfaces;
 using Task4_Parser.Models;
@@ -36,7 +35,13 @@ namespace Task4_Parser.Factories
                 newText = arguments[2];
             }
 
-            return new InputArguments(filePath, searchText, newText, argumentsLength);
+            _logger.Info($@"InputArguments was created with fields: 
+                           filePath: {filePath}, searchText: 
+                           {searchText}, newText: {newText},
+                            argumentsLength: {argumentsLength}");
+
+            return new InputArguments(filePath, searchText, newText,
+                argumentsLength);
         }
     }
 }

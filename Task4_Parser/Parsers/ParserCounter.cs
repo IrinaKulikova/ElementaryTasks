@@ -1,17 +1,32 @@
-﻿using System.Text.RegularExpressions;
-using Task4_Parser.Models;
+﻿using System;
+using System.IO;
+using System.Text.RegularExpressions;
+
 
 namespace Task4_Parser.Services
 {
     public class ParserCounter
     {
-        public int Calculate(string line, IInputArguments arguments)
+        public int Calculate(StreamReader streamReader,
+                             string searchText)
         {
-            var regex = new Regex(arguments.SearchText);
+            string line = String.Empty;
+            int count = 0;
 
-            var entries = regex.Matches(line);
+            do
+            {
+                line = streamReader.ReadLine();
 
-            return entries.Count;
+                if (line != null)
+                {
+                    var regex = new Regex(searchText);
+                    var entries = regex.Matches(line);
+                    count += entries.Count;
+                }
+
+            } while (line != null);
+
+            return count;
         }
     }
 }

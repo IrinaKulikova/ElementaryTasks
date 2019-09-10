@@ -15,8 +15,14 @@ namespace Task4_Parser.Services
         private string tempFile = String.Empty;
         private readonly string filePathOrigin = String.Empty;
 
-        private readonly Stream streamAccessWrite;
-        private readonly StreamWriter streamWriter;
+        private readonly Stream _streamAccessWrite;
+        private readonly StreamWriter _streamWriter;
+
+        #endregion
+
+        #region properties
+
+        public StreamWriter StreamWriter { get => _streamWriter; }
 
         #endregion
 
@@ -29,19 +35,14 @@ namespace Task4_Parser.Services
                                          + DateTime.Now.ToString(patternDateTime));
             filePathOrigin = inputArguments.FilePath;
 
-            streamAccessWrite = new FileStream(tempFile, FileMode.CreateNew,
+            _streamAccessWrite = new FileStream(tempFile, FileMode.CreateNew,
                                               FileAccess.Write);
-            streamWriter = new StreamWriter(streamAccessWrite);
+            _streamWriter = new StreamWriter(_streamAccessWrite);
         }
 
         #endregion
 
-        public void SetText(string line)
-        {
-            streamWriter.WriteLine(line);
-        }
-
-        private string CombineBufferFileName(string fileNamePath, string add)
+        public string CombineBufferFileName(string fileNamePath, string add)
         {
             string directory = Path.GetDirectoryName(fileNamePath);
             string ex = Path.GetExtension(fileNamePath);
@@ -75,10 +76,16 @@ namespace Task4_Parser.Services
             _logger.Debug("FileStreamReplacer method Dispose " +
                                  "was called.");
 
-            streamWriter?.Flush();
+            if (_streamWriter != null)
+            {
+                _streamWriter.Flush();
+                _streamWriter?.Close();
+            }
 
-            streamWriter?.Close();
-            streamAccessWrite?.Close();
+            if (_streamAccessWrite != null)
+            {
+                _streamAccessWrite?.Close();
+            }
 
             base.Dispose();
 
