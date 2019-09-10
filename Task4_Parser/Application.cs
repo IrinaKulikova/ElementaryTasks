@@ -1,67 +1,94 @@
 ﻿using ApplicationInitializer;
 using Logger;
 using System;
-using Task4_Parser.Dictionaries;
-using Task4_Parser.Enums;
-using Task4_Parser.Models;
 using Task4_Parser.Providers;
-using Task4_Parser.Services;
 using Task4_Parser.Services.Interfaces;
+using Task4_Parser.UI;
 using Task4_Parser.Validators;
 
 namespace Task4_Parser
 {
+    public delegate void Counter(int count);
+    public delegate void Replacer();
+    public delegate void EmptyOrErrorArguments();
+    public delegate void InvalidArguments(string[] arguments);
+
     public class Application : IApplication
     {
         #region private fields
 
-        private readonly IArgumentsLengthValidator _argumentsLengthValidator;
+        private readonly IValidator _argumentsLengthValidator;
         private readonly IArgumentsProvider _argumentsProvider;
-        private readonly IParserDictionary _parserDictionary;
+        private readonly IParserManager _parserManager;
         private readonly ILogger _logger;
+        private readonly IManager _consoleManager;
+
+        #endregion
+
+        #region events
+
+        public event InvalidArguments InvalidInputArguments;
 
         #endregion
 
         #region ctor
 
-        public Application(IArgumentsLengthValidator argumentsLengthValidator,
+        public Application(IValidator argumentsLengthValidator,
                            IArgumentsProvider argumentsProvider,
-                           IParserDictionary parserDictionary,
-                           ILogger logger)
+                           IParserManager parserManager,
+                           ILogger logger,
+                           IManager consoleManager)
         {
             _argumentsLengthValidator = argumentsLengthValidator;
             _argumentsProvider = argumentsProvider;
-            _parserDictionary = parserDictionary;
+            _parserManager = parserManager;
             _logger = logger;
+            _consoleManager = consoleManager;
+        }
+
+        #endregion
+
+        #region private methods Subscribe, Unsubscribe events
+
+        private void SubscribeEvents()
+        {
+            _parserManager.CountResult += _consoleManager.ShowCount;
+            _parserManager.ReplaceResult += _consoleManager.ShowReplacedDone;
+            _parserManager.InvalidArguments += _consoleManager.ShowInstructon;
+            InvalidInputArguments += _consoleManager.InvalidInputArguments;
+        }
+
+
+        private void UnsubscribeEvents()
+        {
+            _parserManager.CountResult -= _consoleManager.ShowCount;
+            _parserManager.ReplaceResult -= _consoleManager.ShowReplacedDone;
+            _parserManager.InvalidArguments -= _consoleManager.ShowInstructon;
+            InvalidInputArguments += _consoleManager.InvalidInputArguments;
         }
 
         #endregion
 
         public void Start(string[] args)
         {
-            IInputArguments arguments = null;
+            _logger.Info("Application method Start was called with arguments: "
+                       + String.Join(", ", args));
 
-            if (!_argumentsLengthValidator.HasValidLength(args))
-            {
-                //Get args
-            }
+            var arguments = _argumentsProvider.GetArguments(args);
 
-            try
+            SubscribeEvents();
+
+            if (arguments == null)
             {
-                arguments = _argumentsProvider.GetArguments(args);
-            }
-            catch (ArgumentException ex)
-            {
-                _logger.Error("Invalid arguments: " + string.Join(", ", args)
-                               + " " + ex.StackTrace);
-                //Show message
+                _logger.Error("Invalid arguments: " + String.Join(", ", args));
+                InvalidInputArguments?.Invoke(args);
+                UnsubscribeEvents();
+
                 return;
             }
 
-            int count = _parserDictionary.GetCount(arguments);
-
-            Console.WriteLine(count);
-            Console.ReadKey();
+            _parserManager.Parse(arguments);
+            UnsubscribeEvents();
         }
     }
 }

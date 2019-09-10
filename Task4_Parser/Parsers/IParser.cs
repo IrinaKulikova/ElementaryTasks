@@ -5,6 +5,6 @@ namespace Task4_Parser.Services.Interfaces
 {
     public interface IParser
     {
-        int RunText(List<string> lines, IInputArguments arguments);
+        int RunText(IEnumerable<string> lines, IInputArguments arguments);
     }
 }

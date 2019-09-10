@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Logger;
+using System.IO;
 
 namespace Task4_Parser.Validators
 {
@@ -6,23 +7,31 @@ namespace Task4_Parser.Validators
     {
         #region private fields
 
-        private readonly IArgumentsLengthValidator _argumentLengthValidator;
+        private readonly IValidator _argumentLengthValidator;
+        private readonly ILogger _logger;
 
         #endregion
 
         #region ctor
 
-        public ArgumentsValidator(IArgumentsLengthValidator argumentLengthValidator)
+        public ArgumentsValidator(IValidator argumentLengthValidator,
+                                  ILogger logger)
         {
             _argumentLengthValidator = argumentLengthValidator;
+            _logger = logger;
         }
 
         #endregion
 
         public bool HasValidArguments(string[] args)
         {
-            return _argumentLengthValidator.HasValidLength(args) 
+            bool result = _argumentLengthValidator.IsValid(args)
                     && File.Exists(args[0]);
+
+            _logger.Debug("ArgumentsValidator method IsValid returned "
+                           + result);
+
+            return result;
         }
     }
 }

@@ -47,25 +47,27 @@
     <Compile Include="Enums\ValidArgumentsLength.cs" />
     <Compile Include="Factories\Interfaces\IInputArgumentsFactory.cs" />
     <Compile Include="Factories\InputArgumentsFactory.cs" />
-    <Compile Include="Dictionaries\IParserDictionary.cs" />
+    <Compile Include="Services\Interfaces\IParserManager.cs" />
     <Compile Include="Models\IInputArguments.cs" />
     <Compile Include="Models\InputArguments.cs" />
-    <Compile Include="Dictionaries\ParserDictionary.cs" />
+    <Compile Include="Services\ParserManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ArgumentsProvider.cs" />
-    <Compile Include="Services\FileStreamSwitcher.cs" />
+    <Compile Include="Services\FileStreamReplacer.cs" />
+    <Compile Include="UI\ConsoleManager.cs" />
+    <Compile Include="UI\IManager.cs" />
     <Compile Include="Validators\ArgumentsLengthValidator.cs" />
     <Compile Include="Validators\ArgumentsValidator.cs" />
     <Compile Include="Services\FileStreamCounter.cs" />
     <Compile Include="Providers\IArgumentsProvider.cs" />
     <Compile Include="Services\Interfaces\IStreamWorker.cs" />
     <Compile Include="Parsers\IParser.cs" />
-    <Compile Include="Validators\IArgumentsLengthValidator.cs" />
+    <Compile Include="Validators\IValidator.cs" />
     <Compile Include="Validators\IArgumentsValidator.cs" />
     <Compile Include="Parsers\ParserCounter.cs" />
     <Compile Include="Services\Initializer.cs" />
-    <Compile Include="Parsers\ParserSwitcher.cs" />
+    <Compile Include="Parsers\ParserReplacer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

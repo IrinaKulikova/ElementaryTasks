@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logger;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Task4_Parser.Models;
@@ -10,42 +11,57 @@ namespace Task4_Parser.Services
         #region private fields
 
         private readonly Stream streamAccessRead;
-        private readonly BufferedStream bufferedStream;
         private readonly StreamReader streamReader;
 
         #endregion
 
-        public FileStreamCounter(IInputArguments inputArguments)
+        #region protected fields
+
+        protected readonly ILogger _logger;
+
+        #endregion
+
+        #region ctor
+
+        public FileStreamCounter(IInputArguments inputArguments,
+                                  ILogger logger)
         {
             streamAccessRead = new FileStream(inputArguments.FilePath, FileMode.Open, FileAccess.Read);
-            bufferedStream = new BufferedStream(streamAccessRead);
-            streamReader = new StreamReader(bufferedStream);
+            streamReader = new StreamReader(streamAccessRead);
+            _logger = logger;
         }
 
+        #endregion
 
-        public List<string> GetText()
+        public IEnumerable<string> GetLine()
         {
-            List<string> textLines = new List<string>();
-
             string line = String.Empty;
+
+            int countDebug = 0;
+
             do
             {
                 line = streamReader.ReadLine();
 
                 if (line != null)
                 {
-                    textLines.Add(line);
+                    _logger.Debug("FileStreamCounter method GetLine " +
+                                  "returned " + line);
+
+                    countDebug++;
+
+                    yield return line;
                 }
 
             } while (line != null);
-
-            return textLines;
         }
 
         public virtual void Dispose()
         {
+            _logger.Debug("FileStreamCounter method Dispose " +
+                                 "was called.");
+
             streamReader.Close();
-            bufferedStream.Close();
             streamAccessRead.Close();
         }
     }

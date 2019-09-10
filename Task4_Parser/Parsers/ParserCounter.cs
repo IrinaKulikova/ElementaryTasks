@@ -1,25 +1,17 @@
-﻿using Logger;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Task4_Parser.Models;
-using Task4_Parser.Services.Interfaces;
 
 namespace Task4_Parser.Services
 {
-    public class ParserCounter : IParser
+    public class ParserCounter
     {
-        public int RunText(List<string> lines, IInputArguments arguments)
+        public int Calculate(string line, IInputArguments arguments)
         {
             var regex = new Regex(arguments.SearchText);
-            int count = 0;
 
-            foreach (var line in lines)
-            {
-                var entries = regex.Matches(line);
-                count += entries.Count;
-            }
+            var entries = regex.Matches(line);
 
-            return count;
+            return entries.Count;
         }
     }
 }

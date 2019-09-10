@@ -22,8 +22,10 @@ namespace Task4_Parser.Models
 
         #endregion
 
-        public InputArguments(string filePath, string searchText,
-                              string newText, ValidArgumentsLength argumentsLength)
+        public InputArguments(string filePath, 
+                              string searchText,
+                              string newText, 
+                              ValidArgumentsLength argumentsLength)
         {
             _filePath = filePath;
             _searchText = searchText;

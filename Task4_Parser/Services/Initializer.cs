@@ -1,8 +1,8 @@
 ﻿using ApplicationInitializer;
 using Logger;
-using Task4_Parser.Dictionaries;
 using Task4_Parser.Factories;
 using Task4_Parser.Providers;
+using Task4_Parser.UI;
 using Task4_Parser.Validators;
 
 namespace Task4_Parser.Services
@@ -14,20 +14,24 @@ namespace Task4_Parser.Services
             string fileName = "Task4_Parser_log.txt";
             var logger = new SimpleLogger(fileName);
 
-            var argumentLengthValidator = new ArgumentsLengthValidator();
-            var argumentsValidator = new ArgumentsValidator(argumentLengthValidator);
+            var argumentLengthValidator = new ArgumentsLengthValidator(logger);
+            var argumentsValidator = new ArgumentsValidator(argumentLengthValidator,
+                                                            logger);
+
             var inputArgumentsFactory = new InputArgumentsFactory(logger);
-            var dictionaryParse = new ParserDictionary();
+            var parseManager = new ParserManager(logger);
 
             var argumentsProvider = new ArgumentsProvider(argumentsValidator,
                                                           inputArgumentsFactory,
                                                           logger);
 
+            var consileManager = new ConsoleManager();
 
             var app = new Application(argumentLengthValidator,
                                       argumentsProvider,
-                                      dictionaryParse,
-                                      logger);
+                                      parseManager,
+                                      logger,
+                                      consileManager);
 
             return app;
         }

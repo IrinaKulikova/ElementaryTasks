@@ -31,18 +31,24 @@ namespace Task4_Parser.Providers
 
         public IInputArguments GetArguments(string[] arguments)
         {
+            _logger.Debug("ArgumentsProvider method GetArguments was called.");
+
+            IInputArguments inputArguments = null;
 
             if (!_argumentsValidator.HasValidArguments(arguments))
             {
-                string message = "Arguments are invalid! " +
-                    String.Join(", ", arguments);
+                _logger.Error("Arguments are invalid! " +
+                    String.Join(", ", arguments));
 
-                _logger.Error(message);
-
-                throw new ArgumentException(message);
+                return inputArguments;
             }
 
-            return _inputArgumentsFactory.Create(arguments);
+            inputArguments = _inputArgumentsFactory.Create(arguments);
+
+            _logger.Error("Arguments were created:  " +
+                    String.Join(", ", arguments));
+
+            return inputArguments;
         }
     }
 }
