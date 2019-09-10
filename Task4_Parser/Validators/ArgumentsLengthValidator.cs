@@ -1,28 +1,64 @@
-﻿using System;
+﻿using Logger;
+using System;
 using Task4_Parser.Enums;
 
 namespace Task4_Parser.Validators
 {
-    public class ArgumentsLengthValidator : IArgumentsLengthValidator
+    public class ArgumentsLengthValidator : IValidator
     {
-        public bool HasValidLength(string[] arguments)
+        #region private fields
+
+        private readonly ILogger _logger;
+
+        #endregion
+
+        #region ctor
+
+        public ArgumentsLengthValidator(ILogger logger)
         {
-            return IsNotNull(arguments) && IsValidLength(arguments);
+            _logger = logger;
+        }
+
+        #endregion
+
+        public bool IsValid(string[] arguments)
+        {
+            bool result = IsNotNull(arguments) && IsValidLength(arguments);
+
+            _logger.Debug("ArgumentsLengthValidator method IsValid returned "
+                           + result);
+
+            return result;
         }
 
         public bool HasNullArguments(string[] arguments)
         {
-            return arguments == null || arguments.Length == 0;
+            bool result = arguments == null || arguments.Length == 0;
+
+            _logger.Debug("ArgumentsLengthValidator method HasNullArguments" +
+                " returned " + result);
+
+            return result;
         }
 
         private bool IsValidLength(string[] arguments)
         {
-            return Enum.IsDefined(typeof(ValidArgumentsLength), arguments.Length);
+            bool result = Enum.IsDefined(typeof(ValidArgumentsLength), arguments.Length);
+
+            _logger.Debug("ArgumentsLengthValidator method IsValidLength" +
+                " returned " + result);
+
+            return result;
         }
 
         private bool IsNotNull(string[] arguments)
         {
-            return !HasNullArguments(arguments);
+            bool result = !HasNullArguments(arguments);
+
+            _logger.Debug("ArgumentsLengthValidator method IsNotNull" +
+                " returned " + result);
+
+            return result;
         }
 
     }

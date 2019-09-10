@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Task2_Envelopes.Tests")]
+[assembly: AssemblyTitle("Task4_Parser.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Task2_Envelopes.Tests")]
+[assembly: AssemblyProduct("Task4_Parser.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bf0871eb-fb3d-450b-a8f5-5b68640092d4")]
+[assembly: Guid("5837fd53-4b0b-43d2-b53c-641110a44954")]
 
 // Version information for an assembly consists of the following four values:
 //

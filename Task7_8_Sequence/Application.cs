@@ -32,7 +32,7 @@ namespace Task7_8_Sequence
 
         public void Start(string[] args)
         {
-            _logger.Info("Application method Start is called with arguments: "
+            _logger.Info("Application method Start was called with arguments: "
                         + String.Join(", ", args));
 
             var sequenceLimits = _argumentsProvider.GetLimits(args);

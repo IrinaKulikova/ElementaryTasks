@@ -1,23 +1,30 @@
-﻿using Logger;
-using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using System.Text.RegularExpressions;
-using Task4_Parser.Models;
-using Task4_Parser.Services.Interfaces;
+
 
 namespace Task4_Parser.Services
 {
-    public class ParserCounter : IParser
+    public class ParserCounter
     {
-        public int RunText(List<string> lines, IInputArguments arguments)
+        public int Calculate(StreamReader streamReader,
+                             string searchText)
         {
-            var regex = new Regex(arguments.SearchText);
+            string line = String.Empty;
             int count = 0;
 
-            foreach (var line in lines)
+            do
             {
-                var entries = regex.Matches(line);
-                count += entries.Count;
-            }
+                line = streamReader.ReadLine();
+
+                if (line != null)
+                {
+                    var regex = new Regex(searchText);
+                    var entries = regex.Matches(line);
+                    count += entries.Count;
+                }
+
+            } while (line != null);
 
             return count;
         }

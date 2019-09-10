@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Logger;
+using System;
 using System.IO;
 using Task4_Parser.Models;
 
@@ -9,44 +9,50 @@ namespace Task4_Parser.Services
     {
         #region private fields
 
-        private readonly Stream streamAccessRead;
-        private readonly BufferedStream bufferedStream;
-        private readonly StreamReader streamReader;
+        private readonly Stream _streamAccessRead;
+        private readonly StreamReader _streamReader;
 
         #endregion
 
-        public FileStreamCounter(IInputArguments inputArguments)
+        #region protected fields
+
+        protected readonly ILogger _logger;
+
+        #endregion
+
+        #region properies
+
+        public StreamReader StreamReader { get => _streamReader; }
+
+        #endregion
+
+        #region ctor
+
+        public FileStreamCounter(IInputArguments inputArguments,
+                                  ILogger logger)
         {
-            streamAccessRead = new FileStream(inputArguments.FilePath, FileMode.Open, FileAccess.Read);
-            bufferedStream = new BufferedStream(streamAccessRead);
-            streamReader = new StreamReader(bufferedStream);
+            _streamAccessRead = new FileStream(inputArguments.FilePath, FileMode.Open, FileAccess.Read);
+            _streamReader = new StreamReader(_streamAccessRead);
+            _logger = logger;
         }
 
-
-        public List<string> GetText()
-        {
-            List<string> textLines = new List<string>();
-
-            string line = String.Empty;
-            do
-            {
-                line = streamReader.ReadLine();
-
-                if (line != null)
-                {
-                    textLines.Add(line);
-                }
-
-            } while (line != null);
-
-            return textLines;
-        }
+        #endregion
 
         public virtual void Dispose()
         {
-            streamReader.Close();
-            bufferedStream.Close();
-            streamAccessRead.Close();
+            _logger.Debug("FileStreamCounter method Dispose " +
+                                 "was called.");
+
+
+            if (_streamReader != null)
+            {
+                _streamReader?.Close();
+            }
+
+            if (_streamAccessRead != null)
+            {
+                _streamAccessRead?.Close();
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Task4_Parser.Providers
 {
     public class ArgumentsProvider : IArgumentsProvider
     {
-        #region private properties
+        #region private fields
 
         private readonly IArgumentsValidator _argumentsValidator;
         private readonly IInputArgumentsFactory _inputArgumentsFactory;
@@ -31,18 +31,24 @@ namespace Task4_Parser.Providers
 
         public IInputArguments GetArguments(string[] arguments)
         {
+            _logger.Debug("ArgumentsProvider method GetArguments was called.");
+
+            IInputArguments inputArguments = null;
 
             if (!_argumentsValidator.HasValidArguments(arguments))
             {
-                string message = "Arguments are invalid! " +
-                    String.Join(", ", arguments);
+                _logger.Error("Arguments are invalid! " +
+                    String.Join(", ", arguments));
 
-                _logger.Error(message);
-
-                throw new ArgumentException(message);
+                return inputArguments;
             }
 
-            return _inputArgumentsFactory.Create(arguments);
+            inputArguments = _inputArgumentsFactory.Create(arguments);
+
+            _logger.Info("Arguments were created:  " +
+                    String.Join(", ", arguments));
+
+            return inputArguments;
         }
     }
 }
