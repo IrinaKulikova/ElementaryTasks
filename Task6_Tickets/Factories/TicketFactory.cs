@@ -18,6 +18,7 @@ namespace Task6_Tickets.Factories
             {
                 numberTicket[i] = (byte)(number % 10);
                 number = number / 10;
+
                 if (number == 0)
                 {
                     break;

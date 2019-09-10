@@ -8,7 +8,7 @@ namespace Task4_Parser.Providers
 {
     public class ArgumentsProvider : IArgumentsProvider
     {
-        #region private properties
+        #region private fields
 
         private readonly IArgumentsValidator _argumentsValidator;
         private readonly IInputArgumentsFactory _inputArgumentsFactory;
@@ -45,7 +45,7 @@ namespace Task4_Parser.Providers
 
             inputArguments = _inputArgumentsFactory.Create(arguments);
 
-            _logger.Error("Arguments were created:  " +
+            _logger.Info("Arguments were created:  " +
                     String.Join(", ", arguments));
 
             return inputArguments;

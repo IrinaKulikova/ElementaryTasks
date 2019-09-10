@@ -71,7 +71,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="ArgumentLengthValidator_Tests.cs" />
+    <Compile Include="ArgumentsProvider_Tests.cs" />
+    <Compile Include="InputArgumentsFactory_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

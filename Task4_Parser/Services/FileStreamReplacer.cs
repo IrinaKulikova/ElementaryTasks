@@ -75,10 +75,10 @@ namespace Task4_Parser.Services
             _logger.Debug("FileStreamReplacer method Dispose " +
                                  "was called.");
 
-            streamWriter.Flush();
+            streamWriter?.Flush();
 
-            streamWriter.Close();
-            streamAccessWrite.Close();
+            streamWriter?.Close();
+            streamAccessWrite?.Close();
 
             base.Dispose();
 

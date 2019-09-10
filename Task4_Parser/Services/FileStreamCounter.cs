@@ -37,18 +37,14 @@ namespace Task4_Parser.Services
         {
             string line = String.Empty;
 
-            int countDebug = 0;
-
             do
             {
-                line = streamReader.ReadLine();
+                line = streamReader?.ReadLine();
 
                 if (line != null)
                 {
                     _logger.Debug("FileStreamCounter method GetLine " +
                                   "returned " + line);
-
-                    countDebug++;
 
                     yield return line;
                 }
@@ -61,8 +57,8 @@ namespace Task4_Parser.Services
             _logger.Debug("FileStreamCounter method Dispose " +
                                  "was called.");
 
-            streamReader.Close();
-            streamAccessRead.Close();
+            streamReader?.Close();
+            streamAccessRead?.Close();
         }
     }
 }

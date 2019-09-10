@@ -62,7 +62,6 @@
     <Compile Include="Services\FileStreamCounter.cs" />
     <Compile Include="Providers\IArgumentsProvider.cs" />
     <Compile Include="Services\Interfaces\IStreamWorker.cs" />
-    <Compile Include="Parsers\IParser.cs" />
     <Compile Include="Validators\IValidator.cs" />
     <Compile Include="Validators\IArgumentsValidator.cs" />
     <Compile Include="Parsers\ParserCounter.cs" />
@@ -83,7 +82,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\alica_backup.txt" />
     <Content Include="Resources\alica.txt" />
   </ItemGroup>
   <ItemGroup />
