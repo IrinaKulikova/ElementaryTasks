@@ -3,7 +3,7 @@
     public enum CountArguments
     {
         Invalid,
-        OneLimits = 1,
+        OneLimit = 1,
         TwoLimits = 2
     }
 }

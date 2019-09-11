@@ -31,7 +31,7 @@ namespace Task4_Parser.Validators
             return result;
         }
 
-        public bool HasNullArguments(string[] arguments)
+        private bool HasNullArguments(string[] arguments)
         {
             bool result = arguments == null || arguments.Length == 0;
 

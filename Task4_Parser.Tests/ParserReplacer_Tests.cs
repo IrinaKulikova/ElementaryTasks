@@ -23,7 +23,8 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("sit", "*", InputData)]
-        public void Replace_Success(string search, string newText, string expected)
+        public void Replace_Success(string search, string newText,
+                                                   string expected)
         {
             var parser = new ParserReplacer();
 
@@ -64,9 +65,20 @@ namespace Task4_Parser.Tests
         public void Dispose()
         {
             //streamWriter.Close();
-            inStream.Close();
-            streamReader.Close();
-            outStream.Close();
+            if (inStream != null)
+            {
+                inStream.Close();
+            }
+
+            if (streamReader != null)
+            {
+                streamReader.Close();
+            }
+
+            if (outStream != null)
+            {
+                outStream.Close();
+            }
         }
     }
 }

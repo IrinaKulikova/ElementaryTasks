@@ -27,9 +27,10 @@ namespace Task4_Parser.Tests
             mockInputArgumentsFactory.Setup(v => v.Create(args))
                                   .Returns(It.IsAny<IInputArguments>());
 
-            var argumentsProvider = new ArgumentsProvider(mockArgumentsValidator.Object,
-                                                          mockInputArgumentsFactory.Object,
-                                                          mockLogger.Object);
+            var argumentsProvider = new ArgumentsProvider
+                                        (mockArgumentsValidator.Object,
+                                         mockInputArgumentsFactory.Object,
+                                         mockLogger.Object);
 
             argumentsProvider.GetArguments(args);
 
@@ -61,9 +62,10 @@ namespace Task4_Parser.Tests
             mockInputArgumentsFactory.Setup(v => v.Create(args))
                                   .Returns(It.IsAny<IInputArguments>());
 
-            var argumentsProvider = new ArgumentsProvider(mockArgumentsValidator.Object,
-                                                          mockInputArgumentsFactory.Object,
-                                                          mockLogger.Object);
+            var argumentsProvider = new ArgumentsProvider
+                                        (mockArgumentsValidator.Object,
+                                         mockInputArgumentsFactory.Object,
+                                         mockLogger.Object);
 
             argumentsProvider.GetArguments(args);
 

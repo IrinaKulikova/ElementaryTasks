@@ -61,7 +61,6 @@
     <Compile Include="Validators\ArgumentsValidator.cs" />
     <Compile Include="Services\FileStreamCounter.cs" />
     <Compile Include="Providers\IArgumentsProvider.cs" />
-    <Compile Include="Services\Interfaces\IStreamWorker.cs" />
     <Compile Include="Validators\IValidator.cs" />
     <Compile Include="Validators\IArgumentsValidator.cs" />
     <Compile Include="Parsers\ParserCounter.cs" />
@@ -70,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationInitializer\ApplicationInitializer.csproj">

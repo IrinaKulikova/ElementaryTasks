@@ -42,8 +42,15 @@ namespace Task4_Parser.Tests
 
         public void Dispose()
         {
-            streamReader.Close();
-            outStream.Close();
+            if (streamReader != null)
+            {
+                streamReader.Close();
+            }
+
+            if (outStream != null)
+            {
+                outStream.Close();
+            }
         }
     }
 }

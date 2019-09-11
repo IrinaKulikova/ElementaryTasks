@@ -75,7 +75,6 @@ namespace Task4_Parser
                        + String.Join(", ", args));
 
             var arguments = _argumentsProvider.GetArguments(args);
-
             SubscribeEvents();
 
             if (arguments == null)

@@ -19,7 +19,7 @@ namespace Task5_NumberWord.Factories
 
                 case ValidArgumentsLength.NumberLanguage:
                     Enum.TryParse(args[1], out Language language);
-                    arguments = new Arguments(args[0]);
+                    arguments = new Arguments(args[0], language);
                     break;
 
                 default:

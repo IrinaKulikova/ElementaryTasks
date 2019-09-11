@@ -33,7 +33,7 @@ namespace Task7_8_Sequence.Validators
 
         private bool HasOneLimit(string[] arguments)
         {
-            bool result = CountArguments.OneLimits ==
+            bool result = CountArguments.OneLimit ==
                    (CountArguments)arguments.Length;
 
             _logger.Debug("ArgumentsLengthValidator method HasOneLimit" +

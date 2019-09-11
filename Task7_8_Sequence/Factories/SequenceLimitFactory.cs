@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Factories
 
             Int32.TryParse(limits[0], out min);
 
-            if ((CountArguments)limits.Length > CountArguments.OneLimits)
+            if ((CountArguments)limits.Length > CountArguments.OneLimit)
             {
                 Int32.TryParse(limits[1], out max);
             }

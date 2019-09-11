@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Task4_Parser.Validators.ArgumentsLengthValidator">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAAAAAAAAAAAgAAAAAIAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Validators\ArgumentsLengthValidator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Validators.ArgumentsValidator">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAIAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\ArgumentsValidator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_argumentLengthValidator" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.UI.ConsoleManager">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAEAAAAAAAAgAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>UI\ConsoleManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Services.FileStreamCounter">
+    <Position X="15.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAAAAAAgAAACAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\FileStreamCounter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Services.FileStreamReplacer">
+    <Position X="15.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAAAAAASAACAAAABAAAAAAAAAAADAhBAA=</HashCode>
+      <FileName>Services\FileStreamReplacer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4_Parser.Services.Initializer">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Services\Initializer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Services.ParserManager">
+    <Position X="3.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAAAAAAAAAABARCIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ParserManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Providers.ArgumentsProvider">
+    <Position X="10.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAIABAAA=</HashCode>
+      <FileName>Providers\ArgumentsProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_argumentsValidator" />
+      <Field Name="_inputArgumentsFactory" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Task4_Parser.Services.ParserCounter">
+    <Position X="10.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\ParserCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4_Parser.Services.ParserReplacer">
+    <Position X="8.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Parsers\ParserReplacer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Task4_Parser.Models.InputArguments">
+    <Position X="13" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAACAAAQAAAUAAAAAABAAAIAAAA=</HashCode>
+      <FileName>Models\InputArguments.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_argumentsLength" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Task4_Parser.Validators.IArgumentsValidator">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\IArgumentsValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.Validators.IValidator">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\IValidator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.UI.IManager">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAEAAAAAAAAgAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>UI\IManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.Providers.IArgumentsProvider">
+    <Position X="7.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Providers\IArgumentsProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.Models.IInputArguments">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAUAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\IInputArguments.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.Services.Interfaces.IParserManager">
+    <Position X="5.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Interfaces\IParserManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task4_Parser.Factories.Interfaces.IInputArgumentsFactory">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\Interfaces\IInputArgumentsFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Task4_Parser.Enums.ValidArgumentsLength">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAABAAAAAAAA=</HashCode>
+      <FileName>Enums\ValidArgumentsLength.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
