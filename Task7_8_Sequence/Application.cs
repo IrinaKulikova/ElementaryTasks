@@ -41,6 +41,7 @@ namespace Task7_8_Sequence
             {
                 _logger.Error("Invalid arguments: " + String.Join(", ", args));
                 _consoleManager.ShowInstruction();
+
                 return;
             }
 

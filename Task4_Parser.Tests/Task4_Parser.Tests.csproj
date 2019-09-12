@@ -73,6 +73,10 @@
   <ItemGroup>
     <Compile Include="ArgumentLengthValidator_Tests.cs" />
     <Compile Include="ArgumentsProvider_Tests.cs" />
+    <Compile Include="Fakes\FakeStearmReader.cs" />
+    <Compile Include="Fakes\FakeStreamWriter.cs" />
+    <Compile Include="IClassFixtures\FakeArgumentsLengthValidator.cs" />
+    <Compile Include="IClassFixtures\InputArgumentsFactoryFixture.cs" />
     <Compile Include="InputArgumentsFactory_Tests.cs" />
     <Compile Include="ParserCounter_Tests.cs" />
     <Compile Include="ParserReplacer_Tests.cs" />

@@ -77,7 +77,9 @@
     <Compile Include="ArgumentsNotNullValidator_Tests.cs" />
     <Compile Include="ArgumentsNumbersValidator_Tests.cs" />
     <Compile Include="ArgumentsProvider_Tests.cs" />
-    <Compile Include="ArgumentsValidator_Tests.cs" />
+    <Compile Include="IClassFixtures\ArgumentsLengthValidatorFixture.cs" />
+    <Compile Include="IClassFixtures\ArgumentsNumberValidatorFixture.cs" />
+    <Compile Include="IClassFixtures\SequensLimitFactoryFixture.cs" />
     <Compile Include="SquareSequence_Tests.cs" />
     <Compile Include="FibonacciSequence_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

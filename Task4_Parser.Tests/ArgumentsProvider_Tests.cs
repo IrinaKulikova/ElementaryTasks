@@ -12,8 +12,9 @@ namespace Task4_Parser.Tests
     {
         [Theory]
         [InlineData(true, new string[] { "..//alice.txt", "text" })]
-        [InlineData(true, new string[] { "..//alice.txt", "text", "new text" })]
-        public void GetArguments_ValidArgs_Success(bool isValid, string[] args)
+        [InlineData(true, new string[] { "..//alice.txt", "text", "new t" })]
+        public void test_GetArguments_TakeValidArgs_VerifyCallMethods
+                                                (bool isValid, string[] args)
         {
             var mockLogger = new Mock<ILogger>();
 
@@ -48,7 +49,8 @@ namespace Task4_Parser.Tests
         [Theory]
         [InlineData(false, new string[] { "..//alice.txt", "text" })]
         [InlineData(false, new string[] { "..//alice.txt", "text", "new text" })]
-        public void GetArguments_InvalidArgs_Success(bool isValid, string[] args)
+        public void test_GetArguments_InvalidArgs_VerifyCallMethods
+                                                    (bool isValid, string[] args)
         {
             var mockLogger = new Mock<ILogger>();
 

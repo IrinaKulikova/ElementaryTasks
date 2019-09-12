@@ -1,26 +1,27 @@
 ﻿using Logger;
 using Moq;
+using Task4_Parser.Tests.IClassFixtures;
 using Task4_Parser.Validators;
 using Xunit;
 
 namespace Task4_Parser.Tests
 {
-    public class ArgumentLengthValidator_Tests
+    public class ArgumentLengthValidator_Tests : IClassFixture<FakeArgumentsLengthValidator>
     {
-        private readonly IValidator validator;
+        private readonly IValidator _validator;
 
-        public ArgumentLengthValidator_Tests()
+        public ArgumentLengthValidator_Tests(FakeArgumentsLengthValidator fakeValidator)
         {
-            var mockLogger = new Mock<ILogger>();
-            validator = new ArgumentsLengthValidator(mockLogger.Object);
+            _validator = fakeValidator.ArgumentsLengthValidator;
         }
 
         [Theory]
-        [InlineData("..//Resources//file.exe", "text")]
-        [InlineData("..//Resources//file.exe", "text", "new text")]
-        public void IsValid_Success(params string[] arguments)
+        [InlineData("..//Resources//file.txt", "text")]
+        [InlineData("..//Resources//file.txt", "text", "new text")]
+        public void test_IsValid_TakeTwoOrThreeArguments_ShouldRetunsTrue
+                                                (params string[] arguments)
         {
-            bool isValidLength = validator.IsValid(arguments);
+            bool isValidLength = _validator.IsValid(arguments);
 
             Assert.True(isValidLength);
         }
@@ -28,11 +29,13 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData()]
-        [InlineData("..//Resources//file.exe")]
-        [InlineData("..//Resources//file.exe", "text", "new text", "other text")]
-        public void IsValid_Fail(params string[] arguments)
+        [InlineData(null)]
+        [InlineData("..//Resources//file.txt")]
+        [InlineData("..//Resources//file.txt", "text", "new text", "other text")]
+        public void test_IsValid_TakesInvalidCountArguments_ShouldRetunsFalse
+            (params string[] arguments)
         {
-            bool isValidLength = validator.IsValid(arguments);
+            bool isValidLength = _validator.IsValid(arguments);
 
             Assert.False(isValidLength);
         }

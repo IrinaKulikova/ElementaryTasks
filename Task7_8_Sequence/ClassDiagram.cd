@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Task7_8_Sequence.Validators.ArgumentsLengthValidator" BaseTypeListCollapsed="true">
-    <Position X="7.75" Y="5.75" Width="1.5" />
+    <Position X="7.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAEAAIAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Validators\ArgumentsLengthValidator.cs</FileName>
@@ -14,10 +14,10 @@
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\ArgumentsNotNullValidator.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Validators.ArgumentsNumbersValidator" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="5.75" Width="1.5" />
+    <Position X="7.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\ArgumentsNumbersValidator.cs</FileName>
@@ -25,7 +25,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Task7_8_Sequence.Validators.ArgumentsValidator" BaseTypeListCollapsed="true">
-    <Position X="17.5" Y="2.75" Width="1.5" />
+    <Position X="18.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAEAAAAAAAAA=</HashCode>
       <FileName>Validators\ArgumentsValidator.cs</FileName>
@@ -36,7 +36,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Task7_8_Sequence.UI.ConsoleManager">
-    <Position X="6" Y="4" Width="1.5" />
+    <Position X="6" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UI\ConsoleManager.cs</FileName>
@@ -44,7 +44,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Services.Initializer">
-    <Position X="4" Y="5.5" Width="1.5" />
+    <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Services\Initializer.cs</FileName>
@@ -52,7 +52,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Sequences.FibonacciSequence">
-    <Position X="9.75" Y="3" Width="1.5" />
+    <Position X="9.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAIIAAAAAAAAAAAAAEAAACAAAAAAA=</HashCode>
       <FileName>Sequences\FibonacciSequence.cs</FileName>
@@ -63,7 +63,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Sequences.SquareSequence">
-    <Position X="11.75" Y="4" Width="1.5" />
+    <Position X="13.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAIIAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Sequences\SquareSequence.cs</FileName>
@@ -74,7 +74,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Providers.ArgumentsProvider">
-    <Position X="14" Y="2.75" Width="1.5" />
+    <Position X="13.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAABQAA=</HashCode>
       <FileName>Providers\ArgumentsProvider.cs</FileName>
@@ -86,7 +86,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Models.SequenceLimit">
-    <Position X="15.25" Y="5" Width="1.5" />
+    <Position X="11.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAEABAAAAAAAA=</HashCode>
       <FileName>Models\SequenceLimit.cs</FileName>
@@ -94,7 +94,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Task7_8_Sequence.Factories.SequenceLimitFactory">
-    <Position X="13.5" Y="5" Width="1.5" />
+    <Position X="18.25" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\SequenceLimitFactory.cs</FileName>
@@ -121,7 +121,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Task7_8_Sequence.Validators.IArgumentsValidator">
-    <Position X="13.25" Y="0.5" Width="1.5" />
+    <Position X="16.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\IArgumentsValidator.cs</FileName>
@@ -142,25 +142,25 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Task7_8_Sequence.Models.ISequenceLimit">
-    <Position X="11.25" Y="1" Width="1.5" />
+    <Position X="12" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ISequenceLimit.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Task7_8_Sequence.Factories.ISequenceLimitFactory">
-    <Position X="15.5" Y="0.75" Width="1.5" />
+    <Position X="16.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Factories\ISequenceLimitFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="System.Collections.Generic.IEnumerable&lt;T&gt;" Collapsed="true">
-    <Position X="17.5" Y="0.75" Width="1.5" />
+  <Interface Name="System.Collections.Generic.IEnumerable&lt;T&gt;">
+    <Position X="18.25" Y="0.75" Width="2" />
     <TypeIdentifier />
   </Interface>
   <Enum Name="Task7_8_Sequence.Enums.CountArguments">
-    <Position X="17.5" Y="5.25" Width="1.5" />
+    <Position X="18.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Enums\CountArguments.cs</FileName>

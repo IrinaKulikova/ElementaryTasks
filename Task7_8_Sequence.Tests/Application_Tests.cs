@@ -12,7 +12,8 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [InlineData("5", "55", 5, 55)]
-        public void Start_Success(string minArgument, string maxArgument,
+        public void test_Start_TakesValidArguments_VerifyCallMethods
+                                 (string minArgument, string maxArgument,
                                   int min, int max)
         {
             var arguments = new string[] { minArgument, maxArgument };

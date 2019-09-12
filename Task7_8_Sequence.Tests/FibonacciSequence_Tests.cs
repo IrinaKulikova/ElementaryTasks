@@ -9,10 +9,12 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [MemberData(nameof(ArgumentsFibonacciSequence))]
-        public void FibonacciSequence(int min, int max, IEnumerable<int> excpected)
+        public void test_Create_FibonacciSequence_VerifyCollectionItems
+                                                   (int min, int max, 
+                                                   IEnumerable<int> excpected)
         {
             var limits = new SequenceLimit(min, max);
-            IEnumerable<int> sequence = new FibonacciSequence(limits);
+            var sequence = new FibonacciSequence(limits);
 
             Assert.Equal(sequence, excpected);
         }

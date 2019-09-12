@@ -1,37 +1,39 @@
-﻿using Logger;
-using Moq;
-using Task7_8_Sequence.Validators;
+﻿using Task7_8_Sequence.Tests.IClassFixtures;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class ArgumentsNotNullValidator_Tests
+    public class ArgumentsNotNullValidator_Tests : IClassFixture<ArgumentsLengthValidatorFixture>
     {
-        private IValidator validator;
+        private ArgumentsLengthValidatorFixture _validatorFixture;
 
-        public ArgumentsNotNullValidator_Tests()
+        public ArgumentsNotNullValidator_Tests(ArgumentsLengthValidatorFixture validatorFixture)
         {
-            var mockLogger = new Mock<ILogger>();
-            validator = new ArgumentsNotNullValidator(mockLogger.Object);
+            _validatorFixture = validatorFixture;
         }
+
 
         [Theory]
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("0")]
-        public void NotNull_Success(params string[] arguments)
+        public void test_IsValid_TakeValidArguments_ShouldReturnsTrur
+                                            (params string[] arguments)
         {
-            bool notNull = validator.IsValid(arguments);
+            var notNull = _validatorFixture.ArgumentsLengthValidator
+                                           .IsValid(arguments);
 
             Assert.True(notNull);
         }
 
 
-        [Fact]
-        public void Numbers_Null_Fail()
+        [Theory]
+        [InlineData(null)]
+        public void test_IsValid_TakeNullArguments_ShouldReturnsFalse
+                                            (params string[] arguments)
         {
-            bool notNull = validator.IsValid(null);
-
+            var notNull = _validatorFixture.ArgumentsLengthValidator
+                                                       .IsValid(arguments);
             Assert.False(notNull);
         }
     }

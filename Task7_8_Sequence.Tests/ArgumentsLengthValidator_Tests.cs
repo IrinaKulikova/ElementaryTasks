@@ -1,27 +1,26 @@
-﻿using Logger;
-using Moq;
-using Task7_8_Sequence.Validators;
+﻿using Task7_8_Sequence.Tests.IClassFixtures;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class ArgumentsLengthValidator_Tests
+    public class ArgumentsLengthValidator_Tests : IClassFixture<ArgumentsLengthValidatorFixture>
     {
-        private IValidator validator;
+        private ArgumentsLengthValidatorFixture _validatorFixture;
 
-        public ArgumentsLengthValidator_Tests()
+        public ArgumentsLengthValidator_Tests(ArgumentsLengthValidatorFixture validatorFixture)
         {
-            var mockLogger = new Mock<ILogger>();
-            validator = new ArgumentsLengthValidator(mockLogger.Object);
+            _validatorFixture = validatorFixture;
         }
 
         [Theory]
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("2")]
-        public void Length_Success(params string[] arguments)
+        public void test_IsValid_TakeOneOrTwoArguments_ShouldReturnsTrue
+                                                       (params string[] arguments)
         {
-            bool isValidLength = validator.IsValid(arguments);
+            var isValidLength = _validatorFixture.ArgumentsLengthValidator
+                .IsValid(arguments);
 
             Assert.True(isValidLength);
         }
@@ -29,18 +28,12 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [InlineData("521", "22", "33")]
         [InlineData()]
-        public void Length_Fail(params string[] arguments)
+        [InlineData(null)]
+        public void test_IsValid_TakeInvalidCountArguments_ShouldReturnsFalse
+                                                    (params string[] arguments)
         {
-            bool isValidLength = validator.IsValid(arguments);
-
-            Assert.False(isValidLength);
-        }
-
-
-        [Fact]
-        public void Numbers_Null_False()
-        {
-            bool isValidLength = validator.IsValid(null);
+            var isValidLength = _validatorFixture.ArgumentsLengthValidator
+                .IsValid(arguments);
 
             Assert.False(isValidLength);
         }
