@@ -32,14 +32,16 @@ namespace Task7_8_Sequence
 
         public void Start(string[] args)
         {
+            string inputArguments = String.Join(", ", args);
+
             _logger.Info("Application method Start was called with arguments: "
-                        + String.Join(", ", args));
+                        + inputArguments);
 
             var sequenceLimits = _argumentsProvider.GetLimits(args);
 
             if (sequenceLimits == null)
             {
-                _logger.Error("Invalid arguments: " + String.Join(", ", args));
+                _logger.Error("Invalid arguments: " + inputArguments);
                 _consoleManager.ShowInstruction();
 
                 return;

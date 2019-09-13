@@ -4,7 +4,7 @@ using Task4_Parser.Validators;
 
 namespace Task4_Parser.Tests.IClassFixtures
 {
-    public class FakeArgumentsLengthValidator
+    public class ArgumentsLengthValidatorFixture
     {
         private IValidator _argumentsLengthValidator;
 
@@ -13,7 +13,7 @@ namespace Task4_Parser.Tests.IClassFixtures
             get => _argumentsLengthValidator;
         }
 
-        public FakeArgumentsLengthValidator()
+        public ArgumentsLengthValidatorFixture()
         {
             var mockLogger = new Mock<ILogger>();
             _argumentsLengthValidator = new ArgumentsLengthValidator(mockLogger.Object);

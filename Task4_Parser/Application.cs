@@ -71,15 +71,17 @@ namespace Task4_Parser
 
         public void Start(string[] args)
         {
+            string inputArguments = String.Join(", ", args);
+
             _logger.Info("Application method Start was called with arguments: "
-                       + String.Join(", ", args));
+                       + inputArguments);
 
             var arguments = _argumentsProvider.GetArguments(args);
             SubscribeEvents();
 
             if (arguments == null)
             {
-                _logger.Error("Invalid arguments: " + String.Join(", ", args));
+                _logger.Error("Invalid arguments: " + inputArguments);
                 InvalidInputArguments?.Invoke(args);
                 UnsubscribeEvents();
 

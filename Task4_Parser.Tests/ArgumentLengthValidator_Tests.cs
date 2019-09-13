@@ -6,11 +6,11 @@ using Xunit;
 
 namespace Task4_Parser.Tests
 {
-    public class ArgumentLengthValidator_Tests : IClassFixture<FakeArgumentsLengthValidator>
+    public class ArgumentLengthValidator_Tests : IClassFixture<ArgumentsLengthValidatorFixture>
     {
         private readonly IValidator _validator;
 
-        public ArgumentLengthValidator_Tests(FakeArgumentsLengthValidator fakeValidator)
+        public ArgumentLengthValidator_Tests(ArgumentsLengthValidatorFixture fakeValidator)
         {
             _validator = fakeValidator.ArgumentsLengthValidator;
         }
