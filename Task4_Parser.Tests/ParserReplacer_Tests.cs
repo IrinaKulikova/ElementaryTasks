@@ -15,7 +15,8 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("sit", "*")]
-        public void test_Replace_TakesValidArguments_ShouldRetunsTrue(string search, string newText)
+        public void Replace_TakesValidArguments_ShouldRetunsTrue(string search,
+                                                                string newText)
         {
             var parser = new ParserReplacer();
 
@@ -25,7 +26,8 @@ namespace Task4_Parser.Tests
 
             _fakeStreamWriter.MemoryStream.Flush();
 
-            var newStraemText = Encoding.UTF8.GetString(_fakeStreamWriter.MemoryStream.ToArray());
+            var newStraemText = Encoding.UTF8.GetString(_fakeStreamWriter
+                                                .MemoryStream.ToArray());
 
             Assert.Equal(newStraemText, _fakeStreamWriter.ReplacedText);
         }

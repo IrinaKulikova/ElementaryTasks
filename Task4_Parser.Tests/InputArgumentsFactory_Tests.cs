@@ -16,7 +16,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void test_Create_TwoArguments_VerifyRetunedInstanceNewText
+        public void Create_TwoArguments_VerifyRetunedInstanceNewText
                                                 (params string[] arguments)
         {            
             var inputsArguments = _argumentsFactory.
@@ -28,7 +28,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void test_Create_TwoArguments_VerifyRetunedInstanceLength
+        public void Create_TwoArguments_VerifyRetunedInstanceLength
             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -40,7 +40,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void test_Create_TwoArguments_VerifyRetunedInstanceSearchText
+        public void Create_TwoArguments_VerifyRetunedInstanceSearchText
            (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -51,7 +51,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void test_Create_TwoArguments_VerifyRetunedInstanceFilePath
+        public void Create_TwoArguments_VerifyRetunedInstanceFilePath
          (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -62,7 +62,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void test_Create_ThreeArguments_VerifyRetunedInstanceFilePath
+        public void Create_ThreeArguments_VerifyRetunedInstanceFilePath
                                             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -74,7 +74,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void test_Create_ThreeArguments_VerifyRetunedInstanceSearchText
+        public void Create_ThreeArguments_VerifyRetunedInstanceSearchText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -85,7 +85,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void test_Create_ThreeArguments_VerifyRetunedInstanceNewText
+        public void Create_ThreeArguments_VerifyRetunedInstanceNewText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -97,7 +97,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void test_Create_ThreeArguments_VerifyRetunedInstanceLength
+        public void Create_ThreeArguments_VerifyRetunedInstanceLength
                                      (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.

@@ -19,7 +19,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMax))]
-        public void test_Create_TakesTwoArguments_VerifyMax(string min, 
+        public void Create_TakesTwoArguments_VerifyMax(string min, 
                             string max, int expectedMax)
         {
             var arguments = new string[] { min, max };
@@ -33,7 +33,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMin))]
-        public void test_Create_TakesTwoArguments_VerifyMin(string min,
+        public void Create_TakesTwoArguments_VerifyMin(string min,
                             string max, int expectedMin)
         {
             var arguments = new string[] { min, max };
@@ -62,7 +62,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMin))]
-        public void test_Create_TakesOneArgument_VerifyMin(string max,
+        public void Create_TakesOneArgument_VerifyMin(string max,
                                                         int expectedMin)
         {
             var arguments = new string[] { max };
@@ -77,7 +77,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMax))]
-        public void test_Create_TakesOneArgument_ShouldReturns(string max,
+        public void Create_TakesOneArgument_ShouldReturns(string max,
                                                          int expectedMax)
         {
             var arguments = new string[] { max };

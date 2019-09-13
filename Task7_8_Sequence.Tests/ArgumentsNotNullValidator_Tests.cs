@@ -17,7 +17,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("0")]
-        public void test_IsValid_TakeValidArguments_ShouldReturnsTrur
+        public void IsValid_TakeValidArguments_ShouldReturnsTrue
                                             (params string[] arguments)
         {
             var notNull = _validatorFixture.ArgumentsLengthValidator
@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [InlineData(null)]
-        public void test_IsValid_TakeNullArguments_ShouldReturnsFalse
+        public void IsValid_TakeNullArguments_ShouldReturnsFalse
                                             (params string[] arguments)
         {
             var notNull = _validatorFixture.ArgumentsLengthValidator

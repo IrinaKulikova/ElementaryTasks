@@ -15,7 +15,7 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [InlineData("521", "22")]
         [InlineData("0", "22")]
-        public void test_IsValid_TakesTwoValidArguments_ShouldReturnsTrue
+        public void IsValid_TakesTwoValidArguments_ShouldReturnsTrue
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator
@@ -31,7 +31,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("0", "-22")]
         [InlineData("0", "-22222222222222222222222")]
         [InlineData("-0.00000000000000000005", "-22222222222222222222222")]
-        public void test_IsValid_TakesInvalidArguments_ShouldReturnsFalse
+        public void IsValid_TakesInvalidArguments_ShouldReturnsFalse
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator

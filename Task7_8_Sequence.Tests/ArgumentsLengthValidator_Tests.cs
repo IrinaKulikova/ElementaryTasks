@@ -16,8 +16,8 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("2")]
-        public void test_IsValid_TakeOneOrTwoArguments_ShouldReturnsTrue
-                                                       (params string[] arguments)
+        public void IsValid_TakeOneOrTwoArguments_ShouldReturnsTrue
+                                         (params string[] arguments)
         {
             var isValidLength = _validatorFixture.ArgumentsLengthValidator
                 .IsValid(arguments);
@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22", "33")]
         [InlineData()]
         [InlineData(null)]
-        public void test_IsValid_TakeInvalidCountArguments_ShouldReturnsFalse
+        public void IsValid_TakeInvalidCountArguments_ShouldReturnsFalse
                                                     (params string[] arguments)
         {
             var isValidLength = _validatorFixture.ArgumentsLengthValidator

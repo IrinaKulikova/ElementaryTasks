@@ -9,7 +9,7 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [MemberData(nameof(ArgumentsSquareSequence))]
-        public void test_Create_SquareSequence_VerifyCollectionItems
+        public void Create_SquareSequence_VerifyCollectionItems
                                 (int min, int max, IEnumerable<int> excpected)
         {
             var limits = new SequenceLimit(min, max);

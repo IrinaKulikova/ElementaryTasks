@@ -12,7 +12,7 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [InlineData("5", "55", 5, 55)]
-        public void test_Start_TakesValidArguments_VerifyCallMethods
+        public void Start_TakesValidArguments_VerifyCallMethods
                                  (string minArgument, string maxArgument,
                                   int min, int max)
         {

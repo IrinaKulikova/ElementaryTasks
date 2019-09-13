@@ -11,7 +11,7 @@ namespace Task7_8_Sequence.Tests
     public class ArgumentsProvider_Tests
     {
         [Fact]
-        public void test_GetLimits_VerifyCallMethods()
+        public void GetLimits_VerifyCallMethods()
         {
             var arguments = new string[] { "5", "8" };
 

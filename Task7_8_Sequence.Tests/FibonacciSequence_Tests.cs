@@ -9,7 +9,7 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [MemberData(nameof(ArgumentsFibonacciSequence))]
-        public void test_Create_FibonacciSequence_VerifyCollectionItems
+        public void Create_FibonacciSequence_VerifyCollectionItems
                                                    (int min, int max, 
                                                    IEnumerable<int> excpected)
         {
