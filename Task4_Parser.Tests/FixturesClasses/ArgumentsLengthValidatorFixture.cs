@@ -2,7 +2,7 @@
 using Moq;
 using Task4_Parser.Validators;
 
-namespace Task4_Parser.Tests.IClassFixtures
+namespace Task4_Parser.Tests.FixtureClasses
 {
     public class ArgumentsLengthValidatorFixture
     {

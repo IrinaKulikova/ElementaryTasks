@@ -4,7 +4,7 @@
     {
         void ShowInstructon();
         void ShowCount(int count);
-        void ShowReplacedDone();
+        void ShowReplacedText(string textResult);
         void InvalidInputArguments(string[] arguments);
     }
 }

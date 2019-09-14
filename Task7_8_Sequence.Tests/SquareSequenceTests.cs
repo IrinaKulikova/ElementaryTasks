@@ -5,11 +5,11 @@ using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class SquareSequence_Tests
+    public class SquareSequenceTests
     {
         [Theory]
         [MemberData(nameof(ArgumentsSquareSequence))]
-        public void Create_SquareSequence_VerifyCollectionItems
+        public void SquareSequence_WithMinMaxLimits_VerifyCollectionItems
                                 (int min, int max, IEnumerable<int> excpected)
         {
             var limits = new SequenceLimit(min, max);

@@ -7,7 +7,6 @@ namespace Task4_Parser.Services.Interfaces
         event Counter CountResult;
         event Replacer ReplaceResult;
         event EmptyOrErrorArguments InvalidArguments;
-
         void Parse(IInputArguments argumentsLength);
     }
 }

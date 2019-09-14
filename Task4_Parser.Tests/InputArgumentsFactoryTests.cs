@@ -1,23 +1,22 @@
-﻿using Logger;
-using Task4_Parser.Enums;
-using Task4_Parser.Tests.IClassFixtures;
+﻿using Task4_Parser.Enums;
+using Task4_Parser.Tests.FixtureClasses;
 using Xunit;
 
 namespace Task4_Parser.Tests
 {
-    public class InputArgumentsFactory_Tests : IClassFixture<InputArgumentsFactoryFixture>
+    public class InputArgumentsFactoryTests : IClassFixture<InputArgumentsFactoryFixture>
     {
         private InputArgumentsFactoryFixture _argumentsFactory;
 
-        public InputArgumentsFactory_Tests(InputArgumentsFactoryFixture argumentsFactory)
+        public InputArgumentsFactoryTests(InputArgumentsFactoryFixture argumentsFactory)
         {
             _argumentsFactory = argumentsFactory;
         }
 
         [Theory]
         [InlineData("path", "text")]
-        public void Create_TwoArguments_VerifyRetunedInstanceNewText
-                                                (params string[] arguments)
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedNewText
+                                                            (params string[] arguments)
         {            
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
@@ -28,7 +27,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void Create_TwoArguments_VerifyRetunedInstanceLength
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedLength
             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -40,64 +39,74 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void Create_TwoArguments_VerifyRetunedInstanceSearchText
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedSearchText
            (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
 
-            Assert.Equal(arguments[1], inputsArguments.SearchText);
+            var searchText = arguments[1];
+
+            Assert.Equal(searchText, inputsArguments.SearchText);
         }
 
         [Theory]
         [InlineData("path", "text")]
-        public void Create_TwoArguments_VerifyRetunedInstanceFilePath
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedFilePath
          (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
 
-            Assert.Equal(arguments[0], inputsArguments.FilePath);
+            var filePath = arguments[0];
+
+            Assert.Equal(filePath, inputsArguments.FilePath);
         }
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void Create_ThreeArguments_VerifyRetunedInstanceFilePath
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedFilePath
                                             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
 
-            Assert.Equal(arguments[0], inputsArguments.FilePath);
+            var filePath = arguments[0];
+
+            Assert.Equal(filePath, inputsArguments.FilePath);
         }
 
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void Create_ThreeArguments_VerifyRetunedInstanceSearchText
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedSearchText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
 
-            Assert.Equal(arguments[1], inputsArguments.SearchText);
+            var searchText = arguments[1];
+
+            Assert.Equal(searchText, inputsArguments.SearchText);
         }
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void Create_ThreeArguments_VerifyRetunedInstanceNewText
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedNewText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
                                   InputArgumentsFactory.Create(arguments);
 
-            Assert.Equal(arguments[2], inputsArguments.NewText);
+            var newText = arguments[2];
+
+            Assert.Equal(newText, inputsArguments.NewText);
         }
 
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void Create_ThreeArguments_VerifyRetunedInstanceLength
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedLength
                                      (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.

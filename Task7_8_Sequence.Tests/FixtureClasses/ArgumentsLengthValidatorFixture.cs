@@ -2,7 +2,7 @@
 using Moq;
 using Task7_8_Sequence.Validators;
 
-namespace Task7_8_Sequence.Tests.IClassFixtures
+namespace Task7_8_Sequence.Tests.FixtureClasses
 {
     public class ArgumentsLengthValidatorFixture
     {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Task4_Parser.Tests
 {
-    public class FakeStreamWriter : FakeStearmReader, IDisposable
+    public class MockStreamWriter : MockStearmReader, IDisposable
     {
         MemoryStream _inMemoryStream;
         StreamWriter _streamWriter;
@@ -21,7 +21,7 @@ namespace Task4_Parser.Tests
                           incidunt ut labore et dolore * \n
                           magnam aliquam quaerat voluptatem.»";
 
-        public FakeStreamWriter() : base()
+        public MockStreamWriter() : base()
         {
             _inMemoryStream = new MemoryStream(Encoding.UTF8.GetBytes(_replacedText));
             _streamWriter = new StreamWriter(_inMemoryStream);

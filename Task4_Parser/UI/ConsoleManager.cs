@@ -21,9 +21,10 @@ namespace Task4_Parser.UI
             ReadKey();
         }
 
-        public void ShowReplacedDone()
+        public void ShowReplacedText(string textResult)
         {
             WriteLine("File has been changed.");
+            WriteLine(textResult);
             ReadKey();
         }
 

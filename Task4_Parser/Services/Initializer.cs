@@ -33,6 +33,8 @@ namespace Task4_Parser.Services
                                       logger,
                                       consileManager);
 
+            logger.Info("Application has been created.");
+
             return app;
         }
     }

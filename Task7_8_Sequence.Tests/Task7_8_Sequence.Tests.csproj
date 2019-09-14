@@ -72,18 +72,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application_Tests.cs" />
-    <Compile Include="ArgumentsLengthValidator_Tests.cs" />
-    <Compile Include="ArgumentsNotNullValidator_Tests.cs" />
-    <Compile Include="ArgumentsNumbersValidator_Tests.cs" />
-    <Compile Include="ArgumentsProvider_Tests.cs" />
-    <Compile Include="IClassFixtures\ArgumentsLengthValidatorFixture.cs" />
-    <Compile Include="IClassFixtures\ArgumentsNumberValidatorFixture.cs" />
-    <Compile Include="IClassFixtures\SequensLimitFactoryFixture.cs" />
-    <Compile Include="SquareSequence_Tests.cs" />
-    <Compile Include="FibonacciSequence_Tests.cs" />
+    <Compile Include="ApplicationTests.cs" />
+    <Compile Include="ArgumentsLengthValidatorTests.cs" />
+    <Compile Include="ArgumentsNotNullValidatorTests.cs" />
+    <Compile Include="ArgumentsNumbersValidatorTests.cs" />
+    <Compile Include="ArgumentsProviderTests.cs" />
+    <Compile Include="FixtureClasses\ArgumentsLengthValidatorFixture.cs" />
+    <Compile Include="FixtureClasses\ArgumentsNumberValidatorFixture.cs" />
+    <Compile Include="FixtureClasses\SequensLimitFactoryFixture.cs" />
+    <Compile Include="SquareSequenceTests.cs" />
+    <Compile Include="FibonacciSequenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SequenceLimitFactory_Tests.cs" />
+    <Compile Include="SequenceLimitFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,26 +1,22 @@
-﻿using Logger;
-using Moq;
-using System.Collections.Generic;
-using Task7_8_Sequence.Factories;
-using Task7_8_Sequence.Models;
+﻿using System.Collections.Generic;
 using Task7_8_Sequence.Tests.IClassFixtures;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class SequenceLimitFactory_Tests : IClassFixture<SequensLimitFactoryFixture>
+    public class SequenceLimitFactoryTests : IClassFixture<SequensLimitFactoryFixture>
     {
         private SequensLimitFactoryFixture _sequenceLimitFactory;
 
-        public SequenceLimitFactory_Tests(SequensLimitFactoryFixture factoryFixture)
+        public SequenceLimitFactoryTests(SequensLimitFactoryFixture factoryFixture)
         {
             _sequenceLimitFactory = factoryFixture;
         }
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMax))]
-        public void Create_TakesTwoArguments_VerifyMax(string min, 
-                            string max, int expectedMax)
+        public void SequensLimitFactory_WithTwoArguments_VerifyReturnedInstanceMax(
+                                            string min, string max, int expectedMax)
         {
             var arguments = new string[] { min, max };
 
@@ -33,17 +29,17 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMin))]
-        public void Create_TakesTwoArguments_VerifyMin(string min,
-                            string max, int expectedMin)
+        public void SequensLimitFactory_WithTwoArguments_VerifyReturnedInstanceMin(
+                                        string min, string max, int expectedMin)
         {
             var arguments = new string[] { min, max };
-            
+
             var sequenceLimits = _sequenceLimitFactory
                                  .SequenceLimitFactory.Create(arguments);
 
             Assert.Equal(sequenceLimits.Min, expectedMin);
         }
-        
+
         public static IEnumerable<object[]> TwoArgumentsVerifyMin =>
         new List<object[]>
         {
@@ -62,11 +58,11 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMin))]
-        public void Create_TakesOneArgument_VerifyMin(string max,
-                                                        int expectedMin)
+        public void SequensLimitFactory_WithOneArguments_VerifyReturnedInstanceMin(
+                                                    string max, int expectedMin)
         {
             var arguments = new string[] { max };
-            
+
             var sequenceLimits = _sequenceLimitFactory
                                  .SequenceLimitFactory.Create(arguments);
 
@@ -77,8 +73,8 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMax))]
-        public void Create_TakesOneArgument_ShouldReturns(string max,
-                                                         int expectedMax)
+        public void SequensLimitFactory_WithOneArguments_VerifyReturnedInstanceMax(
+                                                    string max, int expectedMax)
         {
             var arguments = new string[] { max };
 
@@ -100,5 +96,29 @@ namespace Task7_8_Sequence.Tests
         {
             new object[] { "20", 20 },
         };
+
+
+        [Theory]
+        [InlineData(null)]
+        public void SequensLimitFactory_WithNullArguments_ShoulReturnsNull(
+                                                        params string[] limits)
+        {
+            var sequenceLimits = _sequenceLimitFactory
+                                 .SequenceLimitFactory.Create(limits);
+
+            Assert.Null(sequenceLimits);
+        }
+
+
+        [Theory]
+        [InlineData("5", "60", "80")]
+        public void SequensLimitFactory_WithTooManyArguments_ShoulReturnsNull(
+                                                        params string[] limits)
+        {
+            var sequenceLimits = _sequenceLimitFactory
+                                 .SequenceLimitFactory.Create(limits);
+
+            Assert.Null(sequenceLimits);
+        }
     }
 }

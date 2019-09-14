@@ -47,6 +47,8 @@
     <Compile Include="Enums\ValidArgumentsLength.cs" />
     <Compile Include="Factories\Interfaces\IInputArgumentsFactory.cs" />
     <Compile Include="Factories\InputArgumentsFactory.cs" />
+    <Compile Include="Services\Interfaces\IFileStreamCounter.cs" />
+    <Compile Include="Services\Interfaces\IFileStreamReplacer.cs" />
     <Compile Include="Services\Interfaces\IParserManager.cs" />
     <Compile Include="Models\IInputArguments.cs" />
     <Compile Include="Models\InputArguments.cs" />

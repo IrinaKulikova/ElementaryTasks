@@ -1,27 +1,62 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace Task4_Parser.Services
 {
     public class ParserReplacer
     {
-        public void Replace(StreamWriter streamWriter,
-                            StreamReader streamReader,
-                            string searchText, string newText)
+        #region private fields
+
+        private readonly StreamWriter _streamWriter;
+        private readonly StreamReader _streamReader;
+
+        #endregion
+
+        #region ctor
+
+        public ParserReplacer(StreamWriter streamWriter,
+                              StreamReader streamReader)
         {
-            string line = String.Empty;
+            _streamReader = streamReader;
+            _streamWriter = streamWriter;
+        }
 
-            do
+        #endregion
+
+        public string Replace(string searchText, string newText)
+        {
+            if (_streamReader == null)
             {
-                line = streamReader.ReadLine();
+                throw new NullReferenceException("StreamReader is null");
+            }
 
-                if (line != null)
-                {
-                    string replaceLine = line.Replace(searchText, newText);
-                    streamWriter.WriteLine(replaceLine);
-                }
+            if (_streamWriter == null)
+            {
+                throw new NullReferenceException("StreamWriter is null");
+            }
 
-            } while (line != null);
+            if (searchText == null)
+            {
+                throw new NullReferenceException("SearchText is null");
+            }
+
+            if (newText == null)
+            {
+                throw new NullReferenceException("NewText is null");
+            }
+
+            var updateText = new StringBuilder();
+            var line = String.Empty;
+
+            while ((line = _streamReader.ReadLine()) != null)
+            {
+                var replacedLine = line.Replace(searchText, newText);
+                updateText.Append(replacedLine + "\n");
+                _streamWriter.WriteLine(replacedLine);
+            }
+
+            return updateText.ToString();
         }
     }
 }

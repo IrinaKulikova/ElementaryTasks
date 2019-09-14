@@ -9,7 +9,7 @@ using Task4_Parser.Validators;
 namespace Task4_Parser
 {
     public delegate void Counter(int count);
-    public delegate void Replacer();
+    public delegate void Replacer(string textResult);
     public delegate void EmptyOrErrorArguments();
     public delegate void InvalidArguments(string[] arguments);
 
@@ -53,18 +53,22 @@ namespace Task4_Parser
         private void SubscribeEvents()
         {
             _parserManager.CountResult += _consoleManager.ShowCount;
-            _parserManager.ReplaceResult += _consoleManager.ShowReplacedDone;
+            _parserManager.ReplaceResult += _consoleManager.ShowReplacedText;
             _parserManager.InvalidArguments += _consoleManager.ShowInstructon;
             InvalidInputArguments += _consoleManager.InvalidInputArguments;
+
+            _logger.Info("Application method SubscribeEvents was called");
         }
 
 
         private void UnsubscribeEvents()
         {
             _parserManager.CountResult -= _consoleManager.ShowCount;
-            _parserManager.ReplaceResult -= _consoleManager.ShowReplacedDone;
+            _parserManager.ReplaceResult -= _consoleManager.ShowReplacedText;
             _parserManager.InvalidArguments -= _consoleManager.ShowInstructon;
             InvalidInputArguments += _consoleManager.InvalidInputArguments;
+
+            _logger.Info("Application method UnsubscribeEvents was called");
         }
 
         #endregion

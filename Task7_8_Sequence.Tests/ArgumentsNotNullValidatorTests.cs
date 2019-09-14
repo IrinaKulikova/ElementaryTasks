@@ -1,13 +1,13 @@
-﻿using Task7_8_Sequence.Tests.IClassFixtures;
+﻿using Task7_8_Sequence.Tests.FixtureClasses;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class ArgumentsNotNullValidator_Tests : IClassFixture<ArgumentsLengthValidatorFixture>
+    public class ArgumentsNotNullValidatorTests : IClassFixture<ArgumentsLengthValidatorFixture>
     {
         private ArgumentsLengthValidatorFixture _validatorFixture;
 
-        public ArgumentsNotNullValidator_Tests(ArgumentsLengthValidatorFixture validatorFixture)
+        public ArgumentsNotNullValidatorTests(ArgumentsLengthValidatorFixture validatorFixture)
         {
             _validatorFixture = validatorFixture;
         }
@@ -17,7 +17,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("0")]
-        public void IsValid_TakeValidArguments_ShouldReturnsTrue
+        public void ArgumentsNotNullValidator_WithNotNullArguments_ShouldReturnsTrue
                                             (params string[] arguments)
         {
             var notNull = _validatorFixture.ArgumentsLengthValidator
@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [InlineData(null)]
-        public void IsValid_TakeNullArguments_ShouldReturnsFalse
+        public void ArgumentsNotNullValidator_WithNullArguments_ShouldReturnsFalse
                                             (params string[] arguments)
         {
             var notNull = _validatorFixture.ArgumentsLengthValidator

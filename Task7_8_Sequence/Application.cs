@@ -32,7 +32,8 @@ namespace Task7_8_Sequence
 
         public void Start(string[] args)
         {
-            string inputArguments = String.Join(", ", args);
+            string inputArguments = args == null ? String.Empty :
+                                            String.Join(", ", args);
 
             _logger.Info("Application method Start was called with arguments: "
                         + inputArguments);

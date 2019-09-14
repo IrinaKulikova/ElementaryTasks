@@ -71,15 +71,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArgumentLengthValidator_Tests.cs" />
-    <Compile Include="ArgumentsProvider_Tests.cs" />
-    <Compile Include="Fakes\FakeStearmReader.cs" />
-    <Compile Include="Fakes\FakeStreamWriter.cs" />
-    <Compile Include="IClassFixtures\ArgumentsLengthValidatorFixture.cs" />
-    <Compile Include="IClassFixtures\InputArgumentsFactoryFixture.cs" />
-    <Compile Include="InputArgumentsFactory_Tests.cs" />
-    <Compile Include="ParserCounter_Tests.cs" />
-    <Compile Include="ParserReplacer_Tests.cs" />
+    <Compile Include="ArgumentLengthValidatorTests.cs" />
+    <Compile Include="ArgumentsProviderTests.cs" />
+    <Compile Include="Mocks\MockStearmReader.cs" />
+    <Compile Include="Mocks\MockStreamWriter.cs" />
+    <Compile Include="FixturesClasses\ArgumentsLengthValidatorFixture.cs" />
+    <Compile Include="FixturesClasses\InputArgumentsFactoryFixture.cs" />
+    <Compile Include="InputArgumentsFactoryTests.cs" />
+    <Compile Include="ParserCounterTests.cs" />
+    <Compile Include="ParserReplacerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

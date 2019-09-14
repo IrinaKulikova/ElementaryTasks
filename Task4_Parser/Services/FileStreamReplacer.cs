@@ -2,10 +2,11 @@
 using System;
 using System.IO;
 using Task4_Parser.Models;
+using Task4_Parser.Services.Interfaces;
 
 namespace Task4_Parser.Services
 {
-    public class FileStreamReplacer : FileStreamCounter
+    public class FileStreamReplacer : FileStreamCounter, IFileStreamReplacer
     {
         #region private fields
 

@@ -1,13 +1,13 @@
-﻿using Task7_8_Sequence.Tests.IClassFixtures;
+﻿using Task7_8_Sequence.Tests.FixtureClasses;
 using Xunit;
 
 namespace Task7_8_Sequence.Tests
 {
-    public class ArgumentsLengthValidator_Tests : IClassFixture<ArgumentsLengthValidatorFixture>
+    public class ArgumentsLengthValidatorTests : IClassFixture<ArgumentsLengthValidatorFixture>
     {
         private ArgumentsLengthValidatorFixture _validatorFixture;
 
-        public ArgumentsLengthValidator_Tests(ArgumentsLengthValidatorFixture validatorFixture)
+        public ArgumentsLengthValidatorTests(ArgumentsLengthValidatorFixture validatorFixture)
         {
             _validatorFixture = validatorFixture;
         }
@@ -16,7 +16,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22")]
         [InlineData("0", "22")]
         [InlineData("2")]
-        public void IsValid_TakeOneOrTwoArguments_ShouldReturnsTrue
+        public void ArgumentsLengthValidator_WithOneOrTwoArguments_ShouldReturnsTrue
                                          (params string[] arguments)
         {
             var isValidLength = _validatorFixture.ArgumentsLengthValidator
@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Tests
         [InlineData("521", "22", "33")]
         [InlineData()]
         [InlineData(null)]
-        public void IsValid_TakeInvalidCountArguments_ShouldReturnsFalse
+        public void ArgumentsLengthValidator_WithInvalidCountArguments_ShouldReturnsFalse
                                                     (params string[] arguments)
         {
             var isValidLength = _validatorFixture.ArgumentsLengthValidator

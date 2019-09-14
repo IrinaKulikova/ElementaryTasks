@@ -24,6 +24,11 @@ namespace Task7_8_Sequence.Factories
 
         public ISequenceLimit Create(string[] limits)
         {
+            if (limits == null || limits.Length > (int)CountArguments.TwoLimits)
+            {
+                return null;
+            }
+
             int min = 0;
             int max = 0;
 

@@ -34,11 +34,13 @@ namespace Task4_Parser.Providers
             _logger.Debug("ArgumentsProvider method GetArguments was called.");
 
             IInputArguments inputArguments = null;
+            string arumentsLine = arguments == null ? string.Empty :
+                                        String.Join(", ", arguments);
 
             if (!_argumentsValidator.HasValidArguments(arguments))
             {
                 _logger.Error("Arguments are invalid! " +
-                    String.Join(", ", arguments));
+                    arumentsLine);
 
                 return inputArguments;
             }
@@ -46,7 +48,7 @@ namespace Task4_Parser.Providers
             inputArguments = _inputArgumentsFactory.Create(arguments);
 
             _logger.Info("Arguments were created:  " +
-                    String.Join(", ", arguments));
+                    arumentsLine);
 
             return inputArguments;
         }
