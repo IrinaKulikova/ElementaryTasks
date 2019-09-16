@@ -32,7 +32,7 @@ namespace Task1_Board
 
         public void Start(string[] args)
         {
-            IArgumentCollection<int> arguments = new ArgumentCollection<int>();
+            var arguments = new ArgumentCollection<int>();
             _argumentsValidator.IsValidInputArguments(args, arguments);
             IController controller = null;
 

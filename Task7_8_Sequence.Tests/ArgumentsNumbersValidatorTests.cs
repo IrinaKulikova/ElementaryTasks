@@ -15,7 +15,7 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [InlineData("521", "22")]
         [InlineData("0", "22")]
-        public void ArgumentsNumbersValidator_WithTwoArguments_ShouldReturnsTrue
+        public void ArgumentsNumbersValidator_WithTwoArguments_ShouldReturnTrue
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator
@@ -28,7 +28,7 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [InlineData("-521", "-22")]
         [InlineData("0", "-22")]
-        public void ArgumentsNumbersValidator_WithNegativeOrZeroValues_ShouldReturnsFalse
+        public void ArgumentsNumbersValidator_WithNegativeOrZeroValues_ShouldReturnFalse
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator
@@ -40,7 +40,7 @@ namespace Task7_8_Sequence.Tests
         [Theory]
         [InlineData("0", "-22222222222222222222222")]
         [InlineData("-0.00000000000000000005", "-22222222222222222222222")]
-        public void ArgumentsNumbersValidator_WithTooBigOrTooSmallValues_ShouldReturnsFalse
+        public void ArgumentsNumbersValidator_WithTooBigOrTooSmallValues_ShouldReturnFalse
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator
@@ -51,7 +51,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [InlineData(null)]
-        public void ArgumentsNumbersValidator_WithNullValue_ShouldReturnsFalse
+        public void ArgumentsNumbersValidator_WithNullValue_ShouldReturnFalse
                                                     (params string[] arguments)
         {
             var areValidNumbers = _validatorFixture.ArgumentsNumberValidator

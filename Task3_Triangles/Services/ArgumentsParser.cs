@@ -23,8 +23,8 @@ namespace Task3_Triangles.Services
         {
             int countSize = (int)_figureFactory.CountSides;
 
-            List<float> sides = new List<float>();
-            List<string> names = new List<string>();
+            var sides = new List<float>();
+            var names = new List<string>();
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -45,8 +45,8 @@ namespace Task3_Triangles.Services
 
             for (int i = 0, j = 0; i < sides.Count; i += countSize, j++)
             {
-                IEnumerable<float> figureSides = sides.Skip(i).Take(countSize).ToList();
-                IFigure figure = _figureFactory.Create(names[j], figureSides);
+                var figureSides = sides.Skip(i).Take(countSize).ToList();
+                var figure = _figureFactory.Create(names[j], figureSides);
                 figures.Add(figure);
             }
 

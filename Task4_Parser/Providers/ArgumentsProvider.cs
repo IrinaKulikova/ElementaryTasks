@@ -34,7 +34,7 @@ namespace Task4_Parser.Providers
             _logger.Debug("ArgumentsProvider method GetArguments was called.");
 
             IInputArguments inputArguments = null;
-            string arumentsLine = arguments == null ? string.Empty :
+            var arumentsLine = arguments == null ? string.Empty :
                                         String.Join(", ", arguments);
 
             if (!_argumentsValidator.HasValidArguments(arguments))

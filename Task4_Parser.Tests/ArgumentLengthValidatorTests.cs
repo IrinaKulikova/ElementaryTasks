@@ -16,7 +16,7 @@ namespace Task4_Parser.Tests
         [Theory]
         [InlineData("..//Resources//file.txt", "text")]
         [InlineData("..//Resources//file.txt", "text", "new text")]
-        public void ArgumentLengthValidator_WithTwoOrThreeArguments_ShouldRetunsTrue
+        public void ArgumentLengthValidator_WithTwoOrThreeArguments_ShouldRetunTrue
                                                 (params string[] arguments)
         {
             bool isValidLength = _validator.IsValid(arguments);
@@ -28,7 +28,7 @@ namespace Task4_Parser.Tests
         [Theory]
         [InlineData("..//Resources//file.txt")]
         [InlineData("..//Resources//file.txt", "text", "new text", "other text")]
-        public void ArgumentLengthValidator_WithInvalidCountArguments_ShouldRetunsFalse
+        public void ArgumentLengthValidator_WithInvalidCountArguments_ShouldRetunFalse
             (params string[] arguments)
         {
             bool isValidLength = _validator.IsValid(arguments);
@@ -40,7 +40,7 @@ namespace Task4_Parser.Tests
         [Theory]
         [InlineData()]
         [InlineData(null)]
-        public void ArgumentLengthValidator_WithOutArguments_ShouldRetunsFalse
+        public void ArgumentLengthValidator_WithOutArguments_ShouldRetunFalse
           (params string[] arguments)
         {
             bool isValidLength = _validator.IsValid(arguments);

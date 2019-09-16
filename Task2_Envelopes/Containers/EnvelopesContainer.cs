@@ -33,7 +33,8 @@ namespace Task2_Envelopes.Containers
             _validatorArguments = validatorArguments;
         }
 
-        public void UpdateEnvelopes(string[] args, EnvelopeDTO firstEnvelopeDTO, EnvelopeDTO secondEnvelopeDTO)
+        public void UpdateEnvelopes(string[] args, EnvelopeDTO firstEnvelopeDTO,
+                                                   EnvelopeDTO secondEnvelopeDTO)
         {
             if (_validatorArguments.IsValid(args))
             {

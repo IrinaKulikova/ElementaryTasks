@@ -16,7 +16,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("sit", "*")]
-        public void ParserReplacer_WithValidArguments_ShouldRetunsTrue(
+        public void ParserReplacer_WithValidArguments_ShouldRetunReplacedText(
                                         string search, string newText)
         {
             var parser = new ParserReplacer();

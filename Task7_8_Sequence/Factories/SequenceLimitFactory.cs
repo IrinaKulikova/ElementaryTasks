@@ -39,9 +39,9 @@ namespace Task7_8_Sequence.Factories
                 Int32.TryParse(limits[1], out max);
             }
 
-            ISequenceLimit sequenceLimits = (min < max) ? new SequenceLimit(min, max) :
+            var sequenceLimits = (min < max) ? new SequenceLimit(min, max) :
                                             new SequenceLimit(max, min);
-            string log = $"SequenceLimit instance was created with fields:" +
+            var log = $"SequenceLimit instance was created with fields:" +
                          $"Min: {sequenceLimits.Min}, Max {sequenceLimits.Max} ";
 
             _logger.Debug(log);

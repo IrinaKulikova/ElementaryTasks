@@ -2,11 +2,12 @@
 using System;
 using System.IO;
 using Task4_Parser.Models;
-using Task4_Parser.Services.Interfaces;
+using Task4_Parser.Providers;
+using Task4_Parser.Providers.Interfaces;
 
-namespace Task4_Parser.Services
+namespace Task4_Parser.Providers
 {
-    public class FileStreamReplacer : FileStreamCounter, IFileStreamReplacer
+    public class StreamReadWriteProvider : StreamReadProvider, IStreamReadWriteProvider
     {
         #region private fields
 
@@ -29,7 +30,7 @@ namespace Task4_Parser.Services
 
         #region ctor
 
-        public FileStreamReplacer(IInputArguments inputArguments,
+        public StreamReadWriteProvider(IInputArguments inputArguments,
                                   ILogger logger) : base(inputArguments, logger)
         {
             tempFile = CombineBufferFileName(inputArguments.FilePath, _copy
@@ -45,10 +46,10 @@ namespace Task4_Parser.Services
 
         public string CombineBufferFileName(string fileNamePath, string add)
         {
-            string directory = Path.GetDirectoryName(fileNamePath);
-            string ex = Path.GetExtension(fileNamePath);
-            string name = Path.GetFileNameWithoutExtension(fileNamePath);
-            string copyFile = Path.Combine(directory, name + add + ex);
+            var directory = Path.GetDirectoryName(fileNamePath);
+            var ex = Path.GetExtension(fileNamePath);
+            var name = Path.GetFileNameWithoutExtension(fileNamePath);
+            var copyFile = Path.Combine(directory, name + add + ex);
 
             return copyFile;
         }

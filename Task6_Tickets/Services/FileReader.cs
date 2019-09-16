@@ -9,7 +9,7 @@ namespace Task6_Tickets.Services
     {
         public AlgorithmType GetNameAlgorithm(string path)
         {
-            string algorithmName = string.Empty;
+            var algorithmName = string.Empty;
 
             if (File.Exists(path))
             {

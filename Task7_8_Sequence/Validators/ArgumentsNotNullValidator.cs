@@ -17,7 +17,7 @@ namespace Task7_8_Sequence.Validators
 
         public bool IsValid(string[] arguments)
         {
-            bool result = arguments != null && arguments.Length != 0;
+            var result = arguments != null && arguments.Length != 0;
 
             _logger.Debug("ArgumentsNotNullValidator method IsValid " +
                           "returned: " + result);

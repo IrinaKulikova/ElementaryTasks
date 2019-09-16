@@ -1,9 +1,6 @@
 ﻿using ApplicationInitializer;
 using Logger;
-using System.Collections.Generic;
 using Task3_Triangles.Factories;
-using Task3_Triangles.Models;
-using Task3_Triangles.Services.Interfaces;
 
 namespace Task3_Triangles.Services
 {
@@ -11,7 +8,7 @@ namespace Task3_Triangles.Services
     {
         public IApplication InitializeApplication()
         {
-            string fileName = "Task3_Triangles_log.txt";
+            var fileName = "Task3_Triangles_log.txt";
             var logger = new SimpleLogger(fileName);
 
             var validatorArguments = new ValidatorArguments();

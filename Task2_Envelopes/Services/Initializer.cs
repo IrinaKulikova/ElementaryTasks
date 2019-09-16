@@ -10,7 +10,7 @@ namespace Task2_Envelopes.Services
     {
         public IApplication InitializeApplication()
         {
-            string logFile = "Task2_Envelopes_log.txt";
+            var logFile = "Task2_Envelopes_log.txt";
             var logger = new SimpleLogger(logFile);
 
             var envelopeFactory = new EnvelopeFactory();

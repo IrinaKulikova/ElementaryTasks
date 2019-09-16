@@ -9,7 +9,7 @@ namespace Task6_Tickets.Services
     {
         public IApplication InitializeApplication()
         {
-            string fileName = "Task6_Tickets_log.txt";
+            var fileName = "Task6_Tickets_log.txt";
             var logger = new SimpleLogger(fileName);
 
             var fileReader = new FileReader();

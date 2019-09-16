@@ -8,7 +8,7 @@ namespace Task1_Board.Services
     {
         public IApplication InitializeApplication()
         {
-            string logFile = "Task1_Board_Log.txt";
+            var logFile = "Task1_Board_Log.txt";
             var logger = new SimpleLogger(logFile);
 
             var cellFactory = new CellFactory();

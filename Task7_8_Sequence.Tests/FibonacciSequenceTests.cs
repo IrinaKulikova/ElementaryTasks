@@ -9,7 +9,7 @@ namespace Task7_8_Sequence.Tests
     {
         [Theory]
         [MemberData(nameof(ArgumentsFibonacciSequence))]
-        public void FibonacciSequence_WithMinAndMaxLimits_VerifyCollectionItems
+        public void FibonacciSequence_WithMinAndMaxLimits_ShouldReturnCollectionItems
                                                    (int min, int max, 
                                                    IEnumerable<int> excpected)
         {
@@ -22,6 +22,8 @@ namespace Task7_8_Sequence.Tests
         public static IEnumerable<object[]> ArgumentsFibonacciSequence =>
         new List<object[]>
         {
+            new object[] { 0, 0, new List<int>() {} },
+            new object[] { 0, 1, new List<int>() { 1, 1 } },
             new object[] { 1, 20, new List<int>() { 1, 1, 2, 3, 5, 8, 13 } },
             new object[] { 10, 30, new List<int>() { 13 , 21 } },
         };

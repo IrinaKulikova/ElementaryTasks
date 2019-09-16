@@ -2,11 +2,11 @@
 using System;
 using System.IO;
 using Task4_Parser.Models;
-using Task4_Parser.Services.Interfaces;
+using Task4_Parser.Providers.Interfaces;
 
-namespace Task4_Parser.Services
+namespace Task4_Parser.Providers
 {
-    public class FileStreamCounter : IFileStreamCounter, IDisposable
+    public class StreamReadProvider : IStreamReaderProvider, IDisposable
     {
         #region private fields
 
@@ -29,7 +29,7 @@ namespace Task4_Parser.Services
 
         #region ctor
 
-        public FileStreamCounter(IInputArguments inputArguments,
+        public StreamReadProvider(IInputArguments inputArguments,
                                   ILogger logger)
         {
             _streamAccessRead = new FileStream(inputArguments.FilePath, FileMode.Open, FileAccess.Read);

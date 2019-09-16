@@ -11,7 +11,7 @@ namespace Task4_Parser.Services
     {
         public IApplication InitializeApplication()
         {
-            string fileName = "Task4_Parser_log.txt";
+            var fileName = "Task4_Parser_log.txt";
             var logger = new SimpleLogger(fileName);
 
             var argumentLengthValidator = new ArgumentsLengthValidator(logger);

@@ -15,7 +15,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("sit", 3)]
-        public void ParserCounter_WithValidArguments_ShouldReturnsCount
+        public void ParserCounter_WithValidArguments_ShouldReturnCount
                                             (string search, int expectedCount)
         {
             var parser = new ParserCounter();

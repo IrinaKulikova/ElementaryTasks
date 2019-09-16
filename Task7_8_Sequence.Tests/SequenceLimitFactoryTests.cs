@@ -15,7 +15,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMax))]
-        public void SequensLimitFactory_WithTwoArguments_VerifyReturnedInstanceMax(
+        public void SequensLimitFactory_WithTwoArguments_ShouldReturnExcpectedMax(
                                             string min, string max, int expectedMax)
         {
             var arguments = new string[] { min, max };
@@ -29,7 +29,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(TwoArgumentsVerifyMin))]
-        public void SequensLimitFactory_WithTwoArguments_VerifyReturnedInstanceMin(
+        public void SequensLimitFactory_WithTwoArguments_ShouldReturnExcpectedMin(
                                         string min, string max, int expectedMin)
         {
             var arguments = new string[] { min, max };
@@ -58,7 +58,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMin))]
-        public void SequensLimitFactory_WithOneArguments_VerifyReturnedInstanceMin(
+        public void SequensLimitFactory_WithOneArguments_ShouldReturnExcpectedMin(
                                                     string max, int expectedMin)
         {
             var arguments = new string[] { max };
@@ -73,7 +73,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [MemberData(nameof(OneArgumentsVerifyMax))]
-        public void SequensLimitFactory_WithOneArguments_VerifyReturnedInstanceMax(
+        public void SequensLimitFactory_WithOneArguments_ShouldReturnExcpectedMax(
                                                     string max, int expectedMax)
         {
             var arguments = new string[] { max };
@@ -100,7 +100,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [InlineData(null)]
-        public void SequensLimitFactory_WithNullArguments_ShoulReturnsNull(
+        public void SequensLimitFactory_WithNullArguments_ShoulReturnNull(
                                                         params string[] limits)
         {
             var sequenceLimits = _sequenceLimitFactory
@@ -112,7 +112,7 @@ namespace Task7_8_Sequence.Tests
 
         [Theory]
         [InlineData("5", "60", "80")]
-        public void SequensLimitFactory_WithTooManyArguments_ShoulReturnsNull(
+        public void SequensLimitFactory_WithTooManyArguments_ShoulReturnNull(
                                                         params string[] limits)
         {
             var sequenceLimits = _sequenceLimitFactory

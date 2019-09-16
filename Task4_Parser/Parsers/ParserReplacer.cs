@@ -31,15 +31,16 @@ namespace Task4_Parser.Services
                 throw new NullReferenceException("NewText is null");
             }
 
-            string line = String.Empty;
+            var line = String.Empty;
             var updateText = new StringBuilder();
 
             while ((line = streamReader.ReadLine()) != null)
             {
-                string replacedLine = line.Replace(searchText, newText);
+                var replacedLine = line.Replace(searchText, newText);
                 updateText.Append(replacedLine + "\n");
                 streamWriter.WriteLine(replacedLine);
             }
+
             return updateText.ToString();
         }
     }

@@ -9,7 +9,7 @@ namespace Task5_NumberWord.Services
     {
         public IApplication InitializeApplication()
         {
-            string logFile = "Task5_NumberWord_Log.txt";
+            var logFile = "Task5_NumberWord_Log.txt";
             var logger = new SimpleLogger(logFile);
 
             var argumentsValidator = new ArgumentsValidator();

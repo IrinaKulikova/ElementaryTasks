@@ -24,7 +24,7 @@ namespace Task6_Tickets.Services
 
             for (int i = min; i <= max; i++)
             {
-                ITicket ticket = _ticketFactory.Create(i, positions);
+                var ticket = _ticketFactory.Create(i, positions);
                 listTikets.Add(ticket);
             }
 

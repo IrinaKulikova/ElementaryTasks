@@ -12,7 +12,7 @@ namespace Task7_8_Sequence.Services
     {
         public IApplication InitializeApplication()
         {
-            string fileName = "Task7_8_Sequence_log.txt";
+            var fileName = "Task7_8_Sequence_log.txt";
             var logger = new SimpleLogger(fileName);
 
             var validatorList = new List<IValidator>()

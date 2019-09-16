@@ -2,6 +2,7 @@
 using System;
 using Task4_Parser.Enums;
 using Task4_Parser.Models;
+using Task4_Parser.Providers;
 using Task4_Parser.Services.Interfaces;
 
 namespace Task4_Parser.Services
@@ -59,13 +60,13 @@ namespace Task4_Parser.Services
         {
             _logger.Info("ParserManager method GetCountEntriesAndReplace was called");
 
-            using (var replacer = new FileStreamReplacer(arguments, _logger))
+            using (var provider = new StreamReadWriteProvider(arguments, _logger))
             {
                 var parser = new ParserReplacer();
 
                 try
                 {
-                    var textResult = parser.Replace(replacer.StreamWriter, replacer.StreamReader,
+                    var textResult = parser.Replace(provider.StreamWriter, provider.StreamReader,
                                                         arguments.SearchText, arguments.NewText);
 
                     _logger.Info("ParserManager method GetCountEntriesAndReplace " +
@@ -85,16 +86,18 @@ namespace Task4_Parser.Services
         {
             _logger.Info("ParserManager method GetCountEntries was called");
 
-            using (var stream = new FileStreamCounter(arguments, _logger))
+            using (var provider = new StreamReadProvider(arguments, _logger))
             {
                 try
                 {
                     var parser = new ParserCounter();
 
-                    int count = parser.Calculate(stream.StreamReader, arguments.SearchText);
+                    int count = parser.Calculate(provider.StreamReader,
+                                                 arguments.SearchText);
 
                     _logger.Info("ParserManager method GetCountEntries returned "
                                   + count);
+
                     CountResult?.Invoke(count);
                 }
                 catch (NullReferenceException ex)

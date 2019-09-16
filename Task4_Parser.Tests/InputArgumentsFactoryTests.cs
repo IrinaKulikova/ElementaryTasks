@@ -15,7 +15,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedNewText
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunNewText
                                                             (params string[] arguments)
         {            
             var inputsArguments = _argumentsFactory.
@@ -27,7 +27,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedLength
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunLength
             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -39,7 +39,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedSearchText
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunSearchText
            (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -52,7 +52,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text")]
-        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunedFilePath
+        public void InputArgumentsFactory_WithTwoArguments_ShouldRetunFilePath
          (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -65,7 +65,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedFilePath
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunFilePath
                                             (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -79,7 +79,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedSearchText
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunSearchText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -92,7 +92,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedNewText
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunNewText
                                        (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
@@ -106,7 +106,7 @@ namespace Task4_Parser.Tests
 
         [Theory]
         [InlineData("path", "text", "new text")]
-        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunedLength
+        public void InputArgumentsFactory_WithThreeArguments_ShouldRetunLength
                                      (params string[] arguments)
         {
             var inputsArguments = _argumentsFactory.
