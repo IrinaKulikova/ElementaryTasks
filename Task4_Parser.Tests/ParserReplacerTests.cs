@@ -19,10 +19,10 @@ namespace Task4_Parser.Tests
         public void ParserReplacer_WithValidArguments_ShouldRetunsTrue(
                                         string search, string newText)
         {
-            var parser = new ParserReplacer(_mockStreamWriter.StreamWriter,
-                                            _mockStreamWriter.StreamReader);
+            var parser = new ParserReplacer();
 
-            parser.Replace(search, newText);
+            parser.Replace(_mockStreamWriter.StreamWriter,
+                           _mockStreamWriter.StreamReader, search, newText);
 
             _mockStreamWriter.MemoryStream.Flush();
 
@@ -36,33 +36,37 @@ namespace Task4_Parser.Tests
         [Fact]
         public void ParserReplacer_WithStreamsNull_ShouldThrowNullReferenceException()
         {
-            var parser = new ParserReplacer(null, null);
+            var parser = new ParserReplacer();
             var searchText = "text";
             var newText = "new";
 
-            Assert.Throws<NullReferenceException>(() => parser.Replace(searchText, newText));
+            Assert.Throws<NullReferenceException>(() => parser
+                                            .Replace(null, null, searchText, newText));
         }
 
         [Fact]
         public void ParserReplacer_WithStreamReaderNull_ShouldThrowNullReferenceException()
         {
-            var parser = new ParserReplacer(null, _mockStreamWriter.StreamReader);
+            var parser = new ParserReplacer();
             var searchText = "text";
             var newText = "new";
 
-            Assert.Throws<NullReferenceException>(() => parser.Replace(searchText, newText));
+            Assert.Throws<NullReferenceException>(() => parser
+                      .Replace(null, _mockStreamWriter.StreamReader,
+                               searchText, newText));
         }
 
 
         [Fact]
         public void ParserReplacer_WithStreamWriterNull_ShouldThrowNullReferenceException()
         {
-            var parser = new ParserReplacer(_mockStreamWriter.StreamWriter, null);
+            var parser = new ParserReplacer();
             var searchText = "text";
             var newText = "new";
 
             Assert.Throws<NullReferenceException>(() =>
-                                    parser.Replace(searchText, newText));
+                                    parser.Replace(_mockStreamWriter.StreamWriter,
+                                    null, searchText, newText));
         }
     }
 }

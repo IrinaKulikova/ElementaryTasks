@@ -7,24 +7,12 @@ namespace Task4_Parser.Services
 {
     public class ParserCounter
     {
-        #region private fields
 
-        private readonly StreamReader _streamReader;
-
-        #endregion
-
-        #region ctor
-
-        public ParserCounter(StreamReader streamReader)
+        public int Calculate(StreamReader streamReader,
+                             string searchText)
         {
-            _streamReader = streamReader;
-        }
 
-        #endregion
-
-        public int Calculate(string searchText)
-        {
-            if (_streamReader == null)
+            if (streamReader == null)
             {
                 throw new NullReferenceException("StreamReader is null");
             }
@@ -38,7 +26,7 @@ namespace Task4_Parser.Services
             var regex = new Regex(searchText);
             int count = 0;
 
-            while ((line = _streamReader.ReadLine()) != null)
+            while ((line = streamReader.ReadLine()) != null)
             {
                 var entries = regex.Matches(line);
                 count += entries.Count;

@@ -18,9 +18,9 @@ namespace Task4_Parser.Tests
         public void ParserCounter_WithValidArguments_ShouldReturnsCount
                                             (string search, int expectedCount)
         {
-            var parser = new ParserCounter(_mockStearmReader.StreamReader);
+            var parser = new ParserCounter();
 
-            int countResult = parser.Calculate(search);
+            int countResult = parser.Calculate(_mockStearmReader.StreamReader, search);
 
             Assert.Equal(countResult, expectedCount);
         }
@@ -28,11 +28,11 @@ namespace Task4_Parser.Tests
         [Fact]
         public void ParserCounter_WithNullStreamArgument_ShouldThrowNullReferenceException()
         {
-            var parser = new ParserCounter(null);
+            var parser = new ParserCounter();
 
             var searchText = "text";
 
-            Assert.Throws<NullReferenceException>(() => parser.Calculate(searchText));
+            Assert.Throws<NullReferenceException>(() => parser.Calculate(null, searchText));
         }
     }
 }
